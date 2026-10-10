@@ -9,7 +9,7 @@ export default function EnquireInfo() {
   return (
     <Reveal effect="left" className="xl:pt-[8px]">
       <Eyebrow className="xl:gap-[14px] xl:text-[16.5px] [&>span]:xl:w-[63px]">{enquire.eyebrow}</Eyebrow>
-      <h2 className="mt-3 font-heading text-[32px] leading-[1.18] font-extrabold tracking-[-0.01em] text-ink sm:text-[40px] xl:mt-[14px] xl:text-[46px] xl:leading-[55.5px]">
+      <h2 className="mt-3 font-heading text-[32px] leading-[1.18] font-extrabold tracking-[-0.01em] text-ink sm:text-[40px] lg:text-[32px] xl:mt-[14px] xl:text-[46px] xl:leading-[55.5px]">
         {enquire.title.map((l) => (
           <span key={l} className="sm:block">
             {l}{" "}

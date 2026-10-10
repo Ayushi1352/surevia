@@ -6,9 +6,9 @@ import data from "@/data";
 const { about } = data;
 
 // Every layer is placed in % of the frame so the composition scales as one piece.
-export default function AboutVisual() {
+export default function AboutVisual({ className = "" }: { className?: string }) {
   return (
-    <Reveal effect="right" className="relative mx-auto aspect-[840/790] w-full max-w-[717px]">
+    <Reveal effect="right" className={`relative mx-auto aspect-[840/790] w-full max-w-[717px] ${className}`}>
       <span className="absolute top-[12%] left-[12%] z-10 aspect-square w-[4.05%] animate-pulse-ring rounded-full bg-primary text-primary" />
 
       <div className="group absolute top-[3.7%] left-[3.2%] h-[84.9%] w-[91.5%] overflow-hidden rounded-[50%] shadow-[0_12px_44px_rgba(60,20,40,0.08)]">

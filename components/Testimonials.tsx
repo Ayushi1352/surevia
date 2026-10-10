@@ -22,7 +22,7 @@ export default function Testimonials() {
           {testimonials.items.map((t) => (
             <article
               key={t.name}
-              className="relative flex shrink-0 basis-full snap-start flex-col gap-5 group rounded-[12px] bg-white p-[22px] shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)] sm:flex-row sm:gap-[23px] md:basis-[calc((100%-18px)/2)] xl:min-h-[255px] xl:basis-[calc((100%-36px)/3)] xl:pt-[27px] xl:pb-[20px]"
+              className="relative flex shrink-0 basis-full snap-start flex-col gap-5 group rounded-[12px] bg-white p-[22px] shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)] sm:flex-row sm:gap-[23px] lg:basis-[calc((100%-18px)/2)] xl:min-h-[255px] xl:basis-[calc((100%-36px)/3)] xl:pt-[27px] xl:pb-[20px]"
             >
               <span
                 aria-hidden="true"
@@ -35,7 +35,7 @@ export default function Testimonials() {
                 alt={t.name}
                 width={308}
                 height={366}
-                className="h-[158px] w-[134px] shrink-0 rounded-[16px] object-cover"
+                className="h-[158px] w-[134px] shrink-0 rounded-[16px] object-cover lg:max-xl:h-auto lg:max-xl:min-h-[158px] lg:max-xl:self-stretch"
               />
               <div className="relative flex flex-1 flex-col pt-1">
                 <p className="pr-3 text-[14.5px] leading-[20px] text-body xl:max-w-[218px] xl:pr-0 xl:text-[13.5px]">{t.quote}</p>

@@ -12,6 +12,7 @@ export default function FAQPage() {
     <PolicyPage
       title={faq.title}
       intro={faq.intro}
+      accordion
       sections={faq.items.map((item) => ({
         title: item.question,
         text: item.answer,

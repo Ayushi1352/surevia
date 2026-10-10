@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Banner from "@/components/Banner";
+import Blogs from "@/components/Blogs";
 import { pageTitle } from "@/lib/pages";
-import BlogsGrid from "./BlogsGrid";
 
 const title = pageTitle("/blogs");
 
@@ -11,7 +11,7 @@ export default function BlogsPage() {
   return (
     <>
       <Banner title={title} />
-      <BlogsGrid />
+      <Blogs />
     </>
   );
 }

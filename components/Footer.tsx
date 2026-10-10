@@ -17,15 +17,15 @@ const contactHrefs: Record<string, string> = {
 export default function Footer() {
   return (
     <footer className="bg-plum text-white">
-      <div className="wrap grid gap-x-8 gap-y-10 pt-14 pb-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[330px_minmax(0,1fr)_minmax(0,1fr)_330px] xl:gap-x-8 xl:pt-[62px] xl:pr-[34px] xl:pb-[39px] xl:pl-[34px]">
-        <Reveal className="sm:col-span-2 lg:col-span-3 xl:col-span-1 xl:pr-[50px]">
+      <div className="wrap grid grid-cols-2 gap-x-4 gap-y-8 pt-14 pb-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 lg:grid-cols-[240px_minmax(0,1fr)_minmax(0,1fr)_270px] lg:gap-x-6 lg:gap-y-0 lg:pt-[62px] lg:pb-[39px] xl:grid-cols-[330px_minmax(0,1fr)_minmax(0,1fr)_330px] xl:gap-x-8 xl:pt-[62px] xl:pr-[34px] xl:pb-[39px] xl:pl-[34px]">
+        <Reveal className="col-span-2 sm:col-span-1 lg:pr-[10px] xl:pr-[50px]">
           <Link href="/" aria-label={site.name} className="inline-block transition-transform duration-300 hover:scale-105">
             <Image
               src={site.logoWhite}
               alt={site.name}
               width={1359}
               height={475}
-              className="h-[48px] w-auto xl:h-[76px]"
+              className="h-[48px] w-auto lg:h-[60px] xl:h-[76px]"
             />
           </Link>
           <p className="mt-[12px] max-w-[290px] text-[14.7px] leading-[21px] xl:max-w-[276px]">{footer.about}</p>
@@ -53,16 +53,16 @@ export default function Footer() {
               : col.links;
 
           return (
-            <Reveal key={col.title} delay={(i + 1) * 100} className="xl:mt-[22px] xl:border-l xl:border-white/25 xl:pl-[38px]">
-              <h3 className="text-[18.2px] font-semibold">{col.title}</h3>
-              <ul className="mt-[14px] space-y-[7.5px]">
+            <Reveal key={col.title} delay={(i + 1) * 100} className="lg:mt-[22px] lg:border-l lg:border-white/25 lg:pl-[22px] xl:pl-[38px]">
+              <h3 className="text-[14px] font-semibold sm:text-[18.2px]">{col.title}</h3>
+              <ul className="mt-[10px] space-y-[5px] sm:mt-[14px] sm:space-y-[7.5px]">
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="group flex items-center gap-[7px] text-[14.1px] leading-[22.5px] transition-all duration-300 hover:translate-x-1.5 hover:text-[#ffc9dc]"
+                      className="group flex items-center gap-[4px] text-[11px] leading-[17px] transition-all duration-300 hover:translate-x-1.5 hover:text-[#ffc9dc] sm:gap-[7px] sm:text-[14.1px] sm:leading-[22.5px]"
                     >
-                      <Icon name="chevron-right" className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2} />
+                      <Icon name="chevron-right" className="size-[13px] shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 sm:size-4" strokeWidth={2} />
                       {link.label}
                     </Link>
                   </li>
@@ -72,7 +72,7 @@ export default function Footer() {
           );
         })}
 
-        <Reveal delay={300} className="sm:col-span-2 lg:col-span-3 xl:col-span-1 xl:mt-[22px] xl:border-l xl:border-white/25 xl:pl-[50px]">
+        <Reveal delay={300} className="col-span-2 sm:col-span-1 lg:mt-[22px] lg:border-l lg:border-white/25 lg:pl-[22px] xl:pl-[50px]">
           <h3 className="text-[18.2px] font-semibold">{footer.contactTitle}</h3>
           <ul className="mt-[15px] space-y-[4px]">
             {footer.contact.map((item) => {
@@ -84,14 +84,14 @@ export default function Footer() {
                     href={href}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
-                    className="group flex cursor-pointer items-center gap-[22px] transition-colors duration-300 hover:text-[#ffc9dc]"
+                    className="group flex cursor-pointer items-center gap-[22px] transition-colors duration-300 hover:text-[#ffc9dc] lg:gap-[12px] xl:gap-[22px]"
                   >
                     <span className="grid size-[44px] shrink-0 place-items-center rounded-full bg-white/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-plum">
                       <Icon name={item.icon} className="size-[20px]" strokeWidth={2} />
                     </span>
                     <span className="text-[13.2px] leading-[21px]">
-                      {contactLines(item).map((l) => (
-                        <span key={l} className="block xl:whitespace-nowrap">
+                      {contactLines(item).map((l, idx) => (
+                        <span key={`${item.field ?? item.icon}-${idx}`} className="block xl:whitespace-nowrap">
                           {l}
                         </span>
                       ))}

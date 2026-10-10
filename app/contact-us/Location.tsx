@@ -27,8 +27,8 @@ export default function Location() {
             <span>
               <span className="block text-[15.8px] font-semibold text-ink">{location.mapCard.title}</span>
               <span className="mt-1 block text-[14px] leading-[23px] text-body sm:text-[15.2px]">
-                {contactLines(location.mapCard).map((l) => (
-                  <span key={l} className="block">
+                {contactLines(location.mapCard).map((l, idx) => (
+                  <span key={`${location.mapCard.title}-${idx}`} className="block">
                     {l}
                   </span>
                 ))}
@@ -55,8 +55,8 @@ export default function Location() {
                 <span>
                   <span className="block font-heading text-[18px] font-bold text-ink xl:text-[17.5px]">{item.title}</span>
                   <span className="mt-1 block text-[15.5px] leading-[1.5] text-body xl:mt-px xl:text-[18.5px] xl:leading-[27px]">
-                    {contactLines(item).map((l) => (
-                      <span key={l} className="block">
+                    {contactLines(item).map((l, idx) => (
+                      <span key={`${item.title}-${idx}`} className="block">
                         {l}
                       </span>
                     ))}

@@ -191,11 +191,11 @@
             ],
             "emails": [
               "info@xyz.com",
-              "info@xyz.com"
+              "support@xyz.com"
             ],
             "phones": [
               "+1 000-000-0000",
-              "+1 000-000-0000"
+              "+1 000-000-0001"
             ],
             "callLabel": "Call Us Now",
             "bannerImage": "/images/banner.webp",
@@ -288,6 +288,40 @@
                 "secondaryButton": {
                   "label": "Explore Plans",
                   "href": "/insurance-plans"
+                }
+              },
+              {
+                "eyebrow": "Expert Guidance at Every Step",
+                "title": [
+                  "Find the right plan",
+                  "with advisors you trust"
+                ],
+                "text": "Our insurance experts compare plans with you and recommend cover that fits your needs and budget.",
+                "image": "/images/about-main.webp",
+                "primaryButton": {
+                  "label": "Talk to an Expert",
+                  "href": "/contact-us"
+                },
+                "secondaryButton": {
+                  "label": "About Us",
+                  "href": "/about-us"
+                }
+              },
+              {
+                "eyebrow": "Security for Every Stage of Life",
+                "title": [
+                  "Secure your family’s",
+                  "future today"
+                ],
+                "text": "Life, health, home and motor insurance with quick support and hassle-free claim assistance.",
+                "image": "/images/blog-detail.webp",
+                "primaryButton": {
+                  "label": "Explore Plans",
+                  "href": "/insurance-plans"
+                },
+                "secondaryButton": {
+                  "label": "Enquire Now",
+                  "href": "/enquire-now"
                 }
               }
             ]

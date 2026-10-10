@@ -14,7 +14,7 @@ export default function Blogs({ limit }: { limit?: number }) {
           {blogs.title} <Accent>{blogs.highlight}</Accent>
         </SectionTitle>
       </Reveal>
-      <div className="mt-8 grid gap-x-[23px] gap-y-[42px] md:grid-cols-2 lg:grid-cols-3 xl:mt-[25px]">
+      <div className="mt-8 grid gap-x-[23px] gap-y-[42px] md:grid-cols-2 lg:grid-cols-3 xl:mt-[25px] xl:gap-y-[55px]">
         {posts.map((post, i) => (
           <Reveal key={post.slug} delay={(i % 3) * 120}>
             <BlogCard href={`/blogs/${post.slug}`} buttonLabel={blogs.buttonLabel} {...post} />
