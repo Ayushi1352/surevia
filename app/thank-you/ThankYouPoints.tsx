@@ -1,4 +1,5 @@
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
 import data from "@/data";
 
 const { points } = data.thankYou;
@@ -7,11 +8,13 @@ export default function ThankYouPoints() {
   return (
     <ul className="mt-10 grid gap-y-7 rounded-[16px] bg-blush px-6 py-8 sm:grid-cols-2 xl:mt-[32px] xl:grid-cols-4 xl:px-0 xl:py-[37px]">
       {points.map((p, i) => (
-        <li
+        <Reveal
+          as="li"
           key={p.title}
-          className={`flex items-center gap-5 xl:gap-[23px] xl:pl-[33px] ${i > 0 ? "xl:border-l xl:border-primary/10" : ""}`}
+          delay={i * 110}
+          className={`group flex items-center gap-5 xl:gap-[23px] xl:pl-[33px] ${i > 0 ? "xl:border-l xl:border-primary/10" : ""}`}
         >
-          <span className="grid size-[70px] shrink-0 place-items-center rounded-full bg-rose text-primary xl:size-[76px]">
+          <span className="grid size-[70px] shrink-0 place-items-center rounded-full bg-rose text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white xl:size-[76px]">
             <Icon name={p.icon} className="size-[38px] xl:size-[44px]" strokeWidth={1.5} />
           </span>
           <span>
@@ -24,7 +27,7 @@ export default function ThankYouPoints() {
               ))}
             </span>
           </span>
-        </li>
+        </Reveal>
       ))}
     </ul>
   );

@@ -1,4 +1,5 @@
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
 import { Accent, Eyebrow } from "@/components/SectionTitle";
 import { contactLines } from "@/lib/contact";
 import data from "@/data";
@@ -7,7 +8,7 @@ const { contact } = data;
 
 export default function ContactInfo() {
   return (
-    <div className="xl:pt-[5px]">
+    <Reveal effect="left" className="xl:pt-[5px]">
       <Eyebrow className="font-semibold xl:gap-[16px] xl:text-[15.8px] [&>span]:xl:w-[58px]">{contact.eyebrow}</Eyebrow>
       <h2 className="mt-3 font-heading text-[32px] leading-[1.18] font-extrabold tracking-[-0.01em] text-ink sm:text-[42px] xl:mt-[10px] xl:text-[46.9px] xl:leading-[58px]">
         {contact.title[0]} <br className="hidden sm:block" />
@@ -20,9 +21,9 @@ export default function ContactInfo() {
         {contact.cards.map((card) => (
           <li
             key={card.title}
-            className="flex max-w-[560px] items-center gap-5 rounded-[12px] bg-white p-[21px] shadow-card xl:gap-[38px] xl:py-[21.5px]"
+            className="group flex max-w-[560px] items-center gap-5 rounded-[12px] bg-white p-[21px] shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)] xl:gap-[38px] xl:py-[21.5px]"
           >
-            <span className="grid size-[72px] shrink-0 place-items-center rounded-full bg-rose text-primary xl:size-[92px]">
+            <span className="grid size-[72px] shrink-0 place-items-center rounded-full bg-rose text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white xl:size-[92px]">
               <Icon name={card.icon} className="size-[36px] xl:size-[46px]" />
             </span>
             <span className="min-w-0">
@@ -38,6 +39,6 @@ export default function ContactInfo() {
           </li>
         ))}
       </ul>
-    </div>
+    </Reveal>
   );
 }

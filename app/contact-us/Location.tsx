@@ -1,4 +1,5 @@
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
 import { Eyebrow } from "@/components/SectionTitle";
 import { contact, contactLines } from "@/lib/contact";
 import data from "@/data";
@@ -10,7 +11,7 @@ export default function Location() {
   return (
     <section className="bg-[#faf8fb]">
       <div className="wrap section-pad grid gap-8 lg:grid-cols-[1.255fr_1fr] xl:grid-cols-[714px_1fr] xl:gap-[35px] xl:pr-[60px] xl:pl-[65px]">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[12px] sm:aspect-[714/444]">
+        <Reveal effect="left" className="relative aspect-[4/3] overflow-hidden rounded-[12px] sm:aspect-[714/444]">
           <iframe
             title={`Map showing the ${data.site.name} office at ${address}`}
             src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
@@ -21,7 +22,7 @@ export default function Location() {
           />
           <div className="absolute top-[12%] left-1/2 flex w-[327px] max-w-[92%] -translate-x-1/2 items-center gap-[16px] rounded-[12px] bg-white px-[8px] py-[12px] shadow-card sm:top-[17.5%] sm:left-[53.7%] sm:py-[16px]">
             <span className="grid size-[56px] shrink-0 place-items-center rounded-full bg-rose text-primary sm:size-[72px]">
-              <Icon name="pin-solid" className="size-[38px] sm:size-[52px]" />
+              <Icon name="pin-solid" className="size-[38px] animate-float sm:size-[52px]" />
             </span>
             <span>
               <span className="block text-[15.8px] font-semibold text-ink">{location.mapCard.title}</span>
@@ -34,9 +35,9 @@ export default function Location() {
               </span>
             </span>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="rounded-[16px] bg-white px-6 py-8 shadow-[0_4px_22px_rgba(60,20,40,0.04)] sm:px-[43px] xl:pt-[17px] xl:pb-[32px]">
+        <Reveal effect="right" className="rounded-[16px] bg-white px-6 py-8 shadow-[0_4px_22px_rgba(60,20,40,0.04)] sm:px-[43px] xl:pt-[17px] xl:pb-[32px]">
           <Eyebrow className="font-semibold xl:gap-[16px] [&>span]:xl:w-[58px]">{location.eyebrow}</Eyebrow>
           <h2 className="mt-2 font-heading text-[32px] leading-tight font-extrabold tracking-[-0.01em] text-ink sm:text-[38px] xl:text-[41.6px]">
             {location.title}
@@ -46,9 +47,9 @@ export default function Location() {
             {location.items.map((item) => (
               <li
                 key={item.title}
-                className="flex items-center gap-5 border-b border-line py-6 first:pt-0 last:border-0 last:pb-0 xl:items-start xl:gap-[26px] xl:py-[29px]"
+                className="group flex items-center gap-5 border-b border-line py-6 first:pt-0 last:border-0 last:pb-0 xl:items-start xl:gap-[26px] xl:py-[29px]"
               >
-                <span className="grid size-[66px] shrink-0 place-items-center rounded-full bg-rose text-primary xl:-mt-[3px]">
+                <span className="grid size-[66px] shrink-0 place-items-center rounded-full bg-rose text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white xl:-mt-[3px]">
                   <Icon name={item.icon} className="size-[36px]" />
                 </span>
                 <span>
@@ -64,7 +65,7 @@ export default function Location() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

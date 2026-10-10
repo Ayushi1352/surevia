@@ -1,6 +1,7 @@
 import AboutVisual from "./AboutVisual";
 import Button from "./Button";
 import Icon from "./Icon";
+import Reveal from "./Reveal";
 import SectionTitle, { Accent } from "./SectionTitle";
 import data from "@/data";
 
@@ -9,7 +10,7 @@ const { about } = data;
 export default function About() {
   return (
     <section className="wrap section-pad grid items-center gap-10 lg:grid-cols-[1fr_1.08fr] xl:grid-cols-[1fr_716px] xl:gap-0 xl:pr-[45px] xl:pl-[110px]">
-      <div>
+      <Reveal effect="left">
         <SectionTitle eyebrow={about.eyebrow} size="lg">
           {about.title} <br className="hidden sm:block" />
           <Accent>{about.highlight}</Accent>
@@ -34,12 +35,12 @@ export default function About() {
 
         <ul className="mt-5 space-y-4 xl:mt-[15px] xl:space-y-[14px]">
           {about.points.map((p) => (
-            <li key={p.title} className="flex items-center gap-5 xl:gap-[24px]">
-              <span className="grid size-[64px] shrink-0 place-items-center rounded-full bg-primary text-white xl:size-[72px]">
-                <Icon name={p.icon} className="size-[32px] xl:size-[38px]" strokeWidth={1.5} />
+            <li key={p.title} className="group flex items-center gap-5 xl:gap-[24px]">
+              <span className="grid size-[64px] shrink-0 place-items-center rounded-full bg-primary text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-rose group-hover:text-primary xl:size-[72px]">
+                <Icon name={p.icon} className="size-[32px] transition-transform duration-300 group-hover:-rotate-6 xl:size-[38px]" strokeWidth={1.5} />
               </span>
               <span>
-                <span className="block font-heading text-[17px] font-bold text-ink xl:text-[18.1px]">{p.title}</span>
+                <span className="block font-heading text-[17px] font-bold text-ink transition-colors duration-300 group-hover:text-primary xl:text-[18.1px]">{p.title}</span>
                 <span className="mt-0.5 block max-w-[270px] font-heading text-[14.5px] leading-[22px] font-medium text-body xl:text-[15px]">
                   {p.text}
                 </span>
@@ -49,7 +50,7 @@ export default function About() {
         </ul>
 
         <Button href={about.button.href} label={about.button.label} className="mt-6 xl:mt-[16px] xl:h-[45px] xl:w-[180px] xl:px-0 xl:text-[16px]" />
-      </div>
+      </Reveal>
 
       <AboutVisual />
     </section>

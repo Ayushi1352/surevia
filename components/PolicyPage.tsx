@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import Reveal from "@/components/Reveal";
 import { contact } from "@/lib/contact";
 import data from "@/data";
 
@@ -22,24 +23,24 @@ export default function PolicyPage({
       <Banner title={title} />
       <article className="bg-white py-12 sm:py-16 xl:py-20">
         <div className="wrap max-w-[960px]">
-          <p className="border-l-[3px] border-primary pl-5 text-[16px] leading-8 text-ink sm:text-[17px]">
-            {intro}
-          </p>
+          <Reveal effect="left">
+            <p className="border-l-[3px] border-primary pl-5 text-[16px] leading-8 text-ink sm:text-[17px]">{intro}</p>
+          </Reveal>
           <div className="mt-10 divide-y divide-line border-y border-line">
             {sections.map((section) => (
-              <section key={section.title} className="py-7 sm:py-8">
-                <h2 className="font-heading text-[20px] font-semibold text-ink sm:text-[22px]">
+              <Reveal as="section" key={section.title} className="group py-7 sm:py-8">
+                <h2 className="font-heading text-[20px] font-semibold text-ink transition-colors duration-300 group-hover:text-primary sm:text-[22px]">
                   {section.title}
                 </h2>
                 <div className="mt-3 space-y-3 text-[14.5px] leading-7 text-body sm:text-[15px]">
                   <p>{section.text.replace("{email}", contact.email)}</p>
                 </div>
-              </section>
+              </Reveal>
             ))}
           </div>
           <p className="mt-8 text-[13px] leading-6 text-body">
             {data.policies.contactPrompt}{" "}
-            <a className="font-medium text-primary underline decoration-primary/40 underline-offset-4" href={`mailto:${contact.email}`}>
+            <a className="font-medium text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-plum hover:decoration-plum" href={`mailto:${contact.email}`}>
               {contact.email}
             </a>
             .

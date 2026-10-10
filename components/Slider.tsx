@@ -35,7 +35,7 @@ export default function Slider({ header, children, className = "" }: Props) {
               type="button"
               aria-label={b.label}
               onClick={() => move(b.dir)}
-              className="grid size-[46px] place-items-center rounded-full border border-primary/40 bg-blush text-primary transition-colors hover:bg-primary hover:text-white"
+              className="grid size-[46px] place-items-center rounded-full border border-primary/40 bg-blush text-primary transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white active:scale-95"
             >
               <Icon name={b.icon} className="size-[18px]" strokeWidth={2} />
             </button>

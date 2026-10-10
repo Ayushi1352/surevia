@@ -25,17 +25,17 @@ export default function Banner({
           preload
           quality={90}
           sizes="(min-width: 768px) 58vw, 100vw"
-          className="object-cover object-[50%_22%]"
+          className="animate-zoom-out object-cover object-[50%_22%]"
         />
         <div className="absolute inset-0 bg-plum/70" />
       </div>
       <div className="wrap relative xl:px-[125px]">
-        <nav aria-label="Breadcrumb" className="flex items-center gap-4 text-[15px] text-white xl:gap-[18px] xl:text-[17px]">
+        <nav aria-label="Breadcrumb" className="animate-fade-up flex items-center gap-4 text-[15px] text-white xl:gap-[18px] xl:text-[17px]">
           {breadcrumbItems.map((item, index) => (
             <span key={`${item.label}-${index}`} className="flex items-center gap-4 xl:gap-[18px]">
               {index > 0 && <span aria-hidden="true" className="size-[6px] shrink-0 rounded-full bg-black/70" />}
               {item.href ? (
-                <Link href={item.href} className="hover:underline">
+                <Link href={item.href} className="transition-colors hover:text-[#ffc9dc] hover:underline">
                   {item.label}
                 </Link>
               ) : (
@@ -44,7 +44,7 @@ export default function Banner({
             </span>
           ))}
         </nav>
-        <h1 className="mt-2 text-[34px] leading-[1.15] font-semibold text-white sm:text-[42px] xl:mt-[8px] xl:text-[50px]">
+        <h1 className="mt-2 animate-fade-up text-[34px] [animation-delay:120ms] leading-[1.15] font-semibold text-white sm:text-[42px] xl:mt-[8px] xl:text-[50px]">
           {title}
         </h1>
       </div>

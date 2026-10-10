@@ -22,7 +22,7 @@ export default function EnquiryForm({ layout = "stack", defaultPlan = "" }: Prop
     router.push("/thank-you");
   };
 
-  const field = `w-full rounded-[8px] border border-line bg-white text-ink outline-none transition-colors placeholder:text-[#656b81] focus:border-primary ${
+  const field = `w-full rounded-[8px] border border-line bg-white text-ink outline-none transition-all duration-300 placeholder:text-[#656b81] hover:border-primary/50 focus:border-primary focus:shadow-[0_0_0_3px_rgba(143,21,69,0.12)] ${
     compact ? "h-[52px] px-4 text-[15.2px]" : "h-[58px] px-5 text-[15px] xl:h-[63px] xl:text-[16px]"
   }`;
 
@@ -67,12 +67,16 @@ export default function EnquiryForm({ layout = "stack", defaultPlan = "" }: Prop
       )}
       <button
         type="submit"
-        className={`inline-flex w-full items-center justify-center gap-4 rounded-full bg-primary font-heading font-bold text-white transition-colors hover:bg-primary-dark ${
+        className={`group inline-flex w-full items-center justify-center gap-4 rounded-full border-[1.5px] border-primary bg-primary font-heading font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-primary hover:shadow-[0_8px_20px_rgba(97,6,49,0.22)] ${
           compact ? "mt-[4px] h-[59px] text-[16px]" : "h-[62px] text-[17px]"
         } ${layout === "grid" ? "mt-[2px] sm:col-span-2 xl:h-[71px] xl:text-[17.3px]" : ""} ${layout === "stack" ? "mt-[6px] xl:h-[66px] xl:text-[19.2px]" : ""}`}
       >
         {form.submit}
-        <Icon name="arrow-right" className={compact ? "size-[18px]" : "size-[22px]"} strokeWidth={2} />
+        <Icon
+          name="arrow-right"
+          className={`transition-transform duration-300 group-hover:translate-x-1.5 ${compact ? "size-[18px]" : "size-[22px]"}`}
+          strokeWidth={2}
+        />
       </button>
       {layout === "grid" && (
         <p className="flex items-center justify-center gap-3 pt-5 text-center text-[12.4px] text-body sm:col-span-2">

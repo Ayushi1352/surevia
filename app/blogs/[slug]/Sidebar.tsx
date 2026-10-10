@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import { blogCategories, formatDate, type BlogPost } from "@/lib/blogs";
 import data from "@/data";
 
@@ -9,7 +10,7 @@ export default function Sidebar({ post: current }: { post: BlogPost }) {
   const latest = blogs.posts.filter((post) => post.slug !== current.slug).slice(0, 5);
 
   return (
-    <aside className="grid content-start gap-[28px] md:grid-cols-2 lg:grid-cols-1">
+    <Reveal as="aside" effect="right" className="grid content-start gap-[28px] md:grid-cols-2 lg:grid-cols-1">
       <div className="overflow-hidden rounded-[12px] bg-white shadow-card">
         <h2 className="bg-[#f8f8fa] px-[20px] py-[15px] font-heading text-[21px] font-bold text-ink">{blog.latestTitle}</h2>
         <ul className="px-[22px] pb-[4px]">
@@ -21,7 +22,7 @@ export default function Sidebar({ post: current }: { post: BlogPost }) {
                   alt=""
                   width={218}
                   height={190}
-                  className="h-[83px] w-[95px] shrink-0 rounded-[8px] object-cover"
+                  className="h-[83px] w-[95px] shrink-0 rounded-[8px] object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <span>
                   <span className="block text-[15px] leading-[25px] font-medium text-ink transition-colors group-hover:text-primary">
@@ -47,16 +48,16 @@ export default function Sidebar({ post: current }: { post: BlogPost }) {
           {blogCategories.map((c) => (
             <li
               key={c.label}
-              className="flex items-center justify-between border-b border-line py-[5.5px] pl-[8px] text-[17px] text-body last:border-0"
+              className="group flex items-center justify-between border-b border-line py-[5.5px] pl-[8px] text-[17px] text-body transition-all duration-300 last:border-0 hover:pl-[14px] hover:text-primary"
             >
               {c.label}
-              <span className="grid size-[37px] place-items-center rounded-full bg-rose text-[14.5px] font-semibold text-primary">
+              <span className="grid size-[37px] place-items-center rounded-full bg-rose text-[14.5px] font-semibold text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
                 {c.count}
               </span>
             </li>
           ))}
         </ul>
       </div>
-    </aside>
+    </Reveal>
   );
 }

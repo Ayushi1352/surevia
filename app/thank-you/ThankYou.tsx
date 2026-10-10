@@ -17,8 +17,8 @@ const sparks: [number, number, number, number, boolean][] = [
 export default function ThankYou() {
   return (
     <div className="text-center">
-      <svg viewBox="0 0 372 186" aria-hidden="true" className="mx-auto h-auto w-[280px] sm:w-[372px]">
-        {sparks.map(([x1, y1, x2, y2, faded]) => (
+      <svg viewBox="0 0 372 186" aria-hidden="true" className="mx-auto h-auto w-[280px] animate-pop sm:w-[372px]">
+        {sparks.map(([x1, y1, x2, y2, faded], i) => (
           <line
             key={`${x1}-${y1}`}
             x1={x1}
@@ -28,6 +28,8 @@ export default function ThankYou() {
             stroke={faded ? "#fcebf2" : "#8f1545"}
             strokeWidth="5"
             strokeLinecap="round"
+            className="animate-twinkle"
+            style={{ animationDelay: `${i * 0.25}s` }}
           />
         ))}
         <circle cx="186" cy="93" r="93" fill="#fcebf2" />
@@ -39,21 +41,24 @@ export default function ThankYou() {
           strokeWidth="11"
           strokeLinecap="round"
           strokeLinejoin="round"
+          pathLength={1}
+          strokeDasharray={1}
+          className="animate-draw"
         />
       </svg>
 
-      <h1 className="mt-3 font-heading text-[54px] leading-[1.1] font-extrabold tracking-[-0.02em] text-ink sm:text-[72px] xl:mt-[2px] xl:text-[76.6px]">
+      <h1 className="mt-3 animate-fade-up font-heading [animation-delay:200ms] text-[54px] leading-[1.1] font-extrabold tracking-[-0.02em] text-ink sm:text-[72px] xl:mt-[2px] xl:text-[76.6px]">
         {thankYou.title} <Accent>{thankYou.highlight}</Accent>
       </h1>
-      <p className="mt-3 font-heading text-[18px] font-bold text-ink sm:text-[22px] xl:mt-[8px] xl:text-[21.8px] xl:leading-[30px]">{thankYou.subtitle}</p>
-      <p className="mx-auto mt-3 max-w-[780px] text-[15.5px] leading-[1.5] text-body sm:text-[18px] sm:leading-[26px] xl:mt-[8px] xl:text-[17.1px]">
+      <p className="mt-3 animate-fade-up font-heading text-[18px] [animation-delay:320ms] font-bold text-ink sm:text-[22px] xl:mt-[8px] xl:text-[21.8px] xl:leading-[30px]">{thankYou.subtitle}</p>
+      <p className="mx-auto mt-3 animate-fade-up max-w-[780px] [animation-delay:440ms] text-[15.5px] leading-[1.5] text-body sm:text-[18px] sm:leading-[26px] xl:mt-[8px] xl:text-[17.1px]">
         {thankYou.text.map((l) => (
           <span key={l} className="md:block">
             {l}{" "}
           </span>
         ))}
       </p>
-      <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-[17px] xl:mt-[24px]">
+      <div className="mt-7 flex animate-fade-up flex-col items-center [animation-delay:560ms] justify-center gap-4 sm:flex-row sm:gap-[17px] xl:mt-[24px]">
         <Button
           href={thankYou.primaryButton.href}
           label={thankYou.primaryButton.label}

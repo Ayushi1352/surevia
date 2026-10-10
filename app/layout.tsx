@@ -38,6 +38,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${poppins.variable} ${montserrat.variable} ${redHat.variable} antialiased`}
     >
       <body className="flex min-h-screen flex-col">
+        {/* Scroll-reveal content starts hidden; keep it readable when scripts are off */}
+        <noscript>
+          <style>{".reveal{opacity:1}"}</style>
+        </noscript>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

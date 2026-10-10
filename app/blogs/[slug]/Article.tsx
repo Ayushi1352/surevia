@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
 import { Accent } from "@/components/SectionTitle";
 import { formatDate, type BlogPost } from "@/lib/blogs";
 import data from "@/data";
@@ -15,15 +16,15 @@ export default function Article({ post }: { post: BlogPost }) {
   ];
 
   return (
-    <article className="min-w-0">
-      <div className="relative aspect-[881/317] overflow-hidden rounded-[10px]">
+    <Reveal as="article" className="min-w-0">
+      <div className="group relative aspect-[881/317] overflow-hidden rounded-[10px]">
         <Image
           src={detail.image}
           alt={detail.imageAlt}
           fill
           priority
           sizes="(min-width: 1024px) 880px, 100vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-1000 group-hover:scale-105"
         />
       </div>
 
@@ -48,8 +49,8 @@ export default function Article({ post }: { post: BlogPost }) {
       ))}
 
       <div className="mt-8 flex flex-col gap-5 rounded-[12px] bg-blush p-[22px] sm:flex-row sm:items-center sm:gap-[26px] xl:mt-[24px] xl:py-[15px]">
-        <span className="grid size-[76px] shrink-0 place-items-center rounded-full bg-primary text-white xl:size-[93px]">
-          <Icon name="shield-check" className="size-[40px] xl:size-[50px]" strokeWidth={1.5} />
+        <span className="grid size-[76px] shrink-0 place-items-center animate-pulse-ring rounded-full bg-primary text-primary xl:size-[93px]">
+          <Icon name="shield-check" className="size-[40px] text-white xl:size-[50px]" strokeWidth={1.5} />
         </span>
         <div className="sm:border-l sm:border-primary/40 sm:py-1 sm:pl-[28px]">
           <h3 className="font-heading text-[20px] font-extrabold text-primary xl:text-[24px] xl:leading-[30px]">{detail.tip.title}</h3>
@@ -58,6 +59,6 @@ export default function Article({ post }: { post: BlogPost }) {
           </p>
         </div>
       </div>
-    </article>
+    </Reveal>
   );
 }

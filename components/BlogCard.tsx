@@ -18,15 +18,15 @@ export default function BlogCard({ href, category, date, title, titleLines, text
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col overflow-hidden rounded-[12px] bg-white shadow-card transition-shadow hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)]"
+      className="group flex h-full flex-col overflow-hidden rounded-[12px] bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)]"
     >
-      <div className="relative aspect-[423/211]">
+      <div className="relative aspect-[423/211] overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
           sizes="(min-width: 1024px) 430px, (min-width: 768px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <span className="absolute bottom-[12px] left-[16px] inline-flex h-[30px] items-center gap-[9px] rounded-full bg-white px-3 text-[12.3px] font-medium text-ink">
           <Icon name="calendar" className="size-[16px] text-primary" strokeWidth={2} />
@@ -35,7 +35,7 @@ export default function BlogCard({ href, category, date, title, titleLines, text
       </div>
       <div className="flex flex-1 flex-col px-[24px] pt-[14px] pb-[13px]">
         <p className="text-[14px] font-medium text-primary">{category}</p>
-        <h3 className="mt-[3px] max-w-[350px] font-heading text-[19px] leading-[26px] font-bold text-ink xl:max-w-none xl:text-[20px]">
+        <h3 className="mt-[3px] max-w-[350px] font-heading text-[19px] leading-[26px] font-bold text-ink transition-colors duration-300 group-hover:text-primary xl:max-w-none xl:text-[20px]">
           {titleLines
             ? titleLines.map((l) => (
                 <span key={l} className="xl:block">

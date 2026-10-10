@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "./Button";
+import Reveal from "./Reveal";
 import data from "@/data";
 
 const { cta } = data;
@@ -13,11 +14,11 @@ export default function Cta() {
           <Image src={cta.image} alt="" fill sizes="(min-width: 1024px) 843px, 100vw" quality={90} className="object-cover object-left" />
         </div>
       </div>
-      <span className="absolute -top-[240px] left-[8%] hidden h-[330px] w-[620px] rounded-[50%] bg-[#8f1545]/35 lg:block" />
-      <span className="absolute -bottom-[210px] -left-[120px] size-[380px] rounded-full bg-[#8f1545]/35" />
+      <span className="absolute -top-[240px] left-[8%] hidden h-[330px] w-[620px] animate-float rounded-[50%] bg-[#8f1545]/35 lg:block" />
+      <span className="absolute -bottom-[210px] -left-[120px] size-[380px] animate-float rounded-full [animation-delay:-2.5s] bg-[#8f1545]/35" />
 
       <div className="wrap relative flex min-h-[320px] flex-col justify-center gap-8 py-12 lg:flex-row lg:items-center lg:justify-between xl:min-h-[373px] xl:pt-0 xl:pr-[56px] xl:pb-[2px] xl:pl-[62px]">
-        <div>
+        <Reveal effect="left">
           <p className="flex items-center gap-4 font-display text-[16px] text-white xl:gap-[17px] xl:text-[20.7px]">
             <span className="h-[2px] w-[33px] shrink-0 bg-white" />
             {cta.eyebrow}
@@ -30,13 +31,15 @@ export default function Cta() {
           <p className="mt-4 max-w-[590px] xl:max-w-[580px] font-display text-[17px] leading-[1.45] text-white xl:mt-[10px] xl:text-[22.2px] xl:leading-[30px] xl:tracking-[0.02em]">
             {cta.text}
           </p>
-        </div>
-        <Button
-          href={cta.button.href}
-          label={cta.button.label}
-          variant="white"
-          className="self-start font-semibold lg:self-center xl:mt-[-12px] xl:h-[60px] xl:w-[217px] xl:px-0 xl:text-[17.5px]"
-        />
+        </Reveal>
+        <Reveal effect="right" className="shrink-0 self-start lg:self-center xl:mt-[-12px]">
+          <Button
+            href={cta.button.href}
+            label={cta.button.label}
+            variant="white"
+            className="font-semibold xl:h-[60px] xl:w-[217px] xl:px-0 xl:text-[17.5px]"
+          />
+        </Reveal>
       </div>
     </section>
   );

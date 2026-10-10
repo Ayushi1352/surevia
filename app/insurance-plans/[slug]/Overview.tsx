@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import SectionTitle, { Accent } from "@/components/SectionTitle";
 import data from "@/data";
 
@@ -9,7 +10,7 @@ type Plan = (typeof data.plans.items)[number];
 export default function Overview({ plan }: { plan: Plan }) {
   return (
     <div className="grid items-start gap-8 md:grid-cols-[1fr_389px] md:gap-[40px]">
-      <div className="md:pt-[20px]">
+      <Reveal effect="left" className="md:pt-[20px]">
         <SectionTitle eyebrow={planDetail.overviewEyebrow} size="sm"
           className="[&_h2]:xl:text-[34.7px] [&>p:first-child]:xl:gap-[14px] [&>p:first-child]:xl:text-[16px] [&>p:first-child>span]:xl:w-[59px]"
         >
@@ -20,17 +21,17 @@ export default function Overview({ plan }: { plan: Plan }) {
             <p key={p}>{p}</p>
           ))}
         </div>
-      </div>
-      <div className="relative aspect-[453/425] overflow-hidden rounded-[12px]">
+      </Reveal>
+      <Reveal effect="right" className="group relative aspect-[453/425] overflow-hidden rounded-[12px]">
         <Image
           src={plan.detailImage ?? plan.image}
           alt={plan.title}
           fill
           priority
           sizes="(min-width: 768px) 389px, 100vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-1000 group-hover:scale-105"
         />
-      </div>
+      </Reveal>
     </div>
   );
 }

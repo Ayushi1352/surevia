@@ -15,6 +15,102 @@
   --color-line: #ececf1;
 
   --shadow-card: 0 4px 22px rgba(97, 6, 49, 0.08);
+
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.9s ease-out both;
+  --animate-zoom-out: zoom-out 7s ease-out both;
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.2s ease-out infinite;
+  --animate-ring: ring 2.6s ease-in-out infinite;
+  --animate-nudge: nudge 1.6s ease-in-out infinite;
+  --animate-spin-slow: spin 9s linear infinite;
+  --animate-pop: pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-draw: draw 0.6s ease-out 0.5s both;
+  --animate-twinkle: twinkle 1.8s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes zoom-out {
+    0% {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    12% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 45%, transparent);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 12px transparent;
+    }
+  }
+
+  @keyframes ring {
+    0%,
+    60%,
+    100% {
+      transform: rotate(0);
+    }
+    10%,
+    30%,
+    50% {
+      transform: rotate(-14deg);
+    }
+    20%,
+    40% {
+      transform: rotate(14deg);
+    }
+  }
+
+  @keyframes nudge {
+    50% {
+      transform: translateX(5px);
+    }
+  }
+
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes twinkle {
+    50% {
+      opacity: 0.25;
+    }
+  }
 }
 
 html {
@@ -26,6 +122,90 @@ body {
   color: var(--color-body);
   font-family: var(--font-sans);
   overflow-x: hidden;
+}
+
+/* Tailwind v4 leaves buttons on the default cursor; everything clickable gets the pointer. */
+@layer base {
+  a[href],
+  button:not(:disabled),
+  select,
+  summary,
+  label[for],
+  [role="button"] {
+    cursor: pointer;
+  }
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────────
+   <Reveal> adds `is-visible` once the element scrolls into view.
+   The keyframes animate `transform`, so they never fight the
+   translate/scale utilities used for hover states.
+   ──────────────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-left.is-visible {
+  animation-name: reveal-left;
+}
+
+.reveal-right.is-visible {
+  animation-name: reveal-right;
+}
+
+.reveal-zoom.is-visible {
+  animation-name: reveal-zoom;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-56px);
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(56px);
+  }
+}
+
+@keyframes reveal-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @utility wrap {
