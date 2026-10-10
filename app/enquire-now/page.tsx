@@ -1,0 +1,21 @@
+import type { Metadata } from "next";
+import Banner from "@/components/Banner";
+import { pageTitle } from "@/lib/pages";
+import EnquireForm from "./EnquireForm";
+import EnquireInfo from "./EnquireInfo";
+
+const title = pageTitle("/enquire-now");
+
+export const metadata: Metadata = { title };
+
+export default function EnquireNowPage() {
+  return (
+    <>
+      <Banner title={title} />
+      <section className="wrap section-pad grid items-start gap-12 lg:grid-cols-[1fr_minmax(0,620px)] lg:gap-10 xl:gap-[60px] xl:pr-[60px] xl:pl-[77px]">
+        <EnquireInfo />
+        <EnquireForm />
+      </section>
+    </>
+  );
+}
