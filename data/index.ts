@@ -47,6 +47,9 @@ export type InsuranceTestimonial = InsuranceTestimonialsData["items"][number];
 export type InsuranceBlogPost = InsuranceBlogData["posts"][number];
 export type InsuranceFaqItem = InsuranceFaqPageData["items"][number];
 
+
+
+
 // ── Legacy Site Map for Standalone Site ──
 const sec = originalSiteData.Insurance.sections;
 
