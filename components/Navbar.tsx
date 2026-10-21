@@ -81,12 +81,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav className="relative ml-3 hidden h-full flex-1 items-center self-stretch pl-[40px] lg:flex xl:ml-6 xl:pl-[68px]">
+        <nav className="relative ml-3 hidden h-full flex-1 items-center self-stretch pr-[44px] pl-[40px] lg:flex xl:ml-6 xl:pr-[60px] xl:pl-[60px] min-[1440px]:pl-[68px]">
           <span
             aria-hidden="true"
             className="absolute top-[2px] right-[2px] bottom-0 left-[19px] -skew-x-[37deg] rounded-tl-[22px] rounded-br-[22px] bg-plum"
           />
-          <ul className="relative flex items-center gap-[18px] text-[13px] text-white xl:gap-[45px] xl:text-[14.6px]">
+          <ul className="relative flex items-center gap-[18px] text-[13px] text-white xl:gap-[34px] xl:text-[14.6px] min-[1440px]:gap-[40px]">
             {nav.links.map((link) => {
               const active = isActive(pathname, link.href);
               return (
@@ -121,8 +121,8 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-3 sm:gap-5 lg:gap-0">
-          <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="group hidden items-center gap-[8px] lg:flex xl:gap-[11px]">
+        <div className="flex items-center gap-3 sm:gap-5 lg:gap-0 lg:pl-[32px] xl:pl-[40px]">
+          <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="group hidden items-center gap-[11px] min-[1440px]:flex">
             <span className="grid size-[36px] animate-pulse-ring place-items-center rounded-full bg-plum/10 text-plum transition-colors duration-300 group-hover:bg-plum group-hover:text-white xl:size-[43px]">
               <Icon name="phone-solid" className="size-[18px] animate-ring xl:size-[21px]" />
             </span>
@@ -131,7 +131,7 @@ export default function Navbar() {
               <span className="block text-[14px] font-semibold whitespace-nowrap text-ink transition-colors duration-300 group-hover:text-primary xl:text-[16px]">{contact.phone}</span>
             </span>
           </a>
-          <span className="mx-[10px] hidden h-[44px] w-px bg-black/15 lg:block xl:mr-[24px] xl:ml-[30px]" />
+          <span className="mr-[24px] ml-[30px] hidden h-[44px] w-px bg-black/15 min-[1440px]:block" />
           <Link
             href={nav.button.href}
             onClick={close}

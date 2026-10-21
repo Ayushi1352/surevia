@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Poppins, Red_Hat_Display } from "next/font/google";
+import { Montserrat, Poppins } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import site from "@/data";
@@ -17,12 +17,6 @@ const montserrat = Montserrat({
   weight: ["500", "600", "700", "800"],
 });
 
-const redHat = Red_Hat_Display({
-  variable: "--font-redhat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
 export const metadata: Metadata = {
   title: {
     default: site.site.name,
@@ -35,7 +29,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${montserrat.variable} ${redHat.variable} antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${poppins.variable} ${montserrat.variable} antialiased`}
     >
       <body className="flex min-h-screen flex-col">
         {/* Scroll-reveal content starts hidden; keep it readable when scripts are off */}

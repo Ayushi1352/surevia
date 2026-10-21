@@ -8,9 +8,7 @@ const { planDetail } = data;
 export default function Features({ title }: { title: string }) {
   return (
     <Reveal className="mt-8 rounded-[16px] bg-blush px-5 py-7 xl:mt-[30px] xl:px-[26px] xl:pt-[23px] xl:pb-[28px]">
-      <SectionTitle eyebrow={planDetail.featuresEyebrow} size="sm"
-        className="[&_h2]:xl:mt-[9px] [&_h2]:xl:text-[33.2px] [&>p:first-child]:xl:gap-[14px] [&>p:first-child]:xl:text-[16px] [&>p:first-child>span]:xl:w-[55px]"
-      >
+      <SectionTitle eyebrow={planDetail.featuresEyebrow} size="sm">
         {planDetail.featuresTitle}{" "}
         <Accent>
           {title} {planDetail.featuresSuffix}

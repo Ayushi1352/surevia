@@ -46,14 +46,16 @@ export default function Sidebar({ post: current }: { post: BlogPost }) {
         </h2>
         <ul className="py-[10px] pr-[27px] pl-[22px]">
           {blogCategories.map((c) => (
-            <li
-              key={c.label}
-              className="group flex items-center justify-between border-b border-line py-[5.5px] pl-[8px] text-[17px] text-body transition-all duration-300 last:border-0 hover:pl-[14px] hover:text-primary"
-            >
-              {c.label}
-              <span className="grid size-[37px] place-items-center rounded-full bg-rose text-[14.5px] font-semibold text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
-                {c.count}
-              </span>
+            <li key={c.label} className="border-b border-line last:border-0">
+              <Link
+                href={`/blogs?category=${encodeURIComponent(c.label)}`}
+                className="group flex items-center justify-between py-[5.5px] pl-[8px] text-[17px] text-body transition-all duration-300 hover:pl-[14px] hover:text-primary"
+              >
+                {c.label}
+                <span className="grid size-[37px] place-items-center rounded-full bg-rose text-[14.5px] font-semibold text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                  {c.count}
+                </span>
+              </Link>
             </li>
           ))}
         </ul>

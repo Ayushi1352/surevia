@@ -8,15 +8,12 @@ const { process } = data;
 
 export default function Process() {
   return (
-    <section className="wrap section-pad grid items-center gap-12 xl:grid-cols-[466px_1fr] xl:gap-0">
+    <section className="wrap section-pad grid items-center gap-12 xl:grid-cols-[440px_1fr] xl:gap-[24px]">
       <Reveal effect="left">
-        <SectionTitle eyebrow={process.eyebrow} className="[&_h2]:xl:text-[35.7px] [&_h2]:xl:leading-[42px] [&_h2]:xl:whitespace-nowrap [&>p:first-child]:xl:gap-[14px] [&>p:first-child]:xl:text-[15.5px] [&>p:first-child>span]:xl:w-[29px]">
+        <SectionTitle eyebrow={process.eyebrow} text={process.text}>
           {process.title} <br className="hidden sm:block" />
           <Accent>{process.highlight}</Accent>
         </SectionTitle>
-        <p className="mt-3 max-w-[440px] font-heading text-[15px] leading-[1.5] font-medium text-body xl:text-[16.2px] xl:leading-[24.5px]">
-          {process.text}
-        </p>
         <Button href={process.button.href} label={process.button.label} className="mt-6 xl:h-[48px] xl:w-[193px] xl:px-0 xl:text-[16.5px]" />
       </Reveal>
 
@@ -24,7 +21,7 @@ export default function Process() {
         {process.steps.map((step, i) => (
           <Reveal as="li" key={step.title} delay={i * 130} className="group relative pt-[62px]">
             <div className="h-full rounded-[12px] bg-white px-4 pt-[76px] pb-7 text-center shadow-card transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)]">
-              <h3 className="font-heading text-[16px] font-bold text-ink transition-colors duration-300 group-hover:text-primary xl:whitespace-nowrap">{step.title}</h3>
+              <h3 className="font-heading text-[16px] font-bold text-ink transition-colors duration-300 group-hover:text-primary">{step.title}</h3>
               <p className="mx-auto mt-2.5 max-w-[190px] text-[14px] leading-[20.5px] text-body">
                 {step.text.map((l) => (
                   <span key={l} className="xl:block">

@@ -32,26 +32,26 @@ export default function PlanCard({ href, title, text, lines, image, icon, button
           />
         </div>
         <span
-          className={`absolute bottom-0 z-10 grid place-items-center rounded-full bg-rose text-primary ring-[3px] ring-white transition-colors duration-300 group-hover:bg-primary group-hover:text-white ${home ? "left-[35px] size-[66px] translate-y-[62%]" : "left-[23px] size-[58px] translate-y-1/2"}`}
+          className={`absolute bottom-0 z-10 grid place-items-center rounded-full bg-rose text-primary ring-[3px] ring-white transition-colors duration-300 group-hover:bg-primary group-hover:text-white size-[58px] ${home ? "left-[20px] translate-y-[55%]" : "left-[23px] translate-y-1/2"}`}
         >
-          <Icon name={icon} className={`transition-transform duration-300 group-hover:scale-110 ${home ? "size-[36px]" : "size-[32px]"}`} strokeWidth={1.5} />
+          <Icon name={icon} className="size-[32px] transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
         </span>
       </div>
-      <div className={`flex flex-1 flex-col ${home ? "px-[35px] pt-[53px] pb-[24px]" : "px-[27px] pt-[26px] pb-[10px]"}`}>
-        <h3 className={`font-bold text-ink ${home ? "text-[17.9px] leading-[26px]" : "font-heading text-[16px] leading-[24px]"}`}>{title}</h3>
+      <div className={`flex flex-1 flex-col ${home ? "px-[20px] pt-[44px] pb-[22px]" : "px-[27px] pt-[26px] pb-[10px]"}`}>
+        <h3 className={`font-heading font-bold text-ink ${home ? "text-[16.5px] leading-[24px]" : "text-[16px] leading-[24px]"}`}>{title}</h3>
         <p
-          className={`text-body ${home ? "mt-[3px] flex-1 text-[14.7px] leading-[20px]" : "mt-[4px] font-heading text-[14.2px] leading-[18px] font-medium"}`}
+          className={`text-body ${home ? "mt-[3px] flex-1 text-[14px] leading-[20px]" : "mt-[4px] font-heading text-[14.2px] leading-[18px] font-medium"}`}
         >
           {lines
             ? lines.map((l) => (
-                <span key={l} className="xl:block">
+                <span key={l} className={home ? "min-[1440px]:block" : "xl:block"}>
                   {l}{" "}
                 </span>
               ))
             : text}
         </p>
         <span
-          className={`inline-flex items-center gap-2.5 font-semibold text-primary ${home ? "mt-[17px] text-[15.5px]" : "mt-[8px] font-heading text-[14.1px] font-bold"}`}
+          className={`inline-flex items-center gap-2.5 font-semibold text-primary ${home ? "mt-[14px] text-[15px]" : "mt-[8px] font-heading text-[14.1px] font-bold"}`}
         >
           {buttonLabel}
           <span className="grid size-[29px] place-items-center rounded-full bg-rose transition-colors group-hover:bg-primary group-hover:text-white">

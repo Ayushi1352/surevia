@@ -8,12 +8,12 @@ const { plans } = data;
 
 export default function Plans() {
   return (
-    <section className="wrap section-pad xl:px-[63px]">
+    <section className="wrap section-pad">
       <Reveal>
         <Slider
-          className="gap-[19px] xl:mr-0! xl:pr-0!"
+          className="gap-[19px]"
           header={
-            <SectionTitle eyebrow={plans.eyebrow} text={plans.text} className="mb-6 xl:mb-[22px] [&_h2]:xl:text-[37.5px] [&>p:last-child]:xl:mt-[9px]">
+            <SectionTitle eyebrow={plans.eyebrow} text={plans.text} className="mb-6">
               {plans.title} <Accent>{plans.highlight}</Accent>
             </SectionTitle>
           }
@@ -21,7 +21,7 @@ export default function Plans() {
           {plans.items.map((plan) => (
             <div
               key={plan.slug}
-              className="shrink-0 basis-[82%] snap-start sm:basis-[calc((100%-19px)/2)] lg:basis-[calc((100%-38px)/3)] xl:basis-[251px]"
+              className="shrink-0 basis-[82%] snap-start sm:basis-[calc((100%-19px)/2)] lg:basis-[calc((100%-57px)/4)] xl:basis-[calc((100%-95px)/6)]"
             >
               <PlanCard
                 variant="home"

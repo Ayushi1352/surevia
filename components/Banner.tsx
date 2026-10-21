@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { pageTitle } from "@/lib/pages";
@@ -15,7 +14,7 @@ export default function Banner({
 }) {
   const breadcrumbItems = [...breadcrumbs, { label: title, href: "" }];
   return (
-    <section className="relative flex h-[220px] items-center overflow-hidden bg-plum sm:h-[280px] xl:h-[362px]">
+    <section className="relative flex h-[170px] items-center overflow-hidden bg-plum sm:h-[210px] xl:h-[260px]">
       <div className="fade-left absolute inset-y-0 right-0 w-full md:w-[58%]">
         <Image
           src={data.site.bannerImage}
@@ -43,7 +42,7 @@ export default function Banner({
             </span>
           ))}
         </nav>
-        <h1 className="mt-2 animate-fade-up [animation-delay:120ms] leading-[1.15] font-semibold text-[22px] text-balance text-white sm:text-[30px] lg:text-[42px] xl:mt-[8px] xl:text-[50px]">
+        <h1 className="mt-2 animate-fade-up font-heading [animation-delay:120ms] leading-[1.15] font-extrabold text-[22px] text-balance text-white sm:text-[30px] lg:text-[38px] xl:mt-[8px] xl:text-[44px]">
           {title}
         </h1>
       </div>

@@ -9,12 +9,13 @@ const { testimonials } = data;
 
 export default function Testimonials() {
   return (
-    <section className="wrap section-pad xl:px-[56px]">
+    <section className="wrap section-pad">
       <Reveal>
         <Slider
           className="gap-[18px]"
+          autoplay={5000}
           header={
-            <SectionTitle eyebrow={testimonials.eyebrow} text={testimonials.text} className="mb-5 xl:mb-[10px] [&_h2]:xl:mt-[9px] [&>p:first-child]:xl:text-[15.5px] [&>p:last-child]:xl:mt-[6px]">
+            <SectionTitle eyebrow={testimonials.eyebrow} text={testimonials.text} className="mb-6">
               {testimonials.title} <Accent>{testimonials.highlight}</Accent>
             </SectionTitle>
           }

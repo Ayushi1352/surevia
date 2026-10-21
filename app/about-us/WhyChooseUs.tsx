@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Button from "@/components/Button";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import SectionTitle, { Accent } from "@/components/SectionTitle";
@@ -21,15 +20,10 @@ export default function WhyChooseUs() {
       </Reveal>
 
       <Reveal effect="right" className="px-5 sm:px-8 lg:pl-0 xl:px-0 xl:pt-[49px] xl:pr-[20px]">
-        <SectionTitle
-          eyebrow={why.eyebrow}
-          size="lg"
-          className="[&_h2]:xl:mt-[6px] [&_h2]:xl:text-[44.7px] [&_h2]:xl:leading-[52px] [&>p]:xl:gap-[11px] [&>p]:xl:text-[16px] [&>p>span]:xl:w-[52px]"
-        >
+        <SectionTitle eyebrow={why.eyebrow} text={why.text} className="max-w-[640px]">
           {why.title} <br className="hidden sm:block" />
           {why.titleLine2} <Accent>{why.highlight}</Accent>
         </SectionTitle>
-        <p className="mt-3 max-w-[640px] text-[15px] leading-[1.5] text-body xl:mt-[8px] xl:text-[17.3px] xl:leading-[23px]">{why.text}</p>
 
         <ul className="mt-6 grid gap-x-[19px] gap-y-[17px] sm:grid-cols-2 xl:mt-[30px] xl:grid-cols-3">
           {why.items.map((item) => (
@@ -56,8 +50,6 @@ export default function WhyChooseUs() {
             </li>
           ))}
         </ul>
-
-        <Button href={why.button.href} label={why.button.label} className="mt-7 xl:mt-[20px] xl:h-[50px] xl:w-[212px] xl:px-0 xl:text-[15.8px]" />
       </Reveal>
     </section>
   );

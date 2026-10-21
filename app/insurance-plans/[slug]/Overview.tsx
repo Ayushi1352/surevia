@@ -11,9 +11,7 @@ export default function Overview({ plan }: { plan: Plan }) {
   return (
     <div className="grid items-start gap-8 md:grid-cols-[1fr_389px] md:gap-[40px]">
       <Reveal effect="left" className="md:pt-[20px]">
-        <SectionTitle eyebrow={planDetail.overviewEyebrow} size="sm"
-          className="[&_h2]:xl:text-[34.7px] [&>p:first-child]:xl:gap-[14px] [&>p:first-child]:xl:text-[16px] [&>p:first-child>span]:xl:w-[59px]"
-        >
+        <SectionTitle eyebrow={planDetail.overviewEyebrow} size="sm">
           {planDetail.overviewTitle} <Accent>{plan.title}?</Accent>
         </SectionTitle>
         <div className="mt-4 space-y-[14px] text-[15px] leading-[1.65] text-body xl:mt-[17px] xl:space-y-[18px] xl:text-[18.2px] xl:leading-[26.3px]">

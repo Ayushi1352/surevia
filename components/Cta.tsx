@@ -17,9 +17,10 @@ export default function Cta() {
       <span className="absolute -top-[240px] left-[8%] hidden h-[330px] w-[620px] animate-float rounded-[50%] bg-[#8f1545]/35 lg:block" />
       <span className="absolute -bottom-[210px] -left-[120px] size-[380px] animate-float rounded-full [animation-delay:-2.5s] bg-[#8f1545]/35" />
 
-      <div className="wrap relative flex min-h-[320px] flex-col justify-center gap-8 py-12 lg:flex-row lg:items-center lg:justify-between xl:min-h-[373px] xl:pt-0 xl:pr-[56px] xl:pb-[2px] xl:pl-[62px]">
+      {/* Button sits under the text, in the section's bottom-left corner */}
+      <div className="wrap relative flex min-h-[320px] flex-col items-start justify-center gap-8 py-12 xl:min-h-[373px] xl:gap-[28px] xl:py-[48px] xl:pr-[56px] xl:pl-[62px]">
         <Reveal effect="left">
-          <p className="flex items-center gap-4 font-display text-[16px] text-white xl:gap-[17px] xl:text-[20.7px]">
+          <p className="flex items-center gap-4 font-heading text-[16px] font-medium text-white xl:gap-[17px] xl:text-[20.7px]">
             <span className="h-[2px] w-[33px] shrink-0 bg-white" />
             {cta.eyebrow}
           </p>
@@ -28,11 +29,11 @@ export default function Cta() {
             <br />
             <span className="text-[#ffe3ee]">{cta.title[1]}</span>
           </h2>
-          <p className="mt-4 max-w-[590px] xl:max-w-[580px] font-display text-[17px] leading-[1.45] text-white xl:mt-[10px] xl:text-[22.2px] xl:leading-[30px] xl:tracking-[0.02em]">
+          <p className="mt-4 max-w-[590px] xl:max-w-[580px] font-heading text-[17px] font-medium leading-[1.45] text-white xl:mt-[10px] xl:text-[22.2px] xl:leading-[30px] xl:tracking-[0.02em]">
             {cta.text}
           </p>
         </Reveal>
-        <Reveal effect="right" className="shrink-0 self-start lg:self-center xl:mt-[-12px]">
+        <Reveal effect="left" delay={150}>
           <Button
             href={cta.button.href}
             label={cta.button.label}

@@ -3,7 +3,6 @@
 @theme inline {
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-redhat), ui-sans-serif, system-ui, sans-serif;
 
   --color-primary: #8f1545;
   --color-primary-dark: #610631;
@@ -115,6 +114,20 @@
 
 html {
   scroll-behavior: smooth;
+  /* Next.js scrolls new pages into view past the sticky header; keep the banner clear of it */
+  scroll-padding-top: 72px;
+
+  @media (width >= 768px) {
+    scroll-padding-top: 134px;
+  }
+
+  @media (width >= 1024px) {
+    scroll-padding-top: 138px;
+  }
+
+  @media (width >= 1280px) {
+    scroll-padding-top: 152px;
+  }
 }
 
 body {
@@ -237,22 +250,27 @@ body {
 
 /* ── Consistent section vertical spacing ─────────────────────────
    Use `section-pad` on every <section> wrapper.
-   mobile  : py-14  = 56px
-   sm(640) : py-16  = 64px
-   xl(1280): py-20  = 80px
+   mobile  : 48px
+   sm(640) : 56px
+   xl(1280): 64px
+   Two padded sections in a row share one gap instead of doubling it.
    ──────────────────────────────────────────────────────────────── */
 @utility section-pad {
-  padding-top: 3.5rem;    /* 56px */
-  padding-bottom: 3.5rem;
+  padding-top: 3rem;      /* 48px */
+  padding-bottom: 3rem;
 
   @media (width >= 640px) {
-    padding-top: 4rem;    /* 64px */
-    padding-bottom: 4rem;
+    padding-top: 3.5rem;  /* 56px */
+    padding-bottom: 3.5rem;
   }
 
   @media (width >= 1280px) {
-    padding-top: 5rem;    /* 80px */
-    padding-bottom: 5rem;
+    padding-top: 4rem;    /* 64px */
+    padding-bottom: 4rem;
   }
+}
+
+.section-pad + .section-pad {
+  padding-top: 0;
 }
 

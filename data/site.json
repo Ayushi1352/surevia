@@ -280,15 +280,7 @@
                   "with confidence"
                 ],
                 "text": "Trusted insurance guidance and tailored protection plans for you, your family, and your future.",
-                "image": "/images/hero.webp",
-                "primaryButton": {
-                  "label": "Enquire Now",
-                  "href": "/enquire-now"
-                },
-                "secondaryButton": {
-                  "label": "Explore Plans",
-                  "href": "/insurance-plans"
-                }
+                "image": "/images/hero.webp"
               },
               {
                 "eyebrow": "Expert Guidance at Every Step",
@@ -297,15 +289,7 @@
                   "with advisors you trust"
                 ],
                 "text": "Our insurance experts compare plans with you and recommend cover that fits your needs and budget.",
-                "image": "/images/about-main.webp",
-                "primaryButton": {
-                  "label": "Talk to an Expert",
-                  "href": "/contact-us"
-                },
-                "secondaryButton": {
-                  "label": "About Us",
-                  "href": "/about-us"
-                }
+                "image": "/images/about-main.webp"
               },
               {
                 "eyebrow": "Security for Every Stage of Life",
@@ -314,15 +298,7 @@
                   "future today"
                 ],
                 "text": "Life, health, home and motor insurance with quick support and hassle-free claim assistance.",
-                "image": "/images/blog-detail.webp",
-                "primaryButton": {
-                  "label": "Explore Plans",
-                  "href": "/insurance-plans"
-                },
-                "secondaryButton": {
-                  "label": "Enquire Now",
-                  "href": "/enquire-now"
-                }
+                "image": "/images/blog-detail.webp"
               }
             ]
           }
@@ -492,11 +468,7 @@
                   "advice and solutions."
                 ]
               }
-            ],
-            "button": {
-              "label": "Enquire Now",
-              "href": "/enquire-now"
-            }
+            ]
           }
         }
       },
@@ -917,6 +889,13 @@
                 "rating": 5,
                 "image": "/images/testimonial-3.webp",
                 "quote": "“From consultation to claim support, the experience has been excellent. The team is supportive, responsive and genuinely cares about their customers. I feel secure with them.”"
+              },
+              {
+                "name": "Kavita Iyer",
+                "city": "Chennai",
+                "rating": 5,
+                "image": "/images/retirement-plans.webp",
+                "quote": "“Planning our retirement felt overwhelming until we spoke to the Surevia team. They found a plan that fits our budget and gives us real peace of mind for the years ahead.”"
               }
             ]
           }
@@ -948,6 +927,8 @@
             "text": "Expert advice, helpful guides and the latest updates from the world of insurance.",
             "buttonLabel": "Read More",
             "homeCount": 3,
+            "categoryLabel": "Showing posts in",
+            "allPostsLabel": "View all posts",
             "posts": [
               {
                 "slug": "how-life-insurance-secures-your-familys-future",
@@ -1285,25 +1266,10 @@
             "formHighlight": "Message",
             "formText": "Fill in your details and we’ll get back to you shortly.",
             "location": {
-              "eyebrow": "Visit Our Office",
-              "title": "Our Location",
-              "text": "We’d love to meet you in person. Visit our office for personalized guidance and expert support.",
               "mapCard": {
                 "title": "Our Office",
                 "field": "address"
-              },
-              "items": [
-                {
-                  "icon": "pin-solid",
-                  "title": "Address",
-                  "field": "address"
-                },
-                {
-                  "icon": "clock-solid",
-                  "title": "Working Hours",
-                  "field": "hours"
-                }
-              ]
+              }
             }
           }
         }
@@ -1536,7 +1502,7 @@
                 "field": "hoursShort"
               }
             ],
-            "copyright": "© 2026 Surevia. All Rights Reserved.",
+            "copyright": "© 2026 All Rights Reserved. Powered by Lestow.",
             "bottomLinks": [
               {
                 "label": "Terms & Conditions",

@@ -9,9 +9,7 @@ export default function WhyPlan({ title }: { title: string }) {
   return (
     <div className="mt-10 xl:mt-[52px]">
       <Reveal>
-        <SectionTitle eyebrow={planDetail.whyEyebrow} size="sm"
-          className="[&_h2]:xl:mt-[9px] [&_h2]:xl:text-[36.2px] [&_h2]:xl:whitespace-nowrap [&>p:first-child>span]:xl:w-[63px]"
-        >
+        <SectionTitle eyebrow={planDetail.whyEyebrow} size="sm">
           {planDetail.whyTitle}{" "}
           <Accent>
             {title} {planDetail.whySuffix}

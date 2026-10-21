@@ -11,11 +11,11 @@ export default function About() {
   return (
     <section className="wrap section-pad grid items-center gap-10 lg:grid-cols-[1fr_1.08fr] xl:grid-cols-[1fr_716px] xl:gap-0 xl:pr-[45px] xl:pl-[110px]">
       <Reveal effect="left">
-        <SectionTitle eyebrow={about.eyebrow} size="lg">
+        <SectionTitle eyebrow={about.eyebrow}>
           {about.title} <br className="hidden sm:block" />
           <Accent>{about.highlight}</Accent>
         </SectionTitle>
-        <p className="mt-5 max-w-[538px] font-heading text-[15px] leading-[1.5] font-medium text-body xl:mt-[16px] xl:text-[16.9px] xl:leading-[24px]">
+        <p className="mt-4 max-w-[538px] font-heading text-[15px] leading-[1.6] font-medium text-body xl:text-[16px]">
           {about.homeText}
         </p>
 

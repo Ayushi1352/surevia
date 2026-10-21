@@ -9,12 +9,12 @@ const { contact } = data;
 export default function ContactInfo() {
   return (
     <Reveal effect="left" className="xl:pt-[5px]">
-      <Eyebrow className="font-semibold xl:gap-[16px] xl:text-[15.8px] [&>span]:xl:w-[58px]">{contact.eyebrow}</Eyebrow>
-      <h2 className="mt-3 font-heading text-[32px] leading-[1.18] font-extrabold tracking-[-0.01em] text-ink sm:text-[42px] lg:text-[30px] xl:mt-[10px] xl:text-[46.9px] xl:leading-[58px]">
+      <Eyebrow>{contact.eyebrow}</Eyebrow>
+      <h2 className="mt-3 font-heading text-[28px] leading-[1.18] font-extrabold tracking-[-0.01em] text-ink sm:text-[34px] xl:text-[38px] xl:leading-[44px]">
         {contact.title[0]} <br className="hidden sm:block" />
         {contact.title[1]} <Accent>{contact.highlight}</Accent>
       </h2>
-      <p className="mt-4 max-w-[515px] text-[16px] leading-[1.6] text-body xl:mt-[18px] xl:text-[20.2px] xl:leading-[30px]">
+      <p className="mt-3 max-w-[515px] font-heading text-[15px] leading-[1.6] font-medium text-body xl:text-[16px]">
         {contact.text}
       </p>
       <ul className="mt-8 space-y-[20px] xl:mt-[32px]">
