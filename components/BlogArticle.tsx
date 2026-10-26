@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Icon from "@/components/Icon";
+import Loop from "@/components/Loop";
 import Reveal from "@/components/Reveal";
 import { Accent } from "@/components/SectionTitle";
 import { formatDate, type BlogPost } from "@/lib/blogs";
@@ -7,7 +8,7 @@ import data from "@/data";
 
 const { blogDetail: blog } = data;
 
-export default function Article({ post }: { post: BlogPost }) {
+export default function BlogArticle({ post }: { post: BlogPost }) {
   const { detail } = post;
   const meta = [
     { icon: "calendar", label: formatDate(post.date, "long") },
@@ -49,9 +50,11 @@ export default function Article({ post }: { post: BlogPost }) {
       ))}
 
       <div className="mt-8 flex flex-col gap-5 rounded-[12px] bg-blush p-[22px] sm:flex-row sm:items-center sm:gap-[26px] xl:mt-[24px] xl:py-[15px]">
-        <span className="grid size-[76px] shrink-0 place-items-center animate-pulse-ring rounded-full bg-primary text-primary xl:size-[93px]">
-          <Icon name="shield-check" className="size-[40px] text-white xl:size-[50px]" strokeWidth={1.5} />
-        </span>
+        <Loop effect="pulse-ring">
+          <span className="grid size-[76px] shrink-0 place-items-center rounded-full bg-primary text-primary xl:size-[93px]">
+            <Icon name="shield-check" className="size-[40px] text-white xl:size-[50px]" strokeWidth={1.5} />
+          </span>
+        </Loop>
         <div className="sm:border-l sm:border-primary/40 sm:py-1 sm:pl-[28px]">
           <h3 className="font-heading text-[20px] font-extrabold text-primary xl:text-[24px] xl:leading-[30px]">{detail.tip.title}</h3>
           <p className="mt-1.5 max-w-[665px] text-[15.5px] leading-[1.6] text-body xl:text-[18px] xl:leading-[29px]">

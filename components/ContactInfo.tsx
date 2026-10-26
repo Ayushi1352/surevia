@@ -21,7 +21,7 @@ export default function ContactInfo() {
         {contact.cards.map((card) => (
           <li
             key={card.title}
-            className="group flex max-w-[560px] items-center gap-5 rounded-[12px] bg-white p-[21px] shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)] xl:gap-[38px] xl:py-[21.5px]"
+            className="group flex max-w-[560px] items-center gap-5 rounded-[12px] bg-white p-[21px] shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)] xl:gap-[38px] xl:py-[21.5px]"
           >
             <span className="grid size-[72px] shrink-0 place-items-center rounded-full bg-rose text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white xl:size-[92px]">
               <Icon name={card.icon} className="size-[36px] xl:size-[46px]" />

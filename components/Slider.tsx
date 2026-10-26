@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import Icon from "./Icon";
+import data from "@/data";
 
 type Props = {
   header: ReactNode;
@@ -43,8 +44,8 @@ export default function Slider({ header, children, className = "", autoplay }: P
         {header}
         <div className="mt-[34px] hidden shrink-0 gap-[13px] sm:flex xl:mt-[34px]">
           {[
-            { icon: "arrow-left", dir: -1, label: "Previous" },
-            { icon: "arrow-right", dir: 1, label: "Next" },
+            { icon: "arrow-left", dir: -1, label: data.site.labels.previous },
+            { icon: "arrow-right", dir: 1, label: data.site.labels.next },
           ].map((b) => (
             <button
               key={b.label}
@@ -62,7 +63,7 @@ export default function Slider({ header, children, className = "", autoplay }: P
         ref={track}
         onTouchStart={() => setPaused(true)}
         onTouchEnd={() => setPaused(false)}
-        className={`no-scrollbar -mx-3 flex snap-x snap-mandatory scroll-px-3 overflow-x-auto scroll-smooth px-3 pt-2 pb-8 ${className}`}
+        className={`[scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-3 flex snap-x snap-mandatory scroll-px-3 overflow-x-auto scroll-smooth px-3 pt-2 pb-8 ${className}`}
       >
         {children}
       </div>

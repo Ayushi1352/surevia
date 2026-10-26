@@ -7,7 +7,7 @@ const { planDetail } = data;
 
 type Plan = (typeof data.plans.items)[number];
 
-export default function Overview({ plan }: { plan: Plan }) {
+export default function PlanOverview({ plan }: { plan: Plan }) {
   return (
     <div className="grid items-start gap-8 md:grid-cols-[1fr_389px] md:gap-[40px]">
       <Reveal effect="left" className="md:pt-[20px]">

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Banner from "@/components/Banner";
 import { pageTitle } from "@/lib/pages";
 import Stats from "@/components/Stats";
-import AboutIntro from "./AboutIntro";
-import WhyChooseUs from "./WhyChooseUs";
+import AboutIntro from "@/components/AboutIntro";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 const title = pageTitle("/about-us");
 

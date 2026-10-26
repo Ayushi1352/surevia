@@ -22,7 +22,7 @@ export default function WhyPlan({ title }: { title: string }) {
             as="li"
             key={item.title}
             delay={(i % 2) * 120}
-            className="group flex items-center gap-[26px] rounded-[12px] bg-white px-[24px] py-[19px] shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)]"
+            className="group flex items-center gap-[26px] rounded-[12px] bg-white px-[24px] py-[19px] shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)]"
           >
             <span className="grid size-[76px] shrink-0 place-items-center rounded-full bg-rose text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white xl:size-[90px]">
               <Icon name={item.icon} className="size-[38px] xl:size-[46px]" strokeWidth={1.5} />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Banner from "@/components/Banner";
 import { pageTitle } from "@/lib/pages";
-import PlansGrid from "./PlansGrid";
+import PlansGrid from "@/components/PlansGrid";
 
 const title = pageTitle("/insurance-plans");
 

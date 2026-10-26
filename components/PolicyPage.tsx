@@ -25,8 +25,8 @@ export default function PolicyPage({
   return (
     <>
       <Banner title={title} />
-      <article className="bg-white section-pad">
-        <div className="wrap max-w-[960px]">
+      <article data-section-pad className="bg-white py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0">
+        <div className="mx-auto w-full max-w-[960px] px-5 sm:px-8 xl:px-[60px]">
           <Reveal effect="left">
             <p className="border-l-[3px] border-primary pl-5 text-[16px] leading-8 text-ink sm:text-[17px]">{intro}</p>
           </Reveal>

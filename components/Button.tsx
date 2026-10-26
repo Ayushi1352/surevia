@@ -18,7 +18,7 @@ export default function Button({ href, label, variant = "primary", className = "
   return (
     <Link
       href={href}
-      className={`group inline-flex h-[46px] items-center justify-center gap-3.5 rounded-full border-[1.5px] px-[30px] text-[15px] font-medium whitespace-nowrap transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(97,6,49,0.22)] ${styles[variant]} ${className}`}
+      className={`group inline-flex h-[46px] items-center justify-center gap-3.5 rounded-full border-[1.5px] px-[30px] text-[15px] font-medium whitespace-nowrap transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_color-mix(in_srgb,var(--color-plum)_22%,transparent)] ${styles[variant]} ${className}`}
     >
       {label}
       <Icon name="arrow-right" className="size-[18px] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />

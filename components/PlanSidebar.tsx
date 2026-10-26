@@ -9,8 +9,8 @@ const { plans, planDetail } = data;
 
 type Plan = (typeof plans.items)[number];
 
-export default function Sidebar({ plan }: { plan: Plan }) {
-  const related = plans.items.filter((p) => p.slug !== plan.slug).slice(0, 4);
+export default function PlanSidebar({ plan }: { plan: Plan }) {
+  const related = plans.items.filter((p) => p.title !== plan.title).slice(0, 4);
 
   return (
     <Reveal as="aside" effect="right" className="grid content-start gap-[26px] md:grid-cols-2 xl:grid-cols-1">
@@ -24,14 +24,14 @@ export default function Sidebar({ plan }: { plan: Plan }) {
         <EnquiryForm layout="compact" />
       </div>
 
-      <div className="overflow-hidden rounded-[16px] bg-white shadow-card">
+      <div className="overflow-hidden rounded-[16px] bg-white shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)]">
         <h2 className="bg-[#f8f8fa] px-[22px] py-[19px] font-heading text-[20px] font-bold text-ink xl:text-[22px]">
           {planDetail.relatedTitle}
         </h2>
         <ul className="px-[20px] pb-[8px]">
           {related.map((p) => (
-            <li key={p.slug} className="border-b border-line last:border-0">
-              <Link href={`/insurance-plans/${p.slug}`} className="group flex items-center gap-[15px] py-[20px]">
+            <li key={p.title} className="border-b border-line last:border-0">
+              <Link href={p.href} className="group flex items-center gap-[15px] py-[20px]">
                 <Image
                   src={p.thumb ?? p.image}
                   alt={p.title}

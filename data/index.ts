@@ -54,6 +54,7 @@ export type InsuranceFaqItem = InsuranceFaqPageData["items"][number];
 const sec = originalSiteData.Insurance.sections;
 
 const legacySiteMap = {
+  theme: originalSiteData.Insurance.theme,
   site: sec.Site.variants.InsuranceSite1,
   nav: sec.Header.variants.InsuranceHeader1,
   hero: sec.Hero.variants.InsuranceHero1,

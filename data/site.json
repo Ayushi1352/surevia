@@ -1,5 +1,41 @@
 {
   "Insurance": {
+    "theme": {
+      "colors": {
+        "primary": "#8f1545",
+        "primary-dark": "#610631",
+        "plum": "#610631",
+        "ink": "#1e2229",
+        "body": "#4d5466",
+        "blush": "#fcf6f8",
+        "rose": "#fcebf2",
+        "line": "#ececf1"
+      },
+      "fonts": {
+        "sans": {
+          "family": "Poppins",
+          "fallback": "ui-sans-serif, system-ui, sans-serif",
+          "weights": [
+            400,
+            500,
+            600,
+            700
+          ],
+          "italic": false
+        },
+        "heading": {
+          "family": "Montserrat",
+          "fallback": "ui-sans-serif, system-ui, sans-serif",
+          "weights": [
+            500,
+            600,
+            700,
+            800
+          ],
+          "italic": false
+        }
+      }
+    },
     "templateComponents": {
       "template-1": {
         "shared": {
@@ -73,7 +109,6 @@
             ]
           },
           "insurance-plan-detail": {
-            "expand": "items",
             "components": [
               {
                 "key": "PlanDetail",
@@ -94,7 +129,6 @@
             ]
           },
           "blog-detail": {
-            "expand": "items",
             "components": [
               {
                 "key": "BlogDetail",
@@ -232,7 +266,21 @@
                 "daysShort": "Sunday",
                 "time": "Closed"
               }
-            ]
+            ],
+            "labels": {
+              "breadcrumb": "Breadcrumb",
+              "openMenu": "Open menu",
+              "closeMenu": "Close menu",
+              "toggleDropdown": "Toggle insurance plans",
+              "goToSlide": "Go to slide {n}",
+              "previousSlide": "Previous slide",
+              "nextSlide": "Next slide",
+              "previous": "Previous",
+              "next": "Next",
+              "rating": "{rating} out of 5 stars",
+              "backToTop": "Back to top",
+              "map": "Map showing the {name} office at {address}"
+            }
           }
         }
       },
@@ -482,8 +530,8 @@
             "buttonLabel": "Learn More",
             "items": [
               {
-                "slug": "life-insurance",
                 "title": "Life Insurance",
+                "href": "/insurance-plans/plan-details",
                 "icon": "heart-pulse",
                 "homeIcon": "heart-pulse",
                 "text": "Financial security for your loved ones, today and always.",
@@ -509,8 +557,8 @@
                 ]
               },
               {
-                "slug": "health-insurance",
                 "title": "Health Insurance",
+                "href": "/insurance-plans/plan-details",
                 "icon": "briefcase-medical",
                 "homeIcon": "heart-pulse",
                 "text": "Quality healthcare coverage for a healthier tomorrow.",
@@ -536,8 +584,8 @@
                 ]
               },
               {
-                "slug": "home-insurance",
                 "title": "Home Insurance",
+                "href": "/insurance-plans/plan-details",
                 "icon": "home",
                 "homeIcon": "home",
                 "text": "Protect your home and belongings from unforeseen events.",
@@ -564,8 +612,8 @@
                 ]
               },
               {
-                "slug": "motor-insurance",
                 "title": "Motor Insurance",
+                "href": "/insurance-plans/plan-details",
                 "icon": "car",
                 "homeIcon": "car",
                 "text": "Stay protected on every journey with comprehensive cover.",
@@ -592,8 +640,8 @@
                 ]
               },
               {
-                "slug": "travel-insurance",
                 "title": "Travel Insurance",
+                "href": "/insurance-plans/plan-details",
                 "icon": "plane",
                 "homeIcon": "plane",
                 "text": "Travel with confidence and enjoy worry-free journeys worldwide.",
@@ -620,8 +668,8 @@
                 ]
               },
               {
-                "slug": "business-insurance",
                 "title": "Business Insurance",
+                "href": "/insurance-plans/plan-details",
                 "icon": "briefcase",
                 "homeIcon": "briefcase",
                 "text": "Tailored solutions to protect your business and ensure continuity.",
@@ -647,8 +695,8 @@
                 ]
               },
               {
-                "slug": "child-insurance",
                 "title": "Child Insurance",
+                "href": "/insurance-plans/plan-details",
                 "icon": "users-three",
                 "homeIcon": "users-three",
                 "text": "Secure your child’s dreams with a strong financial foundation.",
@@ -674,8 +722,8 @@
                 ]
               },
               {
-                "slug": "retirement-plans",
                 "title": "Retirement Plans",
+                "href": "/insurance-plans/plan-details",
                 "icon": "hand-coins",
                 "homeIcon": "hand-coins",
                 "text": "Plan today for a financially independent and worry-free tomorrow.",
@@ -931,10 +979,10 @@
             "allPostsLabel": "View all posts",
             "posts": [
               {
-                "slug": "how-life-insurance-secures-your-familys-future",
                 "category": "Life Insurance",
                 "date": "2026-08-15",
                 "title": "How Life Insurance Secures Your Family’s Future",
+                "href": "/blogs/blog-details",
                 "titleLines": [
                   "How Life Insurance Secures",
                   "Your Family’s Future"
@@ -970,10 +1018,10 @@
                 }
               },
               {
-                "slug": "why-health-insurance-is-essential-for-everyone",
                 "category": "Health Insurance",
                 "date": "2026-08-12",
                 "title": "Why Health Insurance is Essential for Everyone",
+                "href": "/blogs/blog-details",
                 "titleLines": [
                   "Why Health Insurance is",
                   "Essential for Everyone"
@@ -1009,10 +1057,10 @@
                 }
               },
               {
-                "slug": "travel-insurance-your-companion-for-a-worry-free-trip",
                 "category": "Travel Insurance",
                 "date": "2026-08-10",
                 "title": "Travel Insurance: Your Companion for a Worry-Free Trip",
+                "href": "/blogs/blog-details",
                 "titleLines": [
                   "Travel Insurance: Your",
                   "Companion for a Worry-Free Trip"
@@ -1048,10 +1096,10 @@
                 }
               },
               {
-                "slug": "home-insurance-protect-what-matters-most",
                 "category": "Home Insurance",
                 "date": "2026-08-08",
                 "title": "Home Insurance: Protect What Matters Most",
+                "href": "/blogs/blog-details",
                 "titleLines": [
                   "Home Insurance: Protect",
                   "What Matters Most"
@@ -1087,10 +1135,10 @@
                 }
               },
               {
-                "slug": "motor-insurance-drive-with-complete-confidence",
                 "category": "Motor Insurance",
                 "date": "2026-08-05",
                 "title": "Motor Insurance: Drive with Complete Confidence",
+                "href": "/blogs/blog-details",
                 "titleLines": [
                   "Motor Insurance: Drive",
                   "with Complete Confidence"
@@ -1126,10 +1174,10 @@
                 }
               },
               {
-                "slug": "business-insurance-safeguard-what-you-have-built",
                 "category": "Business Insurance",
                 "date": "2026-08-02",
                 "title": "Business Insurance: Safeguard What You’ve Built",
+                "href": "/blogs/blog-details",
                 "titleLines": [
                   "Business Insurance: Safeguard",
                   "What You’ve Built"

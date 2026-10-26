@@ -1,4 +1,5 @@
 import Icon from "@/components/Icon";
+import Loop from "@/components/Loop";
 import { contact, contactLines } from "@/lib/contact";
 import data from "@/data";
 
@@ -10,17 +11,19 @@ export default function Location() {
   return (
     <section className="relative h-[360px] w-full overflow-hidden bg-[#faf8fb] sm:h-[420px] xl:h-[480px]">
       <iframe
-        title={`Map showing the ${data.site.name} office at ${address}`}
+        title={data.site.labels.map.replace("{name}", data.site.name).replace("{address}", address)}
         src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen
         className="absolute inset-0 h-full w-full border-0"
       />
-      <div className="pointer-events-none wrap relative pt-6 sm:pt-10">
-        <div className="pointer-events-auto flex w-[327px] max-w-full items-center gap-[16px] rounded-[12px] bg-white px-[8px] py-[12px] shadow-card sm:py-[16px]">
+      <div className="pointer-events-none mx-auto w-full max-w-[1440px] px-5 sm:px-8 xl:px-[60px] relative pt-6 sm:pt-10">
+        <div className="pointer-events-auto flex w-[327px] max-w-full items-center gap-[16px] rounded-[12px] bg-white px-[8px] py-[12px] shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)] sm:py-[16px]">
           <span className="grid size-[56px] shrink-0 place-items-center rounded-full bg-rose text-primary sm:size-[72px]">
-            <Icon name="pin-solid" className="size-[38px] animate-float sm:size-[52px]" />
+            <Loop effect="float">
+              <Icon name="pin-solid" className="size-[38px] sm:size-[52px]" />
+            </Loop>
           </span>
           <span>
             <span className="block text-[15.8px] font-semibold text-ink">{location.mapCard.title}</span>

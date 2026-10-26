@@ -22,7 +22,7 @@ export default function EnquiryForm({ layout = "stack", defaultPlan = "" }: Prop
     router.push("/thank-you");
   };
 
-  const field = `w-full rounded-[8px] border border-line bg-white text-ink outline-none transition-all duration-300 placeholder:text-[#656b81] hover:border-primary/50 focus:border-primary focus:shadow-[0_0_0_3px_rgba(143,21,69,0.12)] ${
+  const field = `w-full rounded-[8px] border border-line bg-white text-ink outline-none transition-all duration-300 placeholder:text-[#656b81] hover:border-primary/50 focus:border-primary focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] ${
     compact ? "h-[52px] px-4 text-[15.2px]" : "h-[58px] px-5 text-[15px] xl:h-[63px] xl:text-[16px]"
   }`;
 
@@ -46,7 +46,7 @@ export default function EnquiryForm({ layout = "stack", defaultPlan = "" }: Prop
             {compact ? form.planShort : form.plan}
           </option>
           {plans.items.map((p) => (
-            <option key={p.slug} value={p.slug} className="text-ink">
+            <option key={p.title} value={p.title} className="text-ink">
               {p.title}
             </option>
           ))}
@@ -67,7 +67,7 @@ export default function EnquiryForm({ layout = "stack", defaultPlan = "" }: Prop
       )}
       <button
         type="submit"
-        className={`group inline-flex w-full items-center justify-center gap-4 rounded-full border-[1.5px] border-primary bg-primary font-heading font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-primary hover:shadow-[0_8px_20px_rgba(97,6,49,0.22)] ${
+        className={`group inline-flex w-full items-center justify-center gap-4 rounded-full border-[1.5px] border-primary bg-primary font-heading font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-primary hover:shadow-[0_8px_20px_color-mix(in_srgb,var(--color-plum)_22%,transparent)] ${
           compact ? "mt-[4px] h-[59px] text-[16px]" : "h-[62px] text-[17px]"
         } ${layout === "grid" ? "mt-[2px] sm:col-span-2 xl:h-[71px] xl:text-[17.3px]" : ""} ${layout === "stack" ? "mt-[6px] xl:h-[66px] xl:text-[19.2px]" : ""}`}
       >

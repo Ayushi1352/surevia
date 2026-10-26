@@ -8,7 +8,7 @@ const { plans } = data;
 
 export default function Plans() {
   return (
-    <section className="wrap section-pad">
+    <section data-section-pad className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 xl:px-[60px] py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0">
       <Reveal>
         <Slider
           className="gap-[19px]"
@@ -20,12 +20,12 @@ export default function Plans() {
         >
           {plans.items.map((plan) => (
             <div
-              key={plan.slug}
+              key={plan.title}
               className="shrink-0 basis-[82%] snap-start sm:basis-[calc((100%-19px)/2)] lg:basis-[calc((100%-57px)/4)] xl:basis-[calc((100%-95px)/6)]"
             >
               <PlanCard
                 variant="home"
-                href={`/insurance-plans/${plan.slug}`}
+                href={plan.href}
                 title={plan.title}
                 text={plan.text}
                 lines={plan.homeText}

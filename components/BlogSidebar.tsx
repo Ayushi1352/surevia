@@ -6,17 +6,17 @@ import data from "@/data";
 
 const { blogs, blogDetail: blog } = data;
 
-export default function Sidebar({ post: current }: { post: BlogPost }) {
-  const latest = blogs.posts.filter((post) => post.slug !== current.slug).slice(0, 5);
+export default function BlogSidebar({ post: current }: { post: BlogPost }) {
+  const latest = blogs.posts.filter((post) => post.title !== current.title).slice(0, 5);
 
   return (
     <Reveal as="aside" effect="right" className="grid content-start gap-[28px] md:grid-cols-2 lg:grid-cols-1">
-      <div className="overflow-hidden rounded-[12px] bg-white shadow-card">
+      <div className="overflow-hidden rounded-[12px] bg-white shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)]">
         <h2 className="bg-[#f8f8fa] px-[20px] py-[15px] font-heading text-[21px] font-bold text-ink">{blog.latestTitle}</h2>
         <ul className="px-[22px] pb-[4px]">
           {latest.map((post) => (
-            <li key={post.slug} className="border-b border-line last:border-0">
-              <Link href={`/blogs/${post.slug}`} className="group flex items-center gap-[18px] py-[20px]">
+            <li key={post.title} className="border-b border-line last:border-0">
+              <Link href={post.href} className="group flex items-center gap-[18px] py-[20px]">
                 <Image
                   src={post.image}
                   alt=""
@@ -40,7 +40,7 @@ export default function Sidebar({ post: current }: { post: BlogPost }) {
         </ul>
       </div>
 
-      <div className="overflow-hidden rounded-[12px] bg-white shadow-card">
+      <div className="overflow-hidden rounded-[12px] bg-white shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)]">
         <h2 className="bg-[#f8f8fa] px-[20px] py-[16px] font-heading text-[21px] font-bold text-ink">
           {blog.categoriesTitle}
         </h2>

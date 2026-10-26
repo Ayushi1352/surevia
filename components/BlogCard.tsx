@@ -18,7 +18,7 @@ export default function BlogCard({ href, category, date, title, titleLines, text
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col overflow-hidden rounded-[12px] bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)]"
+      className="group flex h-full flex-col overflow-hidden rounded-[12px] bg-white shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)]"
     >
       <div className="relative aspect-[423/211] overflow-hidden">
         <Image

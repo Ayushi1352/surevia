@@ -10,7 +10,7 @@ export default function Blogs({ limit, category }: { limit?: number; category?: 
   const filtered = category ? blogs.posts.filter((post) => post.category === category) : blogs.posts;
   const posts = limit ? filtered.slice(0, limit) : filtered;
   return (
-    <section className="wrap section-pad">
+    <section data-section-pad className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 xl:px-[60px] py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0">
       <Reveal>
         <SectionTitle eyebrow={blogs.eyebrow} text={blogs.text}>
           {blogs.title} <Accent>{blogs.highlight}</Accent>
@@ -28,8 +28,8 @@ export default function Blogs({ limit, category }: { limit?: number; category?: 
       </Reveal>
       <div className="mt-8 grid gap-x-[23px] gap-y-[42px] md:grid-cols-2 lg:grid-cols-3 xl:gap-y-[48px]">
         {posts.map((post, i) => (
-          <Reveal key={post.slug} delay={(i % 3) * 120}>
-            <BlogCard href={`/blogs/${post.slug}`} buttonLabel={blogs.buttonLabel} {...post} />
+          <Reveal key={post.title} delay={(i % 3) * 120}>
+            <BlogCard buttonLabel={blogs.buttonLabel} {...post} />
           </Reveal>
         ))}
       </div>

@@ -6,6 +6,7 @@ import Icon from "./Icon";
 import data from "@/data";
 
 const { slides } = data.hero;
+const { labels } = data.site;
 
 const AUTOPLAY_MS = 5000;
 const SWIPE_PX = 40;
@@ -51,26 +52,26 @@ export default function Hero() {
             preload={i === 0}
             quality={90}
             sizes="(min-width: 1024px) 80vw, 100vw"
-            className={`object-cover object-[50%_34%] transition-opacity duration-700 ${i === index ? "animate-zoom-out opacity-100" : "opacity-0"}`}
+            className={`object-cover object-[50%_34%] transition-[opacity,scale] ${i === index ? "scale-100 opacity-100 ease-out [transition-duration:840ms,7s] starting:scale-110 starting:opacity-0" : "scale-110 opacity-0 [transition-duration:700ms,0s] [transition-delay:0s,700ms]"}`}
           />
         ))}
       </div>
       {/* Below lg the text runs across the whole photo, so the overlay stays dark to the right edge */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#1c1b1f]/90 via-[#1c1b1f]/75 to-[#1c1b1f]/50 lg:from-[#1c1b1f]/85 lg:via-[#1c1b1f]/45 lg:to-[#1c1b1f]/10" />
 
-      <div key={index} className="wrap relative pt-14 pb-24 lg:py-16 xl:px-[57px] xl:pt-[68px] xl:pb-[50px]">
-        <p className="flex animate-fade-up items-center gap-4 font-heading text-[16px] font-medium text-white xl:gap-[17px] xl:text-[19.7px]">
+      <div key={index} className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 relative pt-14 pb-24 lg:py-16 xl:px-[57px] xl:pt-[68px] xl:pb-[50px]">
+        <p className="flex transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[28px] starting:opacity-0 items-center gap-4 font-heading text-[16px] font-medium text-white xl:gap-[17px] xl:text-[19.7px]">
           <span className="h-[2px] w-12 shrink-0 bg-primary" />
           {slide.eyebrow}
         </p>
-        <h1 className="mt-5 animate-fade-up font-heading [animation-delay:120ms] text-[36px] leading-[1.15] font-bold text-white sm:text-[48px] xl:mt-[26px] xl:text-[62.5px] xl:leading-[67px]">
+        <h1 className="mt-5 transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[28px] starting:opacity-0 delay-120 font-heading text-[36px] leading-[1.15] font-bold text-white sm:text-[48px] xl:mt-[26px] xl:text-[62.5px] xl:leading-[67px]">
           {slide.title.map((l) => (
             <span key={l} className="lg:block">
               {l}{" "}
             </span>
           ))}
         </h1>
-        <p className="mt-5 animate-fade-up [animation-delay:240ms] max-w-[640px] xl:max-w-[632px] font-heading text-[17px] font-medium leading-[1.4] text-white/80 sm:text-[20px] xl:mt-[19px] xl:text-[24.8px] xl:leading-[31.5px]">
+        <p className="mt-5 transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[28px] starting:opacity-0 delay-240 max-w-[640px] xl:max-w-[632px] font-heading text-[17px] font-medium leading-[1.4] text-white/80 sm:text-[20px] xl:mt-[19px] xl:text-[24.8px] xl:leading-[31.5px]">
           {slide.text}
         </p>
       </div>
@@ -80,7 +81,7 @@ export default function Hero() {
           <button
             key={s.image}
             type="button"
-            aria-label={`Go to slide ${i + 1}`}
+            aria-label={labels.goToSlide.replace("{n}", String(i + 1))}
             aria-current={i === index}
             onClick={() => setIndex(i)}
             className={`h-[6px] rounded-full transition-all duration-300 ${i === index ? "w-8 bg-primary" : "w-[6px] bg-white/60 hover:bg-white"}`}
@@ -90,8 +91,8 @@ export default function Hero() {
 
       <div className="absolute right-8 top-1/2 hidden translate-y-[-8%] flex-col gap-[15px] lg:flex xl:top-[calc(50%-33px)] xl:translate-y-0 xl:right-[40px]">
         {[
-          { icon: "arrow-left", step: -1, label: "Previous slide" },
-          { icon: "arrow-right", step: 1, label: "Next slide" },
+          { icon: "arrow-left", step: -1, label: labels.previousSlide },
+          { icon: "arrow-right", step: 1, label: labels.nextSlide },
         ].map((b) => (
           <button
             key={b.label}

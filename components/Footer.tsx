@@ -17,7 +17,7 @@ const contactHrefs: Record<string, string> = {
 export default function Footer() {
   return (
     <footer className="bg-plum text-white">
-      <div className="wrap grid grid-cols-2 gap-x-4 gap-y-8 pt-14 pb-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 lg:grid-cols-[240px_minmax(0,1fr)_minmax(0,1fr)_270px] lg:gap-x-6 lg:gap-y-0 lg:pt-[62px] lg:pb-[39px] xl:grid-cols-[330px_minmax(0,1fr)_minmax(0,1fr)_330px] xl:gap-x-8 xl:pt-[62px] xl:pr-[34px] xl:pb-[39px] xl:pl-[34px]">
+      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 grid grid-cols-2 gap-x-4 gap-y-8 pt-14 pb-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 lg:grid-cols-[240px_minmax(0,1fr)_minmax(0,1fr)_270px] lg:gap-x-6 lg:gap-y-0 lg:pt-[62px] lg:pb-[39px] xl:grid-cols-[330px_minmax(0,1fr)_minmax(0,1fr)_330px] xl:gap-x-8 xl:pt-[62px] xl:pr-[34px] xl:pb-[39px] xl:pl-[34px]">
         <Reveal className="col-span-2 sm:col-span-1 lg:pr-[10px] xl:pr-[50px]">
           <Link href="/" aria-label={site.name} className="inline-block transition-transform duration-300 hover:scale-105">
             <Image
@@ -49,7 +49,7 @@ export default function Footer() {
         {footer.columns.map((col, i) => {
           const links =
             col.source === "plans"
-              ? plans.items.map((plan) => ({ label: plan.title, href: `/insurance-plans/${plan.slug}` }))
+              ? plans.items.map((plan) => ({ label: plan.title, href: plan.href }))
               : col.links;
 
           return (
@@ -105,7 +105,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/25">
-        <div className="wrap flex flex-col items-center justify-between gap-4 py-5 text-center sm:flex-row sm:text-left xl:py-[24px]">
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 xl:px-[60px] flex flex-col items-center justify-between gap-4 py-5 text-center sm:flex-row sm:text-left xl:py-[24px]">
           <p className="text-[13.5px]">{footer.copyright}</p>
           <div className="flex flex-wrap items-center justify-center gap-y-3 xl:-mr-[9px]">
             <ul className="flex flex-wrap items-center justify-center text-[11.3px]">
@@ -119,7 +119,7 @@ export default function Footer() {
             </ul>
             <a
               href="#"
-              aria-label="Back to top"
+              aria-label={site.labels.backToTop}
               className="group ml-4 grid size-[40px] place-items-center rounded-full bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:text-plum sm:ml-[30px]"
             >
               <Icon name="arrow-up" className="size-[18px] group-hover:animate-bounce" strokeWidth={2} />

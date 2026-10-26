@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "./Button";
+import Loop from "./Loop";
 import Reveal from "./Reveal";
 import data from "@/data";
 
@@ -14,11 +15,15 @@ export default function Cta() {
           <Image src={cta.image} alt="" fill sizes="(min-width: 1024px) 843px, 100vw" quality={90} className="object-cover object-left" />
         </div>
       </div>
-      <span className="absolute -top-[240px] left-[8%] hidden h-[330px] w-[620px] animate-float rounded-[50%] bg-[#8f1545]/35 lg:block" />
-      <span className="absolute -bottom-[210px] -left-[120px] size-[380px] animate-float rounded-full [animation-delay:-2.5s] bg-[#8f1545]/35" />
+      <Loop effect="float">
+        <span className="absolute -top-[240px] left-[8%] hidden h-[330px] w-[620px] rounded-[50%] bg-primary/35 lg:block" />
+      </Loop>
+      <Loop effect="float" delay={-2500}>
+        <span className="absolute -bottom-[210px] -left-[120px] size-[380px] rounded-full bg-primary/35" />
+      </Loop>
 
       {/* Button sits under the text, in the section's bottom-left corner */}
-      <div className="wrap relative flex min-h-[320px] flex-col items-start justify-center gap-8 py-12 xl:min-h-[373px] xl:gap-[28px] xl:py-[48px] xl:pr-[56px] xl:pl-[62px]">
+      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 relative flex min-h-[320px] flex-col items-start justify-center gap-8 py-12 xl:min-h-[373px] xl:gap-[28px] xl:py-[48px] xl:pr-[56px] xl:pl-[62px]">
         <Reveal effect="left">
           <p className="flex items-center gap-4 font-heading text-[16px] font-medium text-white xl:gap-[17px] xl:text-[20.7px]">
             <span className="h-[2px] w-[33px] shrink-0 bg-white" />
