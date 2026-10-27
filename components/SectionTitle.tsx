@@ -9,9 +9,9 @@ type Props = {
 };
 
 const sizes = {
-  lg: "text-[30px] leading-[1.15] sm:text-[38px] lg:text-[34px] xl:text-[46px] xl:leading-[50px]",
-  md: "text-[28px] leading-[1.18] sm:text-[34px] xl:text-[38px] xl:leading-[44px]",
-  sm: "text-[24px] leading-[1.2] sm:text-[28px] xl:text-[30px] xl:leading-[38px]",
+  lg: "text-[1.875rem] leading-[1.15] sm:text-[2.375rem] lg:text-[2.125rem] xl:text-[2.875rem] xl:leading-[3.125rem]",
+  md: "text-[1.75rem] leading-[1.18] sm:text-[2.125rem] xl:text-[2.375rem] xl:leading-[2.75rem]",
+  sm: "text-[1.5rem] leading-[1.2] sm:text-[1.75rem] xl:text-[1.875rem] xl:leading-[2.375rem]",
 };
 
 export function Eyebrow({
@@ -25,9 +25,9 @@ export function Eyebrow({
 }) {
   return (
     <p
-      className={`flex items-center gap-4 font-heading text-[15px] font-medium xl:text-[17px] ${light ? "text-white" : "text-primary"} ${className}`}
+      className={`flex items-center gap-4 font-heading text-[0.9375rem] font-medium xl:text-[1.0625rem] ${light ? "text-white" : "text-primary"} ${className}`}
     >
-      <span className={`h-[2px] w-9 shrink-0 ${light ? "bg-white" : "bg-primary"}`} />
+      <span className={`h-[0.125rem] w-9 shrink-0 ${light ? "bg-white" : "bg-primary"}`} />
       {children}
     </p>
   );
@@ -42,7 +42,7 @@ export default function SectionTitle({ eyebrow, children, text, size = "md", cla
     <div className={className}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       <h2 className={`mt-3 font-heading font-extrabold tracking-[-0.01em] text-ink ${sizes[size]}`}>{children}</h2>
-      {text && <p className="mt-3 font-heading text-[15px] leading-[1.6] font-medium text-body xl:text-[16px]">{text}</p>}
+      {text && <p className="mt-3 font-heading text-[0.9375rem] leading-[1.6] font-medium text-body xl:text-[1rem]">{text}</p>}
     </div>
   );
 }

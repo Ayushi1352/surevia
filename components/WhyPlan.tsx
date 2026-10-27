@@ -7,7 +7,7 @@ const { planDetail } = data;
 
 export default function WhyPlan({ title }: { title: string }) {
   return (
-    <div className="mt-10 xl:mt-[52px]">
+    <div className="mt-10 xl:mt-[3.25rem]">
       <Reveal>
         <SectionTitle eyebrow={planDetail.whyEyebrow} size="sm">
           {planDetail.whyTitle}{" "}
@@ -16,20 +16,20 @@ export default function WhyPlan({ title }: { title: string }) {
           </Accent>
         </SectionTitle>
       </Reveal>
-      <ul className="mt-6 grid gap-x-[28px] gap-y-[24px] md:grid-cols-2 xl:mt-[30px]">
+      <ul className="mt-6 grid gap-x-[1.75rem] gap-y-[1.5rem] md:grid-cols-2 xl:mt-[1.875rem]">
         {planDetail.why.map((item, i) => (
           <Reveal
             as="li"
             key={item.title}
             delay={(i % 2) * 120}
-            className="group flex items-center gap-[26px] rounded-[12px] bg-white px-[24px] py-[19px] shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(60,20,40,0.14)]"
+            className="group flex items-center gap-[1.625rem] rounded-[0.75rem] bg-white px-[1.5rem] py-[1.1875rem] shadow-[0_0.25rem_1.375rem_color-mix(in_srgb,var(--color-plum)_8%,transparent)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0.5rem_1.875rem_rgba(60,20,40,0.14)]"
           >
-            <span className="grid size-[76px] shrink-0 place-items-center rounded-full bg-rose text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white xl:size-[90px]">
-              <Icon name={item.icon} className="size-[38px] xl:size-[46px]" strokeWidth={1.5} />
+            <span className="grid size-[4.75rem] shrink-0 place-items-center rounded-full bg-rose text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white xl:size-[5.625rem]">
+              <Icon name={item.icon} className="size-[2.375rem] xl:size-[2.875rem]" strokeWidth={1.5} />
             </span>
             <span>
-              <span className="block font-heading text-[17px] font-bold text-ink xl:text-[19.4px]">{item.title}</span>
-              <span className="mt-1.5 block max-w-[290px] text-[15px] leading-[1.55] text-[#6a7083] xl:text-[17.9px] xl:leading-[26px]">
+              <span className="block font-heading text-[1.0625rem] font-bold text-ink xl:text-[1.2125rem]">{item.title}</span>
+              <span className="mt-1.5 block max-w-[18.125rem] text-[0.9375rem] leading-[1.55] text-[#6a7083] xl:text-[1.11875rem] xl:leading-[1.625rem]">
                 {item.text}
               </span>
             </span>

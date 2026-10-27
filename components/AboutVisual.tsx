@@ -9,12 +9,12 @@ const { about } = data;
 // Every layer is placed in % of the frame so the composition scales as one piece.
 export default function AboutVisual({ className = "" }: { className?: string }) {
   return (
-    <Reveal effect="right" className={`relative mx-auto aspect-[840/790] w-full max-w-[717px] ${className}`}>
+    <Reveal effect="right" className={`relative mx-auto aspect-[840/790] w-full max-w-[44.8125rem] ${className}`}>
       <Loop effect="pulse-ring">
         <span className="absolute top-[12%] left-[12%] z-10 aspect-square w-[4.05%] rounded-full bg-primary text-primary" />
       </Loop>
 
-      <div className="group absolute top-[3.7%] left-[3.2%] h-[84.9%] w-[91.5%] overflow-hidden rounded-[50%] shadow-[0_12px_44px_rgba(60,20,40,0.08)]">
+      <div className="group absolute top-[3.7%] left-[3.2%] h-[84.9%] w-[91.5%] overflow-hidden rounded-[50%] shadow-[0_0.75rem_2.75rem_rgba(60,20,40,0.08)]">
         <Image
           src={about.mainImage}
           alt={about.mainImageAlt}

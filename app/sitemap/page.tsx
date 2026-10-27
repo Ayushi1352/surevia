@@ -19,14 +19,14 @@ export default function SitemapPage() {
     <>
       <Banner title={title} />
       <section data-section-pad className="bg-white py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0">
-        <div className="mx-auto w-full max-w-[1100px] px-5 sm:px-8 xl:px-[60px]">
+        <div className="mx-auto w-full max-w-[68.75rem] px-5 sm:px-8 xl:px-[3.75rem]">
           <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
             <Reveal>
-              <h2 className="border-b border-line pb-3 font-heading text-[20px] font-semibold text-ink">{sitemap.pagesTitle}</h2>
+              <h2 className="border-b border-line pb-3 font-heading text-[1.25rem] font-semibold text-ink">{sitemap.pagesTitle}</h2>
               <ul className="mt-4 space-y-3">
                 {pageLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="inline-block text-[14.5px] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
+                    <Link href={link.href} className="inline-block text-[0.90625rem] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
                       {link.label}
                     </Link>
                   </li>
@@ -34,11 +34,11 @@ export default function SitemapPage() {
               </ul>
             </Reveal>
             <Reveal delay={120}>
-              <h2 className="border-b border-line pb-3 font-heading text-[20px] font-semibold text-ink">{pageTitle("/insurance-plans")}</h2>
+              <h2 className="border-b border-line pb-3 font-heading text-[1.25rem] font-semibold text-ink">{pageTitle("/insurance-plans")}</h2>
               <ul className="mt-4 space-y-3">
                 {data.plans.items.map((plan) => (
                   <li key={plan.title}>
-                    <Link href={plan.href} className="inline-block text-[14.5px] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
+                    <Link href={plan.href} className="inline-block text-[0.90625rem] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
                       {plan.title}
                     </Link>
                   </li>
@@ -46,11 +46,11 @@ export default function SitemapPage() {
               </ul>
             </Reveal>
             <Reveal delay={240}>
-              <h2 className="border-b border-line pb-3 font-heading text-[20px] font-semibold text-ink">{sitemap.policiesTitle}</h2>
+              <h2 className="border-b border-line pb-3 font-heading text-[1.25rem] font-semibold text-ink">{sitemap.policiesTitle}</h2>
               <ul className="mt-4 space-y-3">
                 {policyLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="inline-block text-[14.5px] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
+                    <Link href={link.href} className="inline-block text-[0.90625rem] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
                       {link.label}
                     </Link>
                   </li>

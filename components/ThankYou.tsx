@@ -18,7 +18,7 @@ const sparks: [number, number, number, number, boolean][] = [
 export default function ThankYou() {
   return (
     <div className="text-center">
-      <svg viewBox="0 0 372 186" aria-hidden="true" className="mx-auto h-auto w-[280px] transition-[opacity,scale] duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] starting:scale-50 starting:opacity-0 sm:w-[372px]">
+      <svg viewBox="0 0 372 186" aria-hidden="true" className="mx-auto h-auto w-[17.5rem] transition-[opacity,scale] duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] starting:scale-50 starting:opacity-0 sm:w-[23.25rem]">
         {sparks.map(([x1, y1, x2, y2, faded], i) => (
           <Loop key={`${x1}-${y1}`} effect="twinkle" delay={i * 250} svg>
             <line
@@ -47,28 +47,28 @@ export default function ThankYou() {
         />
       </svg>
 
-      <h1 className="mt-3 transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[28px] starting:opacity-0 delay-200 font-heading text-[54px] leading-[1.1] font-extrabold tracking-[-0.02em] text-ink sm:text-[72px] xl:mt-[2px] xl:text-[76.6px]">
+      <h1 className="mt-3 transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[1.75rem] starting:opacity-0 delay-200 font-heading text-[3.375rem] leading-[1.1] font-extrabold tracking-[-0.02em] text-ink sm:text-[4.5rem] xl:mt-[0.125rem] xl:text-[4.7875rem]">
         {thankYou.title} <Accent>{thankYou.highlight}</Accent>
       </h1>
-      <p className="mt-3 transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[28px] starting:opacity-0 delay-320 font-heading text-[18px] font-bold text-ink sm:text-[22px] xl:mt-[8px] xl:text-[21.8px] xl:leading-[30px]">{thankYou.subtitle}</p>
-      <p className="mx-auto mt-3 transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[28px] starting:opacity-0 delay-440 max-w-[780px] text-[15.5px] leading-[1.5] text-body sm:text-[18px] sm:leading-[26px] xl:mt-[8px] xl:text-[17.1px]">
+      <p className="mt-3 transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[1.75rem] starting:opacity-0 delay-320 font-heading text-[1.125rem] font-bold text-ink sm:text-[1.375rem] xl:mt-[0.5rem] xl:text-[1.3625rem] xl:leading-[1.875rem]">{thankYou.subtitle}</p>
+      <p className="mx-auto mt-3 transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[1.75rem] starting:opacity-0 delay-440 max-w-[48.75rem] text-[0.96875rem] leading-[1.5] text-body sm:text-[1.125rem] sm:leading-[1.625rem] xl:mt-[0.5rem] xl:text-[1.06875rem]">
         {thankYou.text.map((l) => (
           <span key={l} className="md:block">
             {l}{" "}
           </span>
         ))}
       </p>
-      <div className="mt-7 flex transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[28px] starting:opacity-0 delay-560 flex-col items-center justify-center gap-4 sm:flex-row sm:gap-[17px] xl:mt-[24px]">
+      <div className="mt-7 flex transition-[opacity,translate] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[1.75rem] starting:opacity-0 delay-560 flex-col items-center justify-center gap-4 sm:flex-row sm:gap-[1.0625rem] xl:mt-[1.5rem]">
         <Button
           href={thankYou.primaryButton.href}
           label={thankYou.primaryButton.label}
-          className="h-[56px] w-full max-w-[267px] font-semibold"
+          className="h-[3.5rem] w-full max-w-[16.6875rem] font-semibold"
         />
         <Button
           href={thankYou.secondaryButton.href}
           label={thankYou.secondaryButton.label}
           variant="outline"
-          className="h-[56px] w-full max-w-[296px] font-semibold"
+          className="h-[3.5rem] w-full max-w-[18.5rem] font-semibold"
         />
       </div>
     </div>

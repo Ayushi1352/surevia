@@ -9,18 +9,18 @@ type Plan = (typeof data.plans.items)[number];
 
 export default function PlanOverview({ plan }: { plan: Plan }) {
   return (
-    <div className="grid items-start gap-8 md:grid-cols-[1fr_389px] md:gap-[40px]">
-      <Reveal effect="left" className="md:pt-[20px]">
+    <div className="grid items-start gap-8 md:grid-cols-[1fr_24.3125rem] md:gap-[2.5rem]">
+      <Reveal effect="left" className="md:pt-[1.25rem]">
         <SectionTitle eyebrow={planDetail.overviewEyebrow} size="sm">
           {planDetail.overviewTitle} <Accent>{plan.title}?</Accent>
         </SectionTitle>
-        <div className="mt-4 space-y-[14px] text-[15px] leading-[1.65] text-body xl:mt-[17px] xl:space-y-[18px] xl:text-[18.2px] xl:leading-[26.3px]">
+        <div className="mt-4 space-y-[0.875rem] text-[0.9375rem] leading-[1.65] text-body xl:mt-[1.0625rem] xl:space-y-[1.125rem] xl:text-[1.1375rem] xl:leading-[1.64375rem]">
           {plan.overview.map((p) => (
             <p key={p}>{p}</p>
           ))}
         </div>
       </Reveal>
-      <Reveal effect="right" className="group relative aspect-[453/425] overflow-hidden rounded-[12px]">
+      <Reveal effect="right" className="group relative aspect-[453/425] overflow-hidden rounded-[0.75rem]">
         <Image
           src={plan.detailImage ?? plan.image}
           alt={plan.title}

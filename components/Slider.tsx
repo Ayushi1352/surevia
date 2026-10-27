@@ -42,7 +42,7 @@ export default function Slider({ header, children, className = "", autoplay }: P
     <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="flex items-start justify-between gap-6">
         {header}
-        <div className="mt-[34px] hidden shrink-0 gap-[13px] sm:flex xl:mt-[34px]">
+        <div className="mt-[2.125rem] hidden shrink-0 gap-[0.8125rem] sm:flex xl:mt-[2.125rem]">
           {[
             { icon: "arrow-left", dir: -1, label: data.site.labels.previous },
             { icon: "arrow-right", dir: 1, label: data.site.labels.next },
@@ -52,9 +52,9 @@ export default function Slider({ header, children, className = "", autoplay }: P
               type="button"
               aria-label={b.label}
               onClick={() => step(track.current, b.dir)}
-              className="grid size-[46px] place-items-center rounded-full border border-primary/40 bg-blush text-primary transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white active:scale-95"
+              className="grid size-[2.875rem] place-items-center rounded-full border border-primary/40 bg-blush text-primary transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white active:scale-95"
             >
-              <Icon name={b.icon} className="size-[18px]" strokeWidth={2} />
+              <Icon name={b.icon} className="size-[1.125rem]" strokeWidth={2} />
             </button>
           ))}
         </div>

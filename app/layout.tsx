@@ -27,19 +27,28 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
+      // Root font size: 16px, and from 1024px up it follows the 1440px design (1rem = 1/90 of the screen, at most 16px),
+      // so zooming in or out on a desktop keeps the same layout instead of reflowing it.
       // scroll-pt: Next.js scrolls new pages into view past the sticky header; keep the banner clear of it.
       // Tailwind v4 leaves buttons on the default cursor, so everything clickable gets the pointer.
-      className={`${fontVariables} scroll-smooth scroll-pt-[72px] antialiased md:scroll-pt-[134px] lg:scroll-pt-[138px] xl:scroll-pt-[152px] [&_:where(a[href],button:not(:disabled),select,summary,label[for],[role=button])]:cursor-pointer motion-reduce:scroll-auto motion-reduce:**:animate-none! motion-reduce:**:duration-[0.01ms]!`}
+      className={`${fontVariables} [font-size:16px] lg:[font-size:min(16px,calc(100vw/90))] scroll-smooth scroll-pt-[4.5rem] antialiased md:scroll-pt-[8.375rem] lg:scroll-pt-[8.625rem] xl:scroll-pt-[9.5rem] [&_:where(a[href],button:not(:disabled),select,summary,label[for],[role=button])]:cursor-pointer motion-reduce:scroll-auto motion-reduce:**:animate-none! motion-reduce:**:duration-[0.01ms]!`}
     >
       <head>
         <style dangerouslySetInnerHTML={{ __html: themeCss }} />
       </head>
-      <body className="flex min-h-screen flex-col overflow-x-hidden">
-        <Navbar />
-        <main className="flex-1">
-          <ScrollToTop>{children}</ScrollToTop>
-        </main>
-        <Footer />
+      <body className="min-h-screen">
+        {/*
+          The whole site sits in one frame, at most 1920px wide and centred. Up to 1920px it fills the
+          screen, so nothing changes; on wider screens or when the browser is zoomed out the page stays
+          in the middle with equal space on both sides instead of stretching.
+        */}
+        <div className="mx-auto flex min-h-screen w-full max-w-[120rem] flex-col overflow-x-clip bg-background">
+          <Navbar />
+          <main className="flex-1">
+            <ScrollToTop>{children}</ScrollToTop>
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

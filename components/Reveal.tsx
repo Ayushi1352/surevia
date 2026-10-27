@@ -14,9 +14,9 @@ type Props = {
 // Where each effect starts from. The keyframes animate `transform`, so they never fight the
 // translate/scale utilities used for hover states.
 const from = {
-  up: "translateY(36px)",
-  left: "translateX(-56px)",
-  right: "translateX(56px)",
+  up: "translateY(2.25rem)",
+  left: "translateX(-3.5rem)",
+  right: "translateX(3.5rem)",
   zoom: "scale(0.9)",
 };
 

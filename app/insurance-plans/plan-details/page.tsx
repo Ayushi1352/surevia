@@ -24,7 +24,7 @@ export default function PlanDetailPage() {
           { label: pageTitle("/insurance-plans"), href: "/insurance-plans" },
         ]}
       />
-      <section data-section-pad className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0 grid gap-10 xl:grid-cols-[1fr_377px] xl:gap-[27px] xl:px-[66px]">
+      <section data-section-pad className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0 grid gap-10 xl:grid-cols-[1fr_23.5625rem] xl:gap-[1.6875rem] xl:px-[4.125rem]">
         <div className="min-w-0">
           <PlanOverview plan={plan} />
           <PlanFeatures title={plan.title} />

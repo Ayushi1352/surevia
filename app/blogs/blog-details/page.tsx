@@ -22,7 +22,7 @@ export default function BlogDetailPage() {
           { label: pageTitle("/blogs"), href: "/blogs" },
         ]}
       />
-      <section data-section-pad className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0 grid gap-10 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_388px] xl:gap-[40px] xl:px-[65px]">
+      <section data-section-pad className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0 grid gap-10 lg:grid-cols-[1fr_21.25rem] xl:grid-cols-[1fr_24.25rem] xl:gap-[2.5rem] xl:px-[4.0625rem]">
         <BlogArticle post={post} />
         <BlogSidebar post={post} />
       </section>

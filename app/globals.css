@@ -11,6 +11,15 @@
 }
 
 @theme {
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1020px;
+  --breakpoint-w1100: 1021px;
+  --breakpoint-xl: 1022px;
+  --breakpoint-w1360: 1023px;
+  --breakpoint-w1440: 1024px;
+
   /* Brand colours. These are only defaults: site.json (theme.colors) overrides them in app/layout.tsx. */
   --color-primary: #8f1545;
   --color-primary-dark: #610631;
@@ -20,6 +29,8 @@
   --color-blush: #fcf6f8;
   --color-rose: #fcebf2;
   --color-line: #ececf1;
+  /* Shown on both sides of the page when the screen is wider than 1920px (or the browser is zoomed out). */
+  --color-page: #f5f5f5;
 
   /* Fonts from site.json (theme.fonts) via app/fonts.generated.ts; the second part is the fallback. */
   --font-sans: var(--font-sans-face, ui-sans-serif, system-ui, sans-serif);
@@ -27,7 +38,7 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--color-page);
   color: var(--foreground);
   font-family: var(--font-sans);
 }

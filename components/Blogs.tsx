@@ -10,13 +10,13 @@ export default function Blogs({ limit, category }: { limit?: number; category?: 
   const filtered = category ? blogs.posts.filter((post) => post.category === category) : blogs.posts;
   const posts = limit ? filtered.slice(0, limit) : filtered;
   return (
-    <section data-section-pad className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 xl:px-[60px] py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0">
+    <section data-section-pad className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 xl:px-[3.75rem] py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0">
       <Reveal>
         <SectionTitle eyebrow={blogs.eyebrow} text={blogs.text}>
           {blogs.title} <Accent>{blogs.highlight}</Accent>
         </SectionTitle>
         {category && (
-          <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-heading text-[15px] font-medium text-body">
+          <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-heading text-[0.9375rem] font-medium text-body">
             <span>
               {blogs.categoryLabel} <span className="font-bold text-primary">{category}</span>
             </span>
@@ -26,7 +26,7 @@ export default function Blogs({ limit, category }: { limit?: number; category?: 
           </p>
         )}
       </Reveal>
-      <div className="mt-8 grid gap-x-[23px] gap-y-[42px] md:grid-cols-2 lg:grid-cols-3 xl:gap-y-[48px]">
+      <div className="mt-8 grid gap-x-[1.4375rem] gap-y-[2.625rem] md:grid-cols-2 lg:grid-cols-3 xl:gap-y-[3rem]">
         {posts.map((post, i) => (
           <Reveal key={post.title} delay={(i % 3) * 120}>
             <BlogCard buttonLabel={blogs.buttonLabel} {...post} />

@@ -65,30 +65,30 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 bg-[#f8f8f8]">
       {/* Top bar */}
       <div className="hidden border-b border-black/5 bg-[#f9f9f9] md:block">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 flex h-[62px] items-center justify-between pb-[4px] text-[14.5px] text-ink lg:pr-[20px] lg:pl-[24px] xl:pr-[25px] xl:pl-[38px]">
+        <div className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 flex h-[3.875rem] items-center justify-between pb-[0.25rem] text-[0.90625rem] text-ink lg:pr-[1.25rem] lg:pl-[1.5rem] xl:pr-[1.5625rem] xl:pl-[2.375rem]">
           <ul className="flex items-center">
             <li className="flex items-center gap-2.5 pr-6">
-              <Icon name="pin-solid" className="size-[21px] text-plum" />
+              <Icon name="pin-solid" className="size-[1.3125rem] text-plum" />
               {contact.address}
             </li>
             <li className="flex items-center gap-3 border-l border-black/15 px-6">
-              <Icon name="mail-solid" className="size-[25px] text-plum" />
+              <Icon name="mail-solid" className="size-[1.5625rem] text-plum" />
               <a href={`mailto:${contact.email}`} className="transition-colors hover:text-primary">
                 {contact.email}
               </a>
             </li>
             <li className="hidden items-center gap-3 border-l border-black/15 pl-6 lg:flex">
-              <Icon name="phone-solid" className="size-[23px] text-plum" />
+              <Icon name="phone-solid" className="size-[1.4375rem] text-plum" />
               <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="transition-colors hover:text-primary">
                 {contact.phone}
               </a>
             </li>
           </ul>
-          <ul className="flex items-center gap-[15px] border-r border-black/15 pr-[27px] text-plum">
+          <ul className="flex items-center gap-[0.9375rem] border-r border-black/15 pr-[1.6875rem] text-plum">
             {site.socials.map((s) => (
               <li key={s.label}>
                 <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-primary">
-                  <Icon name={s.icon} className="size-[22px]" />
+                  <Icon name={s.icon} className="size-[1.375rem]" />
                 </a>
               </li>
             ))}
@@ -97,7 +97,7 @@ export default function Navbar() {
       </div>
 
       {/* Main bar */}
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 flex h-[72px] items-center justify-between gap-4 lg:h-[76px] lg:pr-[20px] lg:pl-[24px] xl:h-[90px] xl:pr-[25px] xl:pl-[34px]">
+      <div className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 flex h-[4.5rem] items-center justify-between gap-4 lg:h-[4.75rem] lg:pr-[1.25rem] lg:pl-[1.5rem] xl:h-[5.625rem] xl:pr-[1.5625rem] xl:pl-[2.125rem]">
         <Link href="/" onClick={close} className="shrink-0" aria-label={site.name}>
           <Image
             src={site.logo}
@@ -105,17 +105,17 @@ export default function Navbar() {
             width={1359}
             height={475}
             priority
-            className="h-[48px] w-auto lg:h-[52px] xl:h-[66px] min-[85rem]:h-[76px]"
+            className="h-[3rem] w-auto lg:h-[3.25rem] xl:h-[4.125rem] w1360:h-[4.75rem]"
           />
         </Link>
 
         {/* Desktop navigation */}
-        <nav className="relative ml-3 hidden h-full flex-1 items-center self-stretch pr-[44px] pl-[40px] lg:flex xl:ml-4 xl:pr-[48px] xl:pl-[52px] min-[85rem]:ml-6 min-[90rem]:pr-[60px] min-[90rem]:pl-[60px]">
+        <nav className="relative ml-3 hidden h-full flex-1 items-center self-stretch pr-[2.75rem] pl-[2.5rem] lg:flex xl:ml-4 xl:pr-[3rem] xl:pl-[3.25rem] w1360:ml-6 w1440:pr-[3.75rem] w1440:pl-[3.75rem]">
           <span
             aria-hidden="true"
-            className="absolute top-[2px] right-[2px] bottom-0 left-[19px] -skew-x-[37deg] rounded-tl-[22px] rounded-br-[22px] bg-plum"
+            className="absolute top-[0.125rem] right-[0.125rem] bottom-0 left-[1.1875rem] -skew-x-[37deg] rounded-tl-[1.375rem] rounded-br-[1.375rem] bg-plum"
           />
-          <ul className="relative flex items-center gap-[18px] text-[13px] text-white xl:gap-[26px] xl:text-[14px] min-[85rem]:gap-[28px] min-[85rem]:text-[14.6px] min-[90rem]:gap-[34px]">
+          <ul className="relative flex items-center gap-[1.125rem] text-[0.8125rem] text-white xl:gap-[1.625rem] xl:text-[0.875rem] w1360:gap-[1.75rem] w1360:text-[0.9125rem] w1440:gap-[2.125rem]">
             {nav.links.map((link) => {
               const active = isActive(pathname, link.href);
               const shown = link.dropdown && dropdownOpen;
@@ -125,22 +125,22 @@ export default function Navbar() {
                     href={link.href}
                     onClick={link.dropdown ? onDropdownClick : undefined}
                     aria-expanded={link.dropdown ? dropdownOpen : undefined}
-                    className={`relative flex h-[76px] items-center gap-1 pt-[2px] whitespace-nowrap xl:h-[90px] xl:gap-2 ${active ? "font-semibold" : "font-normal"}`}
+                    className={`relative flex h-[4.75rem] items-center gap-1 pt-[0.125rem] whitespace-nowrap xl:h-[5.625rem] xl:gap-2 ${active ? "font-semibold" : "font-normal"}`}
                   >
                     {link.label}
                     {link.dropdown && <Icon name="chevron-down" className={`size-4 transition-transform duration-300 group-hover:rotate-180 ${shown ? "rotate-180" : ""}`} strokeWidth={2.25} />}
                     <span
-                      className={`absolute right-0 bottom-[16px] left-0 h-[2px] xl:bottom-[20px] origin-left bg-white transition-transform duration-300 group-hover:scale-x-100 ${active || shown ? "scale-x-100" : "scale-x-0"}`}
+                      className={`absolute right-0 bottom-[1rem] left-0 h-[0.125rem] xl:bottom-[1.25rem] origin-left bg-white transition-transform duration-300 group-hover:scale-x-100 ${active || shown ? "scale-x-100" : "scale-x-0"}`}
                     />
                   </Link>
                   {link.dropdown && (
-                    <ul className={`absolute top-full left-0 w-[240px] rounded-b-xl bg-white py-2 shadow-[0_4px_22px_color-mix(in_srgb,var(--color-plum)_8%,transparent)] transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${shown ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}>
+                    <ul className={`absolute top-full left-0 w-[15rem] rounded-b-xl bg-white py-2 shadow-[0_0.25rem_1.375rem_color-mix(in_srgb,var(--color-plum)_8%,transparent)] transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${shown ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}>
                       {plans.items.map((plan) => (
                         <li key={plan.title}>
                           <Link
                             href={plan.href}
                             onClick={close}
-                            className="block px-5 py-2.5 text-[14px] text-ink transition-all duration-200 hover:bg-blush hover:pl-7 hover:text-primary"
+                            className="block px-5 py-2.5 text-[0.875rem] text-ink transition-all duration-200 hover:bg-blush hover:pl-7 hover:text-primary"
                           >
                             {plan.title}
                           </Link>
@@ -154,59 +154,57 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-3 sm:gap-5 lg:gap-0 lg:pl-[24px] min-[85rem]:pl-[32px] min-[90rem]:pl-[40px]">
-          {/* 1440px+ (90rem) is the reference layout. From 1360px (85rem, ~110% zoom) everything keeps that size
-              and only the spacing tightens; below that the bar shrinks, and under 1100px (68.75rem) only the icon shows.
-              Breakpoints here are in rem: Tailwind orders px ones like min-[1440px] before xl, so xl would win. */}
+        <div className="flex items-center gap-3 sm:gap-5 lg:gap-0 lg:pl-[1.5rem] w1360:pl-[2rem] w1440:pl-[2.5rem]">
+          {/* The w1440 values are the reference layout; from 1024px up it is scaled to the screen (see app/globals.css). */}
           <a
             href={`tel:${contact.phone.replace(/\s/g, "")}`}
             aria-label={`${site.callLabel} ${contact.phone}`}
-            className="group hidden shrink-0 items-center gap-[10px] lg:mr-[16px] lg:flex min-[68.75rem]:mr-0 min-[85rem]:gap-[11px]"
+            className="group hidden shrink-0 items-center gap-[0.625rem] lg:mr-[1rem] lg:flex w1100:mr-0 w1360:gap-[0.6875rem]"
           >
             <Loop effect="pulse-ring">
-              <span className="grid size-[36px] place-items-center rounded-full bg-plum/10 text-plum transition-colors duration-300 group-hover:bg-plum group-hover:text-white min-[85rem]:size-[43px]">
+              <span className="grid size-[2.25rem] place-items-center rounded-full bg-plum/10 text-plum transition-colors duration-300 group-hover:bg-plum group-hover:text-white w1360:size-[2.6875rem]">
                 <Loop effect="ring">
-                  <Icon name="phone-solid" className="size-[18px] min-[85rem]:size-[21px]" />
+                  <Icon name="phone-solid" className="size-[1.125rem] w1360:size-[1.3125rem]" />
                 </Loop>
               </span>
             </Loop>
-            <span className="hidden leading-tight min-[68.75rem]:block">
-              <span className="block text-[11.5px] text-body xl:text-[12.5px] min-[85rem]:text-[13.5px]">{site.callLabel}</span>
-              <span className="block text-[13.5px] font-semibold whitespace-nowrap text-ink transition-colors duration-300 group-hover:text-primary xl:text-[14.5px] min-[85rem]:text-[16px]">{contact.phone}</span>
+            <span className="hidden leading-tight w1100:block">
+              <span className="block text-[0.71875rem] text-body xl:text-[0.78125rem] w1360:text-[0.84375rem]">{site.callLabel}</span>
+              <span className="block text-[0.84375rem] font-semibold whitespace-nowrap text-ink transition-colors duration-300 group-hover:text-primary xl:text-[0.90625rem] w1360:text-[1rem]">{contact.phone}</span>
             </span>
           </a>
-          <span className="mx-[16px] hidden h-[40px] w-px bg-black/15 min-[68.75rem]:block min-[85rem]:mr-[20px] min-[85rem]:ml-[24px] min-[85rem]:h-[44px] min-[90rem]:mr-[24px] min-[90rem]:ml-[30px]" />
+          <span className="mx-[1rem] hidden h-[2.5rem] w-px bg-black/15 w1100:block w1360:mr-[1.25rem] w1360:ml-[1.5rem] w1360:h-[2.75rem] w1440:mr-[1.5rem] w1440:ml-[1.875rem]" />
           <Link
             href={nav.button.href}
             onClick={close}
-            className="group hidden h-[42px] items-center gap-3 rounded-full bg-plum px-5 text-[14px] font-medium whitespace-nowrap text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:shadow-[0_8px_20px_color-mix(in_srgb,var(--color-plum)_30%,transparent)] lg:inline-flex lg:gap-2 lg:px-3.5 lg:text-[13px] xl:h-[45px] xl:px-5 xl:text-[14px] min-[85rem]:h-[47px] min-[85rem]:w-[163px] min-[85rem]:justify-center min-[85rem]:gap-3 min-[85rem]:px-0 min-[85rem]:text-[14.5px]"
+            className="group hidden h-[2.625rem] items-center gap-3 rounded-full bg-plum px-5 text-[0.875rem] font-medium whitespace-nowrap text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:shadow-[0_0.5rem_1.25rem_color-mix(in_srgb,var(--color-plum)_30%,transparent)] lg:inline-flex lg:gap-2 lg:px-3.5 lg:text-[0.8125rem] xl:h-[2.8125rem] xl:px-5 xl:text-[0.875rem] w1360:h-[2.9375rem] w1360:w-[10.1875rem] w1360:justify-center w1360:gap-3 w1360:px-0 w1360:text-[0.90625rem]"
           >
             {nav.button.label}
-            <Icon name="arrow-right" className="size-[18px] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
+            <Icon name="arrow-right" className="size-[1.125rem] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
           </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? site.labels.closeMenu : site.labels.openMenu}
             aria-expanded={open}
-            className="grid size-[42px] place-items-center rounded-full bg-plum text-white transition-colors hover:bg-primary lg:hidden"
+            className="grid size-[2.625rem] place-items-center rounded-full bg-plum text-white transition-colors hover:bg-primary lg:hidden"
           >
-            <Icon name={open ? "close" : "menu"} className="size-[22px]" strokeWidth={2} />
+            <Icon name={open ? "close" : "menu"} className="size-[1.375rem]" strokeWidth={2} />
           </button>
         </div>
       </div>
 
       {/* Mobile navigation */}
       {open && (
-        <nav className="absolute inset-x-0 top-full transition-opacity duration-250 ease-out starting:opacity-0 h-[calc(100dvh-72px)] overflow-y-auto md:h-[calc(100dvh-134px)] bg-plum text-white shadow-lg lg:hidden">
-          <ul className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 xl:px-[60px] py-3">
+        <nav className="absolute inset-x-0 top-full transition-opacity duration-250 ease-out starting:opacity-0 h-[calc(100dvh-4.5rem)] overflow-y-auto md:h-[calc(100dvh-8.375rem)] bg-plum text-white shadow-lg lg:hidden">
+          <ul className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 xl:px-[3.75rem] py-3">
             {nav.links.map((link) => (
               <li key={link.href} className="border-b border-white/15 last:border-0">
                 <div className="flex items-center justify-between">
                   <Link
                     href={link.href}
                     onClick={close}
-                    className={`flex-1 py-[22px] text-[16px] md:py-7 md:text-[18px] transition-all duration-200 hover:pl-1.5 hover:text-[#ffc9dc] ${isActive(pathname, link.href) ? "font-semibold" : ""}`}
+                    className={`flex-1 py-[1.375rem] text-[1rem] md:py-7 md:text-[1.125rem] transition-all duration-200 hover:pl-1.5 hover:text-[#ffc9dc] ${isActive(pathname, link.href) ? "font-semibold" : ""}`}
                   >
                     {link.label}
                   </Link>
@@ -233,7 +231,7 @@ export default function Navbar() {
                         <Link
                           href={plan.href}
                           onClick={close}
-                          className="block py-2.5 text-[14.5px] text-white/85 md:text-[16px] transition-all duration-200 hover:pl-1.5 hover:text-white"
+                          className="block py-2.5 text-[0.90625rem] text-white/85 md:text-[1rem] transition-all duration-200 hover:pl-1.5 hover:text-white"
                         >
                           {plan.title}
                         </Link>
@@ -243,27 +241,27 @@ export default function Navbar() {
                 )}
               </li>
             ))}
-            <li className="flex flex-wrap items-center gap-x-[24px] gap-y-[16px] pt-7 pb-2">
+            <li className="flex flex-wrap items-center gap-x-[1.5rem] gap-y-[1rem] pt-7 pb-2">
               <a
                 href={`tel:${contact.phone.replace(/\s/g, "")}`}
                 onClick={close}
                 className="group flex items-center gap-3 transition-colors hover:text-[#ffc9dc]"
               >
-                <span className="grid size-[44px] place-items-center rounded-full bg-white/10">
-                  <Icon name="phone-solid" className="size-[20px]" />
+                <span className="grid size-[2.75rem] place-items-center rounded-full bg-white/10">
+                  <Icon name="phone-solid" className="size-[1.25rem]" />
                 </span>
                 <span className="leading-tight">
-                  <span className="block text-[12.5px] text-white/75">{site.callLabel}</span>
-                  <span className="block text-[15px] font-semibold whitespace-nowrap">{contact.phone}</span>
+                  <span className="block text-[0.78125rem] text-white/75">{site.callLabel}</span>
+                  <span className="block text-[0.9375rem] font-semibold whitespace-nowrap">{contact.phone}</span>
                 </span>
               </a>
               <Link
                 href={nav.button.href}
                 onClick={close}
-                className="group inline-flex h-[44px] items-center gap-3 rounded-full border border-white bg-white px-6 text-[14px] font-medium text-plum transition-colors duration-300 hover:bg-primary hover:text-white"
+                className="group inline-flex h-[2.75rem] items-center gap-3 rounded-full border border-white bg-white px-6 text-[0.875rem] font-medium text-plum transition-colors duration-300 hover:bg-primary hover:text-white"
               >
                 {nav.button.label}
-                <Icon name="arrow-right" className="size-[18px] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
+                <Icon name="arrow-right" className="size-[1.125rem] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
               </Link>
             </li>
           </ul>

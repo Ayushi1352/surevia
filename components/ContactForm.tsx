@@ -7,11 +7,11 @@ const { contact } = data;
 
 export default function ContactForm() {
   return (
-    <Reveal effect="right" className="rounded-[16px] bg-blush px-5 py-8 sm:px-[44px] lg:px-[28px] xl:px-[43px] xl:pt-[44px] xl:pb-[46px]">
-      <h2 className="font-heading text-[24px] leading-[1.2] font-extrabold tracking-[-0.01em] text-ink sm:text-[28px] xl:text-[30px] xl:leading-[38px]">
+    <Reveal effect="right" className="rounded-[1rem] bg-blush px-5 py-8 sm:px-[2.75rem] lg:px-[1.75rem] xl:px-[2.6875rem] xl:pt-[2.75rem] xl:pb-[2.875rem]">
+      <h2 className="font-heading text-[1.5rem] leading-[1.2] font-extrabold tracking-[-0.01em] text-ink sm:text-[1.75rem] xl:text-[1.875rem] xl:leading-[2.375rem]">
         {contact.formTitle} <Accent>{contact.formHighlight}</Accent>
       </h2>
-      <p className="mt-2 mb-6 font-heading text-[15px] leading-[1.6] font-medium text-body xl:text-[16px]">{contact.formText}</p>
+      <p className="mt-2 mb-6 font-heading text-[0.9375rem] leading-[1.6] font-medium text-body xl:text-[1rem]">{contact.formText}</p>
       <EnquiryForm layout="grid" />
     </Reveal>
   );

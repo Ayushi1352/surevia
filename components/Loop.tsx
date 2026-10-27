@@ -5,8 +5,8 @@ import { useEffect, useRef, type ReactNode } from "react";
 // Endless decorative motion for the element passed as the only child. Tailwind classes can't declare
 // keyframes, so these run through the Web Animations API; every step keeps the easing a CSS keyframe would.
 const effects = {
-  float: { duration: 5000, easing: "ease-in-out", frames: [{}, { transform: "translateY(-10px)" }, {}] },
-  nudge: { duration: 1600, easing: "ease-in-out", frames: [{}, { transform: "translateX(5px)" }, {}] },
+  float: { duration: 5000, easing: "ease-in-out", frames: [{}, { transform: "translateY(-0.625rem)" }, {}] },
+  nudge: { duration: 1600, easing: "ease-in-out", frames: [{}, { transform: "translateX(0.3125rem)" }, {}] },
   twinkle: { duration: 1800, easing: "ease-in-out", frames: [{}, { opacity: 0.25 }, {}] },
   ring: {
     duration: 2600,
@@ -28,8 +28,8 @@ const effects = {
     easing: "ease-out",
     frames: [
       { offset: 0, boxShadow: "0 0 0 0 color-mix(in srgb, currentColor 45%, transparent)" },
-      { offset: 0.7, boxShadow: "0 0 0 12px transparent" },
-      { offset: 1, boxShadow: "0 0 0 12px transparent" },
+      { offset: 0.7, boxShadow: "0 0 0 0.75rem transparent" },
+      { offset: 1, boxShadow: "0 0 0 0.75rem transparent" },
     ],
   },
 } satisfies Record<string, { duration: number; easing: string; frames: Keyframe[] }>;
