@@ -1,37 +1,20 @@
 import type { Metadata } from "next";
-import Banner from "@/components/Banner";
-import PlanFeatures from "@/components/PlanFeatures";
-import PlanOverview from "@/components/PlanOverview";
-import PlanSidebar from "@/components/PlanSidebar";
-import WhyPlan from "@/components/WhyPlan";
-import { pageTitle } from "@/lib/pages";
-import data from "@/data";
+import rawData from "@/data/templates.json";
+import type { InsuranceTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { PlanDetail } from "@/components/sections/PlanDetail";
 
-// One common detail page for every plan: all plan links point here and it shows the first plan.
-// The banner and breadcrumb carry the common page title from site.json, not the plan title.
-const plan = data.plans.items[0];
-const { bannerTitle } = data.planDetail;
+const templateData: InsuranceTemplateData = rawData;
+const sectionData = templateData.categories.Insurance.sections;
+const commonData = templateData.common;
 
-export const metadata: Metadata = { title: bannerTitle };
+export const metadata: Metadata = { title: commonData.planDetailBreadcrumb?.title };
 
 export default function PlanDetailPage() {
   return (
-    <>
-      <Banner
-        title={bannerTitle}
-        breadcrumbs={[
-          { label: pageTitle("/"), href: "/" },
-          { label: pageTitle("/insurance-plans"), href: "/insurance-plans" },
-        ]}
-      />
-      <section data-section-pad className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0 grid gap-10 xl:grid-cols-[1fr_23.5625rem] xl:gap-[1.6875rem] xl:px-[4.125rem]">
-        <div className="min-w-0">
-          <PlanOverview plan={plan} />
-          <PlanFeatures title={plan.title} />
-          <WhyPlan title={plan.title} />
-        </div>
-        <PlanSidebar plan={plan} />
-      </section>
-    </>
+    <main className="flex-1">
+      <Breadcrumb data={commonData.planDetailBreadcrumb} ui={commonData.globalUI} />
+      <PlanDetail data={sectionData.PlanDetail?.variants?.InsurancePlanDetail1} plans={sectionData.Plans?.variants?.InsurancePlans1} form={sectionData.EnquiryForm?.variants?.InsuranceEnquiryForm1} />
+    </main>
   );
 }

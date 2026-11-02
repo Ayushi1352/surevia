@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import Banner from "@/components/Banner";
-import { pageTitle } from "@/lib/pages";
-import PlansGrid from "@/components/PlansGrid";
+import rawData from "@/data/templates.json";
+import type { InsuranceTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { PlansGrid } from "@/components/sections/PlansGrid";
 
-const title = pageTitle("/insurance-plans");
+const templateData: InsuranceTemplateData = rawData;
+const sectionData = templateData.categories.Insurance.sections;
+const commonData = templateData.common;
 
-export const metadata: Metadata = { title };
+export const metadata: Metadata = { title: commonData.plansBreadcrumb?.title };
 
 export default function InsurancePlansPage() {
   return (
-    <>
-      <Banner title={title} />
-      <PlansGrid />
-    </>
+    <main className="flex-1">
+      <Breadcrumb data={commonData.plansBreadcrumb} ui={commonData.globalUI} />
+      <PlansGrid data={sectionData.Plans?.variants?.InsurancePlans1} />
+    </main>
   );
 }

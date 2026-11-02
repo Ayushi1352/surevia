@@ -1,26 +1,31 @@
-import About from "@/components/About";
-import Blogs from "@/components/Blogs";
-import Cta from "@/components/Cta";
-import Hero from "@/components/Hero";
-import Highlights from "@/components/Highlights";
-import Plans from "@/components/Plans";
-import Process from "@/components/Process";
-import Stats from "@/components/Stats";
-import Testimonials from "@/components/Testimonials";
-import data from "@/data";
+import rawData from "@/data/templates.json";
+import type { InsuranceTemplateData } from "@/types/templates.types";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { Highlights } from "@/components/sections/Highlights";
+import { AboutUs } from "@/components/sections/AboutUs";
+import { Plans } from "@/components/sections/Plans";
+import { Process } from "@/components/sections/Process";
+import { Stats } from "@/components/sections/Stats";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Cta } from "@/components/sections/Cta";
+import { Blogs } from "@/components/sections/Blogs";
+
+const templateData: InsuranceTemplateData = rawData;
+const sectionData = templateData.categories.Insurance.sections;
+const commonData = templateData.common;
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <Highlights />
-      <About />
-      <Plans />
-      <Process />
-      <Stats />
-      <Testimonials />
-      <Cta />
-      <Blogs limit={data.blogs.homeCount} />
-    </>
+    <main className="flex-1">
+      <HeroSection data={sectionData.Hero?.variants?.InsuranceHero1} />
+      <Highlights data={sectionData.Highlights?.variants?.InsuranceHighlights1} />
+      <AboutUs data={sectionData.AboutUs?.variants?.InsuranceAboutUs1} />
+      <Plans data={sectionData.Plans?.variants?.InsurancePlans1} ui={commonData.globalUI} />
+      <Process data={sectionData.Process?.variants?.InsuranceProcess1} />
+      <Stats data={sectionData.Stats?.variants?.InsuranceStats1} />
+      <Testimonials data={sectionData.Testimonials?.variants?.InsuranceTestimonials1} ui={commonData.globalUI} />
+      <Cta data={sectionData.Cta?.variants?.InsuranceCta1} />
+      <Blogs data={sectionData.Blogs?.variants?.InsuranceBlogs1} limit={sectionData.Blogs?.variants?.InsuranceBlogs1?.homeCount} />
+    </main>
   );
 }

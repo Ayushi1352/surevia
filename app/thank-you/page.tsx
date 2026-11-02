@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import data from "@/data";
-import ThankYou from "@/components/ThankYou";
-import ThankYouPoints from "@/components/ThankYouPoints";
+import rawData from "@/data/templates.json";
+import type { InsuranceTemplateData } from "@/types/templates.types";
+import { ThankYouSection } from "@/components/sections/ThankYouSection";
 
-export const metadata: Metadata = { title: data.thankYou.pageTitle };
+const templateData: InsuranceTemplateData = rawData;
+const sectionData = templateData.categories.Insurance.sections;
+
+export const metadata: Metadata = { title: sectionData.ThankYouPage?.variants?.InsuranceThankYouPage1?.pageTitle };
 
 export default function ThankYouPage() {
   return (
-    <section data-section-pad className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0 xl:px-[5rem]">
-      <ThankYou />
-      <ThankYouPoints />
-    </section>
+    <main className="flex-1">
+      <ThankYouSection data={sectionData.ThankYouPage?.variants?.InsuranceThankYouPage1} />
+    </main>
   );
 }

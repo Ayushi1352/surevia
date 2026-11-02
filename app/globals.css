@@ -1,44 +1,90 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: var(--color-body);
-}
+  --font-primary: sans-serif;
+  --font-heading: sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
-
-@theme {
-
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1020px;
-  --breakpoint-w1100: 1021px;
-  --breakpoint-xl: 1022px;
-  --breakpoint-w1360: 1023px;
-  --breakpoint-w1440: 1024px;
-
-  /* Brand colours. These are only defaults: site.json (theme.colors) overrides them in app/layout.tsx. */
+  /* Surevia theme */
+  --color-bg-main: #ffffff;
+  --color-bg-alt: #fcf6f8;
+  --color-bg-subtle: #fcebf2;
+  --color-bg-backdrop: #f5f5f5;
   --color-primary: #8f1545;
   --color-primary-dark: #610631;
-  --color-plum: #610631;
-  --color-ink: #1e2229;
-  --color-body: #4d5466;
-  --color-blush: #fcf6f8;
-  --color-rose: #fcebf2;
-  --color-line: #ececf1;
-  /* Shown on both sides of the page when the screen is wider than 1920px (or the browser is zoomed out). */
-  --color-page: #f5f5f5;
+  --color-heading: #1e2229;
+  --color-text: #4d5466;
+  --color-text-muted: #6a7083;
+  --color-text-placeholder: #656b81;
+  --color-border: #ececf1;
+  --color-white: #ffffff;
 
-  /* Fonts from site.json (theme.fonts) via app/fonts.generated.ts; the second part is the fallback. */
-  --font-sans: var(--font-sans-face, ui-sans-serif, system-ui, sans-serif);
-  --font-heading: var(--font-heading-face, ui-sans-serif, system-ui, sans-serif);
+  --color-pink-light: #ffc9dc;
+  --color-pink-soft: #ffe3ee;
+  --color-surface: #f8f8fa;
+  --color-surface-alt: #f8f8f8;
+  --color-surface-soft: #f9f9f9;
+  --color-surface-tint: #faf8fb;
+  --color-hero-bg: #2b2b2e;
+  --color-star: #f9b202;
+
+  --color-shadow-form: rgba(123, 15, 64, 0.06);
+  --color-shadow-soft: rgba(60, 20, 40, 0.08);
+  --color-shadow-strong: rgba(60, 20, 40, 0.14);
+  --color-black-5: rgba(0, 0, 0, 0.05);
+  --color-black-15: rgba(0, 0, 0, 0.15);
+  --color-black-70: rgba(0, 0, 0, 0.7);
+  --color-heading-80: rgba(30, 34, 41, 0.8);
+  --color-overlay-10: rgba(28, 27, 31, 0.1);
+  --color-overlay-45: rgba(28, 27, 31, 0.45);
+  --color-overlay-50: rgba(28, 27, 31, 0.5);
+  --color-overlay-75: rgba(28, 27, 31, 0.75);
+  --color-overlay-85: rgba(28, 27, 31, 0.85);
+  --color-overlay-90: rgba(28, 27, 31, 0.9);
+  --color-primary-dark-10: rgba(97, 6, 49, 0.1);
+  --color-primary-dark-70: rgba(97, 6, 49, 0.7);
+  --color-primary-10: rgba(143, 21, 69, 0.1);
+  --color-primary-15: rgba(143, 21, 69, 0.15);
+  --color-primary-25: rgba(143, 21, 69, 0.25);
+  --color-primary-35: rgba(143, 21, 69, 0.35);
+  --color-primary-40: rgba(143, 21, 69, 0.4);
+  --color-primary-50: rgba(143, 21, 69, 0.5);
+  --color-primary-80: rgba(143, 21, 69, 0.8);
+  --color-white-4: rgba(255, 255, 255, 0.04);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-15: rgba(255, 255, 255, 0.15);
+  --color-white-25: rgba(255, 255, 255, 0.25);
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-50: rgba(255, 255, 255, 0.5);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-75: rgba(255, 255, 255, 0.75);
+  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-white-85: rgba(255, 255, 255, 0.85);
 }
 
 body {
-  background: var(--color-page);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  background-color: var(--color-bg-backdrop);
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }

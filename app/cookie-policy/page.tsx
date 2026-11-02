@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import PolicyPage from "@/components/PolicyPage";
-import { pageTitle } from "@/lib/pages";
-import data from "@/data";
+import rawData from "@/data/templates.json";
+import type { InsuranceTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { PolicyPage } from "@/components/sections/PolicyPage";
 
-const title = pageTitle("/cookie-policy");
+const templateData: InsuranceTemplateData = rawData;
+const sectionData = templateData.categories.Insurance.sections;
+const commonData = templateData.common;
 
-export const metadata: Metadata = { title };
+export const metadata: Metadata = { title: commonData.cookieBreadcrumb?.title };
 
 export default function CookiePolicyPage() {
-  return <PolicyPage title={title} {...data.policies.cookies} />;
+  return (
+    <main className="flex-1">
+      <Breadcrumb data={commonData.cookieBreadcrumb} ui={commonData.globalUI} />
+      <PolicyPage data={sectionData.PolicyPages?.variants?.InsurancePolicyPages1?.cookies} />
+    </main>
+  );
 }

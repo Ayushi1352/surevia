@@ -1,65 +1,20 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Banner from "@/components/Banner";
-import Reveal from "@/components/Reveal";
-import { pageTitle } from "@/lib/pages";
-import data from "@/data";
+import rawData from "@/data/templates.json";
+import type { InsuranceTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { Sitemap } from "@/components/sections/Sitemap";
 
-const { nav, footer, sitemap } = data;
-const title = pageTitle("/sitemap");
+const templateData: InsuranceTemplateData = rawData;
+const sectionData = templateData.categories.Insurance.sections;
+const commonData = templateData.common;
 
-export const metadata: Metadata = { title };
-
-// Built from the footer's own link lists so the sitemap can't drift from them
-const pageLinks = [...footer.columns[0].links, nav.button];
-const policyLinks = footer.bottomLinks.filter((link) => link.href !== "/sitemap");
+export const metadata: Metadata = { title: commonData.sitemapBreadcrumb?.title };
 
 export default function SitemapPage() {
   return (
-    <>
-      <Banner title={title} />
-      <section data-section-pad className="bg-white py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0">
-        <div className="mx-auto w-full max-w-[68.75rem] px-5 sm:px-8 xl:px-[3.75rem]">
-          <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
-            <Reveal>
-              <h2 className="border-b border-line pb-3 font-heading text-[1.25rem] font-semibold text-ink">{sitemap.pagesTitle}</h2>
-              <ul className="mt-4 space-y-3">
-                {pageLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="inline-block text-[0.90625rem] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal delay={120}>
-              <h2 className="border-b border-line pb-3 font-heading text-[1.25rem] font-semibold text-ink">{pageTitle("/insurance-plans")}</h2>
-              <ul className="mt-4 space-y-3">
-                {data.plans.items.map((plan) => (
-                  <li key={plan.title}>
-                    <Link href={plan.href} className="inline-block text-[0.90625rem] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
-                      {plan.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal delay={240}>
-              <h2 className="border-b border-line pb-3 font-heading text-[1.25rem] font-semibold text-ink">{sitemap.policiesTitle}</h2>
-              <ul className="mt-4 space-y-3">
-                {policyLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="inline-block text-[0.90625rem] text-body transition-all duration-300 hover:translate-x-1.5 hover:text-primary">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-    </>
+    <main className="flex-1">
+      <Breadcrumb data={commonData.sitemapBreadcrumb} ui={commonData.globalUI} />
+      <Sitemap data={sectionData.SitemapPage?.variants?.InsuranceSitemapPage1} />
+    </main>
   );
 }
