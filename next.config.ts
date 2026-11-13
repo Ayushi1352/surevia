@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     agentUpgrade: "security",
   },
   images: {
+    formats: ["image/webp"],
     qualities: [75, 90],
   },
   cacheComponents: true,

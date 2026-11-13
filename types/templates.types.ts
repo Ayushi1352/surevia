@@ -7,11 +7,48 @@ export interface ThemeData {
   fonts: ThemeFonts;
 }
 
+export interface SeoData {
+  title: string;
+  description: string;
+}
+
 export interface SiteMetadataData {
   title: string;
+  siteName: string;
   description: string;
   icon: string;
   lang: string;
+}
+
+export interface SocialLink {
+  id: string;
+  icon: string;
+  label: string;
+  url: string;
+}
+
+/** Name, logos, phone, email, address and social links: shared by the header, footer, contact page and policy pages. */
+export interface CompanyData {
+  name: string;
+  logo: string;
+  logoWhite: string;
+  logoAlt: string;
+  logoUrl: string;
+  logoWidth: number;
+  logoHeight: number;
+  phone: string;
+  email: string;
+  address: string[];
+  /** "{query}" is filled with the address */
+  mapEmbedUrl: string;
+  mapOpenUrl: string;
+  socialLinks: SocialLink[];
+}
+
+/** An item either carries its own `lines` or points at a company field ("phone", "email", "address") with `source`; own lines are shown after the company value. */
+export interface ContactLinesSource {
+  source?: string;
+  lines?: string[];
 }
 
 export interface GlobalUIData {
@@ -28,12 +65,14 @@ export interface BreadcrumbPath {
 
 export interface BreadcrumbData {
   title: string;
+  seo?: SeoData;
   bgImage: string;
   bgImageAlt: string;
   paths: BreadcrumbPath[];
 }
 
 export interface NotFoundData {
+  seo: SeoData;
   code: string;
   title: string;
   description: string;
@@ -41,26 +80,15 @@ export interface NotFoundData {
   buttonUrl: string;
 }
 
-export interface FooterSocialLink {
+export interface FooterContactItem extends ContactLinesSource {
   id: string;
   icon: string;
-  label: string;
-  url: string;
-}
-
-export interface FooterContactItem {
-  id: string;
-  icon: string;
-  lines: string[];
-  url: string;
+  /** Only for items with their own lines; company items link to the map, phone or email */
+  url?: string;
 }
 
 export interface FooterData {
-  logo: string;
-  logoAlt: string;
-  logoUrl: string;
   description: string;
-  socialLinks: FooterSocialLink[];
   quickLinksTitle: string;
   quickLinks: BreadcrumbPath[];
   planLinksTitle: string;
@@ -80,16 +108,7 @@ export interface HeaderNavLink {
 }
 
 export interface HeaderData {
-  logo: string;
-  logoAlt: string;
-  logoUrl: string;
-  address: string;
-  email: string;
-  emailUrl: string;
   phoneLabel: string;
-  phoneValue: string;
-  phoneUrl: string;
-  socialLinks: FooterSocialLink[];
   navLinks: HeaderNavLink[];
   dropdownLinks: BreadcrumbPath[];
   buttonText: string;
@@ -349,21 +368,18 @@ export interface EnquirePageData {
   formDescription: string;
 }
 
-export interface ContactCard {
+export interface ContactCard extends ContactLinesSource {
   id: string;
   icon: string;
   title: string;
-  lines: string[];
 }
 
-export interface ContactLocationMapCard {
+export interface ContactLocationMapCard extends ContactLinesSource {
   title: string;
-  lines: string[];
 }
 
 export interface ContactLocation {
-  address: string;
-  mapUrl: string;
+  /** "{address}" is filled with the company address */
   mapTitle: string;
   mapCard: ContactLocationMapCard;
 }
@@ -382,6 +398,7 @@ export interface ContactData {
 
 export interface ThankYouPageData {
   pageTitle: string;
+  seo?: SeoData;
   title: string;
   titleHighlight: string;
   subtitle: string;
@@ -404,8 +421,6 @@ export interface FaqData {
   intro: string;
   items: FaqItem[];
   contactPrompt: string;
-  contactEmail: string;
-  contactEmailUrl: string;
 }
 
 export interface PolicySectionData {
@@ -418,8 +433,6 @@ export interface PolicyPageData {
   intro: string;
   sections: PolicySectionData[];
   contactPrompt: string;
-  contactEmail: string;
-  contactEmailUrl: string;
 }
 
 export interface PolicyPagesData {
@@ -445,6 +458,7 @@ export interface TemplateComponentsData {
 export interface CommonData {
   theme: ThemeData;
   metadata: SiteMetadataData;
+  company: CompanyData;
   globalUI: GlobalUIData;
   aboutBreadcrumb?: BreadcrumbData;
   contactBreadcrumb?: BreadcrumbData;

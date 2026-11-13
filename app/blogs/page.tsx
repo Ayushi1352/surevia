@@ -19,7 +19,7 @@ async function CategoryBlogs({ searchParams }: Pick<PageProps<"/blogs">, "search
   return <Blogs data={blogs} category={active} />;
 }
 
-export const metadata: Metadata = { title: commonData.blogsBreadcrumb?.title };
+export const metadata: Metadata = { ...commonData.blogsBreadcrumb?.seo };
 
 export default function BlogsPage({ searchParams }: PageProps<"/blogs">) {
   return (

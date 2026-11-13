@@ -1,9 +1,12 @@
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
+import { fill, mailUrl } from "@/components/ui/text";
 import type { PolicyPageData } from "@/types/templates.types";
 
-export const PolicyPage = ({ data, accordion = false }: {
+export const PolicyPage = ({ data, email, accordion = false }: {
   data?: PolicyPageData;
+  // Company email: shown in the closing line and filled into "{email}" in the texts.
+  email: string;
   // Collapses each section behind its title (FAQ); one stays open at a time.
   accordion?: boolean;
 }) => {
@@ -26,7 +29,7 @@ export const PolicyPage = ({ data, accordion = false }: {
                       </span>
                     </summary>
                     <p className="pr-[3.25rem] pb-6 text-[0.90625rem] leading-7 text-[var(--color-text)] sm:text-[0.9375rem]">
-                      {section.description}
+                      {fill(section.description, { email })}
                     </p>
                   </details>
                 </Reveal>
@@ -36,7 +39,7 @@ export const PolicyPage = ({ data, accordion = false }: {
                   <span className="text-[var(--color-primary)]">{i + 1}.</span> {section.title}
                 </h2>
                 <div className="mt-3 space-y-3 text-[0.90625rem] leading-7 text-[var(--color-text)] sm:text-[0.9375rem]">
-                  <p>{section.description}</p>
+                  <p>{fill(section.description, { email })}</p>
                 </div>
               </Reveal>
               ),
@@ -44,8 +47,8 @@ export const PolicyPage = ({ data, accordion = false }: {
           </div>
           <p className="mt-8 text-[0.8125rem] leading-6 text-[var(--color-text)]">
             {data.contactPrompt}{" "}
-            <a className="font-medium text-[var(--color-primary)] underline decoration-[var(--color-primary-40)] underline-offset-4 transition-colors hover:text-[var(--color-primary-dark)] hover:decoration-[var(--color-primary-dark)]" href={data.contactEmailUrl}>
-              {data.contactEmail}
+            <a className="font-medium text-[var(--color-primary)] underline decoration-[var(--color-primary-40)] underline-offset-4 transition-colors hover:text-[var(--color-primary-dark)] hover:decoration-[var(--color-primary-dark)]" href={mailUrl(email)}>
+              {email}
             </a>
             .
           </p>

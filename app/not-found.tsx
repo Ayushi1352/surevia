@@ -6,7 +6,7 @@ import { NotFoundSection } from "@/components/sections/NotFoundSection";
 const templateData: InsuranceTemplateData = rawData;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.notFound?.title };
+export const metadata: Metadata = { ...commonData.notFound?.seo };
 
 export default function NotFoundPage() {
   return (

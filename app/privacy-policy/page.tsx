@@ -8,13 +8,13 @@ const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.privacyBreadcrumb?.title };
+export const metadata: Metadata = { ...commonData.privacyBreadcrumb?.seo };
 
 export default function PrivacyPolicyPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.privacyBreadcrumb} ui={commonData.globalUI} />
-      <PolicyPage data={sectionData.PolicyPages?.variants?.InsurancePolicyPages1?.privacy} />
+      <PolicyPage data={sectionData.PolicyPages?.variants?.InsurancePolicyPages1?.privacy} email={commonData.company.email} />
     </main>
   );
 }

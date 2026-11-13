@@ -6,7 +6,7 @@ import { ThankYouSection } from "@/components/sections/ThankYouSection";
 const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 
-export const metadata: Metadata = { title: sectionData.ThankYouPage?.variants?.InsuranceThankYouPage1?.pageTitle };
+export const metadata: Metadata = { ...sectionData.ThankYouPage?.variants?.InsuranceThankYouPage1?.seo };
 
 export default function ThankYouPage() {
   return (

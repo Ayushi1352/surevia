@@ -9,14 +9,14 @@ const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.contactBreadcrumb?.title };
+export const metadata: Metadata = { ...commonData.contactBreadcrumb?.seo };
 
 export default function ContactUsPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.contactBreadcrumb} ui={commonData.globalUI} />
-      <Contact data={sectionData.Contact?.variants?.InsuranceContact1} form={sectionData.EnquiryForm?.variants?.InsuranceEnquiryForm1} />
-      <Location data={sectionData.Contact?.variants?.InsuranceContact1} />
+      <Contact data={sectionData.Contact?.variants?.InsuranceContact1} form={sectionData.EnquiryForm?.variants?.InsuranceEnquiryForm1} company={commonData.company} />
+      <Location data={sectionData.Contact?.variants?.InsuranceContact1} company={commonData.company} />
     </main>
   );
 }

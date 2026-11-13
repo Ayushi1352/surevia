@@ -8,13 +8,13 @@ const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.cookieBreadcrumb?.title };
+export const metadata: Metadata = { ...commonData.cookieBreadcrumb?.seo };
 
 export default function CookiePolicyPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.cookieBreadcrumb} ui={commonData.globalUI} />
-      <PolicyPage data={sectionData.PolicyPages?.variants?.InsurancePolicyPages1?.cookies} />
+      <PolicyPage data={sectionData.PolicyPages?.variants?.InsurancePolicyPages1?.cookies} email={commonData.company.email} />
     </main>
   );
 }

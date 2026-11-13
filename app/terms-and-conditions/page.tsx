@@ -8,13 +8,13 @@ const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.termsBreadcrumb?.title };
+export const metadata: Metadata = { ...commonData.termsBreadcrumb?.seo };
 
 export default function TermsPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.termsBreadcrumb} ui={commonData.globalUI} />
-      <PolicyPage data={sectionData.PolicyPages?.variants?.InsurancePolicyPages1?.terms} />
+      <PolicyPage data={sectionData.PolicyPages?.variants?.InsurancePolicyPages1?.terms} email={commonData.company.email} />
     </main>
   );
 }

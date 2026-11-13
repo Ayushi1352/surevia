@@ -8,7 +8,7 @@ const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.enquireBreadcrumb?.title };
+export const metadata: Metadata = { ...commonData.enquireBreadcrumb?.seo };
 
 export default function EnquireNowPage() {
   return (

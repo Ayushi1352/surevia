@@ -8,7 +8,10 @@ const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.planDetailBreadcrumb?.title };
+// One common detail page for every plan: it shows the first plan, so the page is described by that plan.
+const plan = sectionData.Plans?.variants?.InsurancePlans1?.items[0];
+
+export const metadata: Metadata = { title: plan?.title, description: plan?.description };
 
 export default function PlanDetailPage() {
   return (

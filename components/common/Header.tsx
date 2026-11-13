@@ -6,13 +6,14 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { Loop } from "@/components/ui/Loop";
-import type { HeaderData } from "@/types/templates.types";
+import { mailUrl, telUrl } from "@/components/ui/text";
+import type { CompanyData, HeaderData } from "@/types/templates.types";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
 }
 
-export const Header = ({ data: nav }: { data?: HeaderData }) => {
+export const Header = ({ data: nav, company }: { data?: HeaderData; company: CompanyData }) => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [plansOpen, setPlansOpen] = useState(false);
@@ -67,23 +68,23 @@ export const Header = ({ data: nav }: { data?: HeaderData }) => {
           <ul className="flex items-center">
             <li className="flex items-center gap-2.5 pr-6">
               <Icon name="FaMapMarkerAlt" className="size-[1.3125rem] text-[var(--color-primary-dark)]" />
-              {nav.address}
+              {company.address.join(" ")}
             </li>
             <li className="flex items-center gap-3 border-l border-[var(--color-black-15)] px-6">
               <Icon name="FaEnvelope" className="size-[1.5625rem] text-[var(--color-primary-dark)]" />
-              <a href={nav.emailUrl} className="transition-colors hover:text-[var(--color-primary)]">
-                {nav.email}
+              <a href={mailUrl(company.email)} className="transition-colors hover:text-[var(--color-primary)]">
+                {company.email}
               </a>
             </li>
             <li className="hidden items-center gap-3 border-l border-[var(--color-black-15)] pl-6 lg:flex">
               <Icon name="FaPhoneAlt" className="size-[1.4375rem] text-[var(--color-primary-dark)]" />
-              <a href={nav.phoneUrl} className="transition-colors hover:text-[var(--color-primary)]">
-                {nav.phoneValue}
+              <a href={telUrl(company.phone)} className="transition-colors hover:text-[var(--color-primary)]">
+                {company.phone}
               </a>
             </li>
           </ul>
           <ul className="flex items-center gap-[0.9375rem] border-r border-[var(--color-black-15)] pr-[1.6875rem] text-[var(--color-primary-dark)]">
-            {nav.socialLinks.map((s) => (
+            {company.socialLinks.map((s) => (
               <li key={s.id}>
                 <a href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-[var(--color-primary)]">
                   <Icon name={s.icon} className="size-[1.375rem]" />
@@ -96,12 +97,12 @@ export const Header = ({ data: nav }: { data?: HeaderData }) => {
 
       {/* Main bar */}
       <div className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 flex h-[4.5rem] items-center justify-between gap-4 lg:h-[4.75rem] lg:pr-[1.25rem] lg:pl-[1.5rem] xl:h-[5.625rem] xl:pr-[1.5625rem] xl:pl-[2.125rem]">
-        <Link href={nav.logoUrl} onClick={close} className="shrink-0" aria-label={nav.logoAlt}>
+        <Link href={company.logoUrl} onClick={close} className="shrink-0" aria-label={company.logoAlt}>
           <Image
-            src={nav.logo}
-            alt={nav.logoAlt}
-            width={1359}
-            height={475}
+            src={company.logo}
+            alt={company.logoAlt}
+            width={company.logoWidth}
+            height={company.logoHeight}
             priority
             className="h-[3rem] w-auto lg:h-[3.25rem] xl:h-[4.125rem] w1360:h-[4.75rem]"
           />
@@ -155,8 +156,8 @@ export const Header = ({ data: nav }: { data?: HeaderData }) => {
         <div className="flex items-center gap-3 sm:gap-5 lg:gap-0 lg:pl-[1.5rem] w1360:pl-[2rem] w1440:pl-[2.5rem]">
           {/* The w1440 values are the reference layout; from 1024px up it is scaled to the screen (see app/globals.css). */}
           <a
-            href={nav.phoneUrl}
-            aria-label={`${nav.phoneLabel} ${nav.phoneValue}`}
+            href={telUrl(company.phone)}
+            aria-label={`${nav.phoneLabel} ${company.phone}`}
             className="group hidden shrink-0 items-center gap-[0.625rem] lg:mr-[1rem] lg:flex w1100:mr-0 w1360:gap-[0.6875rem]"
           >
             <Loop effect="pulse-ring">
@@ -168,7 +169,7 @@ export const Header = ({ data: nav }: { data?: HeaderData }) => {
             </Loop>
             <span className="hidden leading-tight w1100:block">
               <span className="block text-[0.71875rem] text-[var(--color-text)] xl:text-[0.78125rem] w1360:text-[0.84375rem]">{nav.phoneLabel}</span>
-              <span className="block text-[0.84375rem] font-semibold whitespace-nowrap text-[var(--color-heading)] transition-colors duration-300 group-hover:text-[var(--color-primary)] xl:text-[0.90625rem] w1360:text-[1rem]">{nav.phoneValue}</span>
+              <span className="block text-[0.84375rem] font-semibold whitespace-nowrap text-[var(--color-heading)] transition-colors duration-300 group-hover:text-[var(--color-primary)] xl:text-[0.90625rem] w1360:text-[1rem]">{company.phone}</span>
             </span>
           </a>
           <span className="mx-[1rem] hidden h-[2.5rem] w-px bg-[var(--color-black-15)] w1100:block w1360:mr-[1.25rem] w1360:ml-[1.5rem] w1360:h-[2.75rem] w1440:mr-[1.5rem] w1440:ml-[1.875rem]" />
@@ -240,7 +241,7 @@ export const Header = ({ data: nav }: { data?: HeaderData }) => {
             ))}
             <li className="flex flex-wrap items-center gap-x-[1.5rem] gap-y-[1rem] pt-7 pb-2">
               <a
-                href={nav.phoneUrl}
+                href={telUrl(company.phone)}
                 onClick={close}
                 className="group flex items-center gap-3 transition-colors hover:text-[var(--color-pink-light)]"
               >
@@ -249,7 +250,7 @@ export const Header = ({ data: nav }: { data?: HeaderData }) => {
                 </span>
                 <span className="leading-tight">
                   <span className="block text-[0.78125rem] text-[var(--color-white-75)]">{nav.phoneLabel}</span>
-                  <span className="block text-[0.9375rem] font-semibold whitespace-nowrap">{nav.phoneValue}</span>
+                  <span className="block text-[0.9375rem] font-semibold whitespace-nowrap">{company.phone}</span>
                 </span>
               </a>
               <Link

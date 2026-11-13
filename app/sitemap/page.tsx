@@ -8,7 +8,7 @@ const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.sitemapBreadcrumb?.title };
+export const metadata: Metadata = { ...commonData.sitemapBreadcrumb?.seo };
 
 export default function SitemapPage() {
   return (

@@ -1,16 +1,17 @@
 import { Icon } from "@/components/ui/Icon";
 import { Loop } from "@/components/ui/Loop";
-import type { ContactData } from "@/types/templates.types";
+import { contactLines, fill, mapUrl } from "@/components/ui/text";
+import type { CompanyData, ContactData } from "@/types/templates.types";
 
 // Full-bleed map across the page width, with the office address pinned over it.
-export const Location = ({ data }: { data?: ContactData }) => {
+export const Location = ({ data, company }: { data?: ContactData; company: CompanyData }) => {
   if (!data) return null;
   const location = data?.location;
   return (
     <section className="relative h-[22.5rem] w-full overflow-hidden bg-[var(--color-surface-tint)] sm:h-[26.25rem] xl:h-[30rem]">
       <iframe
-        title={location.mapTitle}
-        src={location.mapUrl}
+        title={fill(location.mapTitle, { address: company.address.join(" ") })}
+        src={mapUrl(company.mapEmbedUrl, company.address)}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen
@@ -26,7 +27,7 @@ export const Location = ({ data }: { data?: ContactData }) => {
           <span>
             <span className="block text-[0.9875rem] font-semibold text-[var(--color-heading)]">{location.mapCard.title}</span>
             <span className="mt-1 block text-[0.875rem] leading-[1.4375rem] text-[var(--color-text)] sm:text-[0.95rem]">
-              {location.mapCard.lines.map((l, idx) => (
+              {contactLines(location.mapCard, company).map((l, idx) => (
                 <span key={`${location.mapCard.title}-${idx}`} className="block">
                   {l}
                 </span>

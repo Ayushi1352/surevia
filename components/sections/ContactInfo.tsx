@@ -1,9 +1,10 @@
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
 import { Accent, Eyebrow } from "@/components/ui/SectionTitle";
-import type { ContactData } from "@/types/templates.types";
+import { contactLines } from "@/components/ui/text";
+import type { CompanyData, ContactData } from "@/types/templates.types";
 
-export const ContactInfo = ({ data: contact }: { data?: ContactData }) => {
+export const ContactInfo = ({ data: contact, company }: { data?: ContactData; company?: CompanyData }) => {
   if (!contact) return null;
   return (
     <Reveal effect="left" className="xl:pt-[0.3125rem]">
@@ -27,7 +28,7 @@ export const ContactInfo = ({ data: contact }: { data?: ContactData }) => {
             <span className="min-w-0">
               <span className="block font-heading text-[1.125rem] font-bold text-[var(--color-heading)] xl:text-[1.1875rem]">{card.title}</span>
               <span className="mt-1.5 block text-[1rem] leading-[1.45] break-words text-[var(--color-text)] xl:text-[1.21875rem] xl:leading-[1.75rem]">
-                {card.lines.map((l, idx) => (
+                {contactLines(card, company).map((l, idx) => (
                   <span key={`${card.title}-${idx}`} className="block">
                     {l}
                   </span>

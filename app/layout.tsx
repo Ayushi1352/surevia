@@ -34,7 +34,7 @@ const fontVariables = {
 export const metadata: Metadata = {
   title: {
     default: commonData.metadata.title,
-    template: `%s | ${commonData.metadata.title}`,
+    template: `%s | ${commonData.metadata.siteName}`,
   },
   description: commonData.metadata.description,
   icons: {
@@ -63,9 +63,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           in the middle with equal space on both sides instead of stretching.
         */}
         <div className="mx-auto flex min-h-screen w-full max-w-[120rem] flex-col overflow-x-clip bg-[var(--color-bg-main)]">
-          <Header data={sectionData.Header?.variants?.InsuranceHeader1} />
+          <Header data={sectionData.Header?.variants?.InsuranceHeader1} company={commonData.company} />
           <ScrollToTop>{children}</ScrollToTop>
-          <Footer data={commonData.Footer} />
+          <Footer data={commonData.Footer} company={commonData.company} />
         </div>
       </body>
     </html>
