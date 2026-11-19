@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { BreadcrumbData, GlobalUIData } from "@/types/templates.types";
+import type { BreadcrumbProps } from "@/types/templates.types";
 
-export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUIData }) => {
+export const Breadcrumb = ({ data, ui }: BreadcrumbProps) => {
   if (!data) return null;
   return (
     <section className="relative flex h-[10.625rem] items-center overflow-hidden bg-[var(--color-primary-dark)] sm:h-[13.125rem] xl:h-[16.25rem]">

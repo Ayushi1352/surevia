@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Icon } from "@/components/ui/Icon";
-import type { GlobalUIData } from "@/types/templates.types";
+import type { SliderControls } from "@/types/templates.types";
 
 type Props = {
   header: ReactNode;
   children: ReactNode;
-  ui?: GlobalUIData;
+  controls: SliderControls;
   className?: string;
   // Milliseconds between automatic slides; leave out to slide only on demand
   autoplay?: number;
@@ -28,7 +28,7 @@ function step(el: HTMLDivElement | null, dir: number) {
 }
 
 // Horizontal scroll-snap track with prev/next arrows beside the section header.
-export const Slider = ({ header, children, ui, className = "", autoplay }: Props) => {
+export const Slider = ({ header, children, controls, className = "", autoplay }: Props) => {
   const track = useRef<HTMLDivElement>(null);
   // Hovering or touching the slider holds autoplay so a card can be read
   const [paused, setPaused] = useState(false);
@@ -45,11 +45,11 @@ export const Slider = ({ header, children, ui, className = "", autoplay }: Props
         {header}
         <div className="mt-[2.125rem] hidden shrink-0 gap-[0.8125rem] sm:flex xl:mt-[2.125rem]">
           {[
-            { icon: "FaArrowLeft", dir: -1, label: ui?.previousLabel },
-            { icon: "FaArrowRight", dir: 1, label: ui?.nextLabel },
+            { id: "previous", icon: controls.previousIcon, dir: -1, label: controls.previousLabel },
+            { id: "next", icon: controls.nextIcon, dir: 1, label: controls.nextLabel },
           ].map((b) => (
             <button
-              key={b.icon}
+              key={b.id}
               type="button"
               aria-label={b.label}
               onClick={() => step(track.current, b.dir)}

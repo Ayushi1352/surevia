@@ -1,8 +1,7 @@
-import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import rawData from "@/data/templates.json";
-import type { InsuranceTemplateData } from "@/types/templates.types";
+import type { InsuranceTemplateData, ThemeFontVariables } from "@/types/templates.types";
 import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
@@ -26,10 +25,11 @@ const templateData: InsuranceTemplateData = rawData;
 const sectionData = templateData.categories.Insurance.sections;
 const commonData = templateData.common;
 
-const fontVariables = {
+// Which font each part of the site uses comes from templates.json (common.theme.fonts).
+const fontVariables: ThemeFontVariables = {
   "--font-primary": commonData.theme.fonts.primary,
   "--font-heading": commonData.theme.fonts.heading,
-} as CSSProperties;
+};
 
 export const metadata: Metadata = {
   title: {
@@ -63,9 +63,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           in the middle with equal space on both sides instead of stretching.
         */}
         <div className="mx-auto flex min-h-screen w-full max-w-[120rem] flex-col overflow-x-clip bg-[var(--color-bg-main)]">
-          <Header data={sectionData.Header?.variants?.InsuranceHeader1} company={commonData.company} />
+          <Header data={sectionData.Header?.variants?.InsuranceHeader1} />
           <ScrollToTop>{children}</ScrollToTop>
-          <Footer data={commonData.Footer} company={commonData.company} />
+          <Footer data={commonData.Footer} />
         </div>
       </body>
     </html>

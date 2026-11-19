@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import rawData from "@/data/templates.json";
 import type { InsuranceTemplateData } from "@/types/templates.types";
-import { NotFoundSection } from "@/components/sections/NotFoundSection";
+import { NotFound } from "@/components/sections/NotFound";
 
-const templateData: InsuranceTemplateData = rawData;
-const commonData = templateData.common;
-
-export const metadata: Metadata = { ...commonData.notFound?.seo };
+export const metadata: Metadata = { ...(rawData as InsuranceTemplateData).common.notFound?.seo };
 
 export default function NotFoundPage() {
+  const templateData: InsuranceTemplateData = rawData;
+  const commonData = templateData?.common;
+
+  if (!commonData) return null;
+
   return (
     <main className="flex-1">
-      <NotFoundSection data={commonData.notFound} />
+      <NotFound data={commonData.notFound} />
     </main>
   );
 }

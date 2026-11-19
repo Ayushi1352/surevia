@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
-import type { HighlightsData } from "@/types/templates.types";
+import type { HighlightsProps } from "@/types/templates.types";
 
-export const Highlights = ({ data }: { data?: HighlightsData }) => {
+export const Highlights = ({ data }: HighlightsProps) => {
   if (!data) return null;
   return (
     <section data-section-pad className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 py-12 sm:py-14 xl:py-16 [[data-section-pad]+&]:pt-0 xl:px-[4.5rem]">

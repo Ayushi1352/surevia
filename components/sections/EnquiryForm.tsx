@@ -3,16 +3,9 @@
 import { useRouter } from "next/navigation";
 import type { FormEvent } from "react";
 import { Icon } from "@/components/ui/Icon";
-import type { EnquiryFormData } from "@/types/templates.types";
+import type { EnquiryFormProps } from "@/types/templates.types";
 
-type Props = {
-  data?: EnquiryFormData;
-  // "grid": two-column fields (contact), "stack": one field per row (enquire), "compact": sidebar
-  layout?: "grid" | "stack" | "compact";
-  defaultPlan?: string;
-};
-
-export const EnquiryForm = ({ data: form, layout = "stack", defaultPlan = "" }: Props) => {
+export const EnquiryForm = ({ data: form, layout = "stack", defaultPlan = "" }: EnquiryFormProps) => {
   const router = useRouter();
   const compact = layout === "compact";
 
@@ -52,7 +45,7 @@ export const EnquiryForm = ({ data: form, layout = "stack", defaultPlan = "" }: 
           ))}
         </select>
         <Icon
-          name="FaChevronDown"
+          name={form.selectIcon}
           className="pointer-events-none absolute top-1/2 right-4 size-[1.125rem] -translate-y-1/2 text-[var(--color-heading)]"
         />
       </div>
@@ -70,15 +63,15 @@ export const EnquiryForm = ({ data: form, layout = "stack", defaultPlan = "" }: 
           compact ? "mt-[0.25rem] h-[3.6875rem] text-[1rem]" : "h-[3.875rem] text-[1.0625rem]"
         } ${layout === "grid" ? "mt-[0.125rem] sm:col-span-2 xl:h-[4.4375rem] xl:text-[1.08125rem]" : ""} ${layout === "stack" ? "mt-[0.375rem] xl:h-[4.125rem] xl:text-[1.2rem]" : ""}`}
       >
-        {form.submit}
+        {form.buttonText}
         <Icon
-          name="FaArrowRight"
+          name={form.buttonIcon}
           className={`transition-transform duration-300 group-hover:translate-x-1.5 ${compact ? "size-[1.125rem]" : "size-[1.375rem]"}`}
         />
       </button>
       {layout === "grid" && (
         <p className="flex items-center justify-center gap-3 pt-5 text-center text-[0.775rem] text-[var(--color-text)] sm:col-span-2">
-          <Icon name="FaLock" className="size-[1.0625rem] shrink-0 text-[var(--color-primary)]" />
+          <Icon name={form.noteIcon} className="size-[1.0625rem] shrink-0 text-[var(--color-primary)]" />
           {form.note}
         </p>
       )}

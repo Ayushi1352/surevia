@@ -2,9 +2,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Loop } from "@/components/ui/Loop";
 import { Reveal } from "@/components/ui/Reveal";
-import type { CtaData } from "@/types/templates.types";
+import type { CtaProps } from "@/types/templates.types";
 
-export const Cta = ({ data: cta }: { data?: CtaData }) => {
+export const Cta = ({ data: cta }: CtaProps) => {
   if (!cta) return null;
   return (
     <section className="relative overflow-hidden bg-[var(--color-primary-dark)]">
@@ -29,9 +29,9 @@ export const Cta = ({ data: cta }: { data?: CtaData }) => {
             {cta.eyebrow}
           </p>
           <h2 className="mt-3 font-heading text-[2.375rem] leading-[1.1] font-extrabold text-[var(--color-white)] sm:text-[3rem] xl:mt-[0.5rem] xl:text-[3.51875rem] xl:leading-[3.8125rem]">
-            {cta.title[0]}
+            {cta.title}
             <br />
-            <span className="text-[var(--color-pink-soft)]">{cta.title[1]}</span>
+            <span className="text-[var(--color-pink-soft)]">{cta.titleHighlight}</span>
           </h2>
           <p className="mt-4 max-w-[36.875rem] xl:max-w-[36.25rem] font-heading text-[1.0625rem] font-medium leading-[1.45] text-[var(--color-white)] xl:mt-[0.625rem] xl:text-[1.3875rem] xl:leading-[1.875rem] xl:tracking-[0.02em]">
             {cta.description}
@@ -41,6 +41,7 @@ export const Cta = ({ data: cta }: { data?: CtaData }) => {
           <Button
             href={cta.buttonUrl}
             label={cta.buttonText}
+            icon={cta.buttonIcon}
             variant="white"
             className="font-semibold xl:h-[3.75rem] xl:w-[13.5625rem] xl:px-0 xl:text-[1.09375rem]"
           />

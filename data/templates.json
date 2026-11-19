@@ -13,53 +13,8 @@
       "icon": "/favicon.ico",
       "lang": "en"
     },
-    "company": {
-      "name": "Surevia",
-      "logo": "/images/logo.webp",
-      "logoWhite": "/images/logo-white.webp",
-      "logoAlt": "Surevia Insurance",
-      "logoUrl": "/",
-      "logoWidth": 1359,
-      "logoHeight": 475,
-      "phone": "+1 000-000-0000",
-      "email": "info@xyz.com",
-      "address": [
-        "123 Maple Street,",
-        "Springfield, IL 62704, USA"
-      ],
-      "mapEmbedUrl": "https://www.google.com/maps?q={query}&output=embed",
-      "mapOpenUrl": "https://www.google.com/maps?q={query}",
-      "socialLinks": [
-        {
-          "id": "facebook",
-          "icon": "FaFacebookF",
-          "label": "Facebook",
-          "url": "https://www.facebook.com/"
-        },
-        {
-          "id": "instagram",
-          "icon": "FaInstagram",
-          "label": "Instagram",
-          "url": "https://www.instagram.com/"
-        },
-        {
-          "id": "linkedin",
-          "icon": "FaLinkedinIn",
-          "label": "LinkedIn",
-          "url": "https://www.linkedin.com/"
-        },
-        {
-          "id": "youtube",
-          "icon": "FaYoutube",
-          "label": "YouTube",
-          "url": "https://www.youtube.com/"
-        }
-      ]
-    },
     "globalUI": {
-      "breadcrumbLabel": "Breadcrumb",
-      "previousLabel": "Previous",
-      "nextLabel": "Next"
+      "breadcrumbLabel": "Breadcrumb"
     },
     "aboutBreadcrumb": {
       "title": "About Us",
@@ -147,10 +102,6 @@
     },
     "planDetailBreadcrumb": {
       "title": "Insurance Plan Detail",
-      "seo": {
-        "title": "Insurance Plan Detail",
-        "description": "Explore plan overview, key features and benefits, and enquire about the right insurance cover for you and your family."
-      },
       "bgImage": "/images/banner.webp",
       "bgImageAlt": "",
       "paths": [
@@ -194,10 +145,6 @@
     },
     "blogDetailBreadcrumb": {
       "title": "Blogs Detail",
-      "seo": {
-        "title": "Blogs Detail",
-        "description": "Read expert insurance tips, guides and insights from the Surevia team to help you make informed decisions."
-      },
       "bgImage": "/images/banner.webp",
       "bgImageAlt": "",
       "paths": [
@@ -332,114 +279,151 @@
       "title": "Page Not Found",
       "description": "The page you are looking for may have been moved or no longer exists.",
       "buttonText": "Back to Home",
-      "buttonUrl": "/"
+      "buttonUrl": "/",
+      "buttonIcon": "FaArrowRight"
     },
     "Footer": {
+      "logo": "/images/logo-white.webp",
+      "logoAlt": "Surevia Insurance",
+      "logoUrl": "/",
+      "logoWidth": 1359,
+      "logoHeight": 475,
       "description": "At Surevia, we are committed to providing reliable insurance solutions to help you and your loved ones live a safer, more secure and worry-free tomorrow.",
-      "quickLinksTitle": "Quick Links",
-      "quickLinks": [
+      "socialLinks": [
         {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
+          "id": "facebook",
+          "icon": "FaFacebookF",
+          "label": "Facebook",
+          "url": "https://www.facebook.com/"
         },
         {
-          "id": "about-us",
-          "label": "About Us",
-          "url": "/about-us"
+          "id": "instagram",
+          "icon": "FaInstagram",
+          "label": "Instagram",
+          "url": "https://www.instagram.com/"
         },
         {
-          "id": "insurance-plans",
-          "label": "Insurance Plans",
-          "url": "/insurance-plans"
+          "id": "linkedin",
+          "icon": "FaLinkedinIn",
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/"
         },
         {
-          "id": "blogs",
-          "label": "Blogs",
-          "url": "/blogs"
-        },
-        {
-          "id": "faqs",
-          "label": "FAQs",
-          "url": "/faq"
-        },
-        {
-          "id": "contact-us",
-          "label": "Contact Us",
-          "url": "/contact-us"
+          "id": "youtube",
+          "icon": "FaYoutube",
+          "label": "YouTube",
+          "url": "https://www.youtube.com/"
         }
       ],
-      "planLinksTitle": "Insurance Plans",
-      "planLinks": [
-        {
-          "id": "life-insurance",
-          "label": "Life Insurance",
-          "url": "/insurance-plans/plan-details"
-        },
-        {
-          "id": "health-insurance",
-          "label": "Health Insurance",
-          "url": "/insurance-plans/plan-details"
-        },
-        {
-          "id": "home-insurance",
-          "label": "Home Insurance",
-          "url": "/insurance-plans/plan-details"
-        },
-        {
-          "id": "motor-insurance",
-          "label": "Motor Insurance",
-          "url": "/insurance-plans/plan-details"
-        },
-        {
-          "id": "travel-insurance",
-          "label": "Travel Insurance",
-          "url": "/insurance-plans/plan-details"
-        },
-        {
-          "id": "business-insurance",
-          "label": "Business Insurance",
-          "url": "/insurance-plans/plan-details"
-        },
-        {
-          "id": "child-insurance",
-          "label": "Child Insurance",
-          "url": "/insurance-plans/plan-details"
-        },
-        {
-          "id": "retirement-plans",
-          "label": "Retirement Plans",
-          "url": "/insurance-plans/plan-details"
-        }
-      ],
+      "quickLinks": {
+        "title": "Quick Links",
+        "links": [
+          {
+            "id": "home",
+            "label": "Home",
+            "url": "/"
+          },
+          {
+            "id": "about-us",
+            "label": "About Us",
+            "url": "/about-us"
+          },
+          {
+            "id": "insurance-plans",
+            "label": "Insurance Plans",
+            "url": "/insurance-plans"
+          },
+          {
+            "id": "blogs",
+            "label": "Blogs",
+            "url": "/blogs"
+          },
+          {
+            "id": "faqs",
+            "label": "FAQs",
+            "url": "/faq"
+          },
+          {
+            "id": "contact-us",
+            "label": "Contact Us",
+            "url": "/contact-us"
+          }
+        ]
+      },
+      "planLinks": {
+        "title": "Insurance Plans",
+        "links": [
+          {
+            "id": "life-insurance",
+            "label": "Life Insurance",
+            "url": "/insurance-plans/plan-details"
+          },
+          {
+            "id": "health-insurance",
+            "label": "Health Insurance",
+            "url": "/insurance-plans/plan-details"
+          },
+          {
+            "id": "home-insurance",
+            "label": "Home Insurance",
+            "url": "/insurance-plans/plan-details"
+          },
+          {
+            "id": "motor-insurance",
+            "label": "Motor Insurance",
+            "url": "/insurance-plans/plan-details"
+          },
+          {
+            "id": "travel-insurance",
+            "label": "Travel Insurance",
+            "url": "/insurance-plans/plan-details"
+          },
+          {
+            "id": "business-insurance",
+            "label": "Business Insurance",
+            "url": "/insurance-plans/plan-details"
+          },
+          {
+            "id": "child-insurance",
+            "label": "Child Insurance",
+            "url": "/insurance-plans/plan-details"
+          },
+          {
+            "id": "retirement-plans",
+            "label": "Retirement Plans",
+            "url": "/insurance-plans/plan-details"
+          }
+        ]
+      },
+      "linkIcon": "FaChevronRight",
       "contactTitle": "Get In Touch",
       "contactItems": [
         {
           "id": "address",
           "icon": "FaMapMarkerAlt",
-          "source": "address"
+          "text": "123 Maple Street,\nSpringfield, IL 62704, USA",
+          "url": "https://www.google.com/maps?q=123%20Maple%20Street%2C%20Springfield%2C%20IL%2062704%2C%20USA"
         },
         {
           "id": "phone",
           "icon": "FaPhoneAlt",
-          "source": "phone"
+          "text": "+1 000-000-0000",
+          "url": "tel:+10000000000"
         },
         {
           "id": "email",
           "icon": "FaEnvelope",
-          "source": "email"
+          "text": "info@xyz.com",
+          "url": "mailto:info@xyz.com"
         },
         {
           "id": "hoursshort",
           "icon": "FaRegClock",
-          "lines": [
-            "Mon - Sat: 9:00 AM – 6:00 PM",
-            "Sunday: Closed"
-          ],
+          "text": "Mon - Sat: 9:00 AM – 6:00 PM\nSunday: Closed",
           "url": "/contact-us"
         }
       ],
-      "copyrightText": "© 2026 All Rights Reserved. Powered by Lestow.",
+      "copyrightText": "© {year} All Rights Reserved. Powered by Lestow.",
       "bottomLinks": [
         {
           "id": "terms-conditions",
@@ -462,7 +446,8 @@
           "url": "/sitemap"
         }
       ],
-      "backToTopLabel": "Back to top"
+      "backToTopLabel": "Back to top",
+      "backToTopIcon": "FaArrowUp"
     }
   },
   "categories": {
@@ -471,7 +456,60 @@
         "Header": {
           "variants": {
             "InsuranceHeader1": {
+              "logo": "/images/logo.webp",
+              "logoAlt": "Surevia Insurance",
+              "logoUrl": "/",
+              "logoWidth": 1359,
+              "logoHeight": 475,
+              "contactItems": [
+                {
+                  "id": "address",
+                  "icon": "FaMapMarkerAlt",
+                  "text": "123 Maple Street, Springfield, IL 62704, USA"
+                },
+                {
+                  "id": "email",
+                  "icon": "FaEnvelope",
+                  "text": "info@xyz.com",
+                  "url": "mailto:info@xyz.com"
+                },
+                {
+                  "id": "phone",
+                  "icon": "FaPhoneAlt",
+                  "text": "+1 000-000-0000",
+                  "url": "tel:+10000000000"
+                }
+              ],
+              "socialLinks": [
+                {
+                  "id": "facebook",
+                  "icon": "FaFacebookF",
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/"
+                },
+                {
+                  "id": "instagram",
+                  "icon": "FaInstagram",
+                  "label": "Instagram",
+                  "url": "https://www.instagram.com/"
+                },
+                {
+                  "id": "linkedin",
+                  "icon": "FaLinkedinIn",
+                  "label": "LinkedIn",
+                  "url": "https://www.linkedin.com/"
+                },
+                {
+                  "id": "youtube",
+                  "icon": "FaYoutube",
+                  "label": "YouTube",
+                  "url": "https://www.youtube.com/"
+                }
+              ],
               "phoneLabel": "Call Us Now",
+              "phone": "+1 000-000-0000",
+              "phoneUrl": "tel:+10000000000",
+              "phoneIcon": "FaPhoneAlt",
               "navLinks": [
                 {
                   "id": "home",
@@ -542,11 +580,15 @@
                   "url": "/insurance-plans/plan-details"
                 }
               ],
+              "dropdownIcon": "FaChevronDown",
+              "toggleDropdownLabel": "Toggle insurance plans",
               "buttonText": "Enquire Now",
               "buttonUrl": "/enquire-now",
+              "buttonIcon": "FaArrowRight",
               "openMenuLabel": "Open menu",
+              "openMenuIcon": "FaBars",
               "closeMenuLabel": "Close menu",
-              "toggleDropdownLabel": "Toggle insurance plans"
+              "closeMenuIcon": "FaTimes"
             }
           }
         },
@@ -557,10 +599,7 @@
                 {
                   "id": "protect-what-matters-most-with-confidence",
                   "eyebrow": "Insurance for a Brighter Tomorrow",
-                  "title": [
-                    "Protect what matters most",
-                    "with confidence"
-                  ],
+                  "title": "Protect what matters most\nwith confidence",
                   "description": "Trusted insurance guidance and tailored protection plans for you, your family, and your future.",
                   "image": "/images/hero.webp",
                   "imageAlt": ""
@@ -568,10 +607,7 @@
                 {
                   "id": "find-the-right-plan-with-advisors-you-trust",
                   "eyebrow": "Expert Guidance at Every Step",
-                  "title": [
-                    "Find the right plan",
-                    "with advisors you trust"
-                  ],
+                  "title": "Find the right plan\nwith advisors you trust",
                   "description": "Our insurance experts compare plans with you and recommend cover that fits your needs and budget.",
                   "image": "/images/about-main.webp",
                   "imageAlt": ""
@@ -579,18 +615,18 @@
                 {
                   "id": "secure-your-family-s-future-today",
                   "eyebrow": "Security for Every Stage of Life",
-                  "title": [
-                    "Secure your family’s",
-                    "future today"
-                  ],
+                  "title": "Secure your family’s\nfuture today",
                   "description": "Life, health, home and motor insurance with quick support and hassle-free claim assistance.",
                   "image": "/images/blog-detail.webp",
                   "imageAlt": ""
                 }
               ],
+              "autoplayMs": 5000,
               "goToSlideLabel": "Go to slide {n}",
               "previousSlideLabel": "Previous slide",
-              "nextSlideLabel": "Next slide"
+              "previousSlideIcon": "FaArrowLeft",
+              "nextSlideLabel": "Next slide",
+              "nextSlideIcon": "FaArrowRight"
             }
           }
         },
@@ -644,17 +680,16 @@
               "eyebrow": "About Us",
               "title": "Secure Tomorrow With",
               "titleHighlight": "Our Insurance",
+              "homeText": "At Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.",
+              "pageDescription": "At Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.\nAt Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.\nAt Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.\nAt Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.",
               "mainImage": "/images/about-main.webp",
               "mainImageAlt": "Surevia advisor talking with a couple",
               "familyImage": "/images/about-family.webp",
               "familyImageAlt": "Happy insured family",
-              "homeText": "At Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.",
+              "badgeIcon": "FaShieldAlt",
               "experience": {
                 "value": "10+",
-                "label": [
-                  "Years of",
-                  "Experience"
-                ]
+                "label": "Years of\nExperience"
               },
               "points": [
                 {
@@ -672,12 +707,7 @@
               ],
               "buttonText": "Learn More",
               "buttonUrl": "/about-us",
-              "pageParagraphs": [
-                "At Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.",
-                "At Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.",
-                "At Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life.",
-                "At Surevia, we believe insurance is more than a policy — it’s peace of mind for you and your loved ones. We provide simple, reliable and customized insurance solutions to help you protect what matters most in life."
-              ]
+              "buttonIcon": "FaArrowRight"
             }
           }
         },
@@ -685,8 +715,7 @@
           "variants": {
             "InsuranceWhyChooseUs1": {
               "eyebrow": "Why Choose Us",
-              "title": "Your Trusted Partner",
-              "titleLine2": "for a",
+              "title": "Your Trusted Partner\nfor a",
               "titleHighlight": "Safer Tomorrow",
               "description": "We are committed to providing reliable insurance solutions that protect what matters most to you and your loved ones.",
               "image": "/images/why-choose-us.webp",
@@ -695,80 +724,38 @@
                 {
                   "id": "comprehensive-coverage",
                   "icon": "FaShieldAlt",
-                  "title": [
-                    "Comprehensive",
-                    "Coverage"
-                  ],
-                  "description": [
-                    "A wide range of insurance plans",
-                    "to meet your every need under",
-                    "one roof."
-                  ]
+                  "title": "Comprehensive\nCoverage",
+                  "description": "A wide range of insurance plans\nto meet your every need under\none roof."
                 },
                 {
                   "id": "customer-first-approach",
                   "icon": "FaUsers",
-                  "title": [
-                    "Customer",
-                    "First Approach"
-                  ],
-                  "description": [
-                    "Your peace of mind is our",
-                    "priority. We offer personalized",
-                    "support at every step."
-                  ]
+                  "title": "Customer\nFirst Approach",
+                  "description": "Your peace of mind is our\npriority. We offer personalized\nsupport at every step."
                 },
                 {
                   "id": "hassle-free-claims",
                   "icon": "FaFileAlt",
-                  "title": [
-                    "Hassle-Free",
-                    "Claims"
-                  ],
-                  "description": [
-                    "A simple and transparent",
-                    "claims process for a stress-free",
-                    "experience."
-                  ]
+                  "title": "Hassle-Free\nClaims",
+                  "description": "A simple and transparent\nclaims process for a stress-free\nexperience."
                 },
                 {
                   "id": "affordable-plans",
                   "icon": "FaHandHoldingUsd",
-                  "title": [
-                    "Affordable",
-                    "Plans"
-                  ],
-                  "description": [
-                    "Flexible and cost-effective",
-                    "options to fit your budget",
-                    "and goals."
-                  ]
+                  "title": "Affordable\nPlans",
+                  "description": "Flexible and cost-effective\noptions to fit your budget\nand goals."
                 },
                 {
                   "id": "trusted-reliable",
                   "icon": "FaShieldAlt",
-                  "title": [
-                    "Trusted",
-                    "& Reliable"
-                  ],
-                  "description": [
-                    "Backed by a strong network",
-                    "and years of industry",
-                    "expertise."
-                  ]
+                  "title": "Trusted\n& Reliable",
+                  "description": "Backed by a strong network\nand years of industry\nexpertise."
                 },
                 {
                   "id": "dedicated-support",
                   "icon": "FaHeadset",
-                  "title": [
-                    "Dedicated",
-                    "Support"
-                  ],
-                  "description": [
-                    "Our experts are always here",
-                    "to guide you with the right",
-                    "advice and solutions."
-                  ]
+                  "title": "Dedicated\nSupport",
+                  "description": "Our experts are always here\nto guide you with the right\nadvice and solutions."
                 }
               ]
             }
@@ -782,6 +769,18 @@
               "titleHighlight": "Every Stage of Life",
               "description": "Explore our comprehensive range of insurance plans designed to keep you and your loved ones secure.",
               "buttonText": "Learn More",
+              "buttonIcon": "FaArrowRight",
+              "detailPlanId": "life-insurance",
+              "relatedPlanIds": [
+                "health-insurance",
+                "home-insurance",
+                "motor-insurance",
+                "travel-insurance"
+              ],
+              "previousLabel": "Previous",
+              "previousIcon": "FaArrowLeft",
+              "nextLabel": "Next",
+              "nextIcon": "FaArrowRight",
               "items": [
                 {
                   "id": "life-insurance",
@@ -790,26 +789,13 @@
                   "icon": "FaHeartbeat",
                   "homeIcon": "FaHeartbeat",
                   "description": "Financial security for your loved ones, today and always.",
-                  "lines": [
-                    "Financial security for your loved",
-                    "ones, today and always."
-                  ],
-                  "homeText": [
-                    "Financial security",
-                    "for your loved ones,",
-                    "today and always."
-                  ],
+                  "cardText": "Financial security for your loved\nones, today and always.",
+                  "homeText": "Financial security\nfor your loved ones,\ntoday and always.",
+                  "relatedText": "Financial security\nfor your loved ones.",
+                  "overview": "Life insurance is a financial safety net that provides protection to your family in the event of an unforeseen situation. It ensures that your loved ones remain financially secure and can continue to meet their needs, even in your absence.\nWith flexible plans and customizable coverage options, life insurance helps you plan for a more stable and worry-free future.",
                   "image": "/images/life-insurance.webp",
                   "homeImage": "/images/plan-life.webp",
                   "detailImage": "/images/plan-detail-life.webp",
-                  "relatedText": [
-                    "Financial security",
-                    "for your loved ones."
-                  ],
-                  "overview": [
-                    "Life insurance is a financial safety net that provides protection to your family in the event of an unforeseen situation. It ensures that your loved ones remain financially secure and can continue to meet their needs, even in your absence.",
-                    "With flexible plans and customizable coverage options, life insurance helps you plan for a more stable and worry-free future."
-                  ],
                   "imageAlt": "Life Insurance"
                 },
                 {
@@ -819,26 +805,13 @@
                   "icon": "FaBriefcaseMedical",
                   "homeIcon": "FaHeartbeat",
                   "description": "Quality healthcare coverage for a healthier tomorrow.",
-                  "lines": [
-                    "Quality healthcare coverage",
-                    "for a healthier tomorrow."
-                  ],
-                  "homeText": [
-                    "Quality healthcare",
-                    "coverage for a healthier",
-                    "tomorrow."
-                  ],
+                  "cardText": "Quality healthcare coverage\nfor a healthier tomorrow.",
+                  "homeText": "Quality healthcare\ncoverage for a healthier\ntomorrow.",
+                  "relatedText": "Quality healthcare\nfor a healthier tomorrow.",
+                  "overview": "Health insurance covers your medical expenses when you need care the most. It protects your savings from the rising cost of hospitalisation, treatments and medicines, so you can focus on getting better.\nWith flexible plans and customizable coverage options, health insurance helps you and your family stay prepared for every medical need.",
                   "image": "/images/health-insurance.webp",
                   "homeImage": "/images/plan-health.webp",
                   "thumb": "/images/related-health.webp",
-                  "relatedText": [
-                    "Quality healthcare",
-                    "for a healthier tomorrow."
-                  ],
-                  "overview": [
-                    "Health insurance covers your medical expenses when you need care the most. It protects your savings from the rising cost of hospitalisation, treatments and medicines, so you can focus on getting better.",
-                    "With flexible plans and customizable coverage options, health insurance helps you and your family stay prepared for every medical need."
-                  ],
                   "imageAlt": "Health Insurance"
                 },
                 {
@@ -848,27 +821,13 @@
                   "icon": "FaHome",
                   "homeIcon": "FaHome",
                   "description": "Protect your home and belongings from unforeseen events.",
-                  "lines": [
-                    "Protect your home and",
-                    "belongings from unforeseen",
-                    "events."
-                  ],
-                  "homeText": [
-                    "Protect your home",
-                    "and belongings from",
-                    "unforeseen events."
-                  ],
+                  "cardText": "Protect your home and\nbelongings from unforeseen\nevents.",
+                  "homeText": "Protect your home\nand belongings from\nunforeseen events.",
+                  "relatedText": "Protect your home\nand belongings.",
+                  "overview": "Home insurance safeguards your house and everything inside it against unforeseen events such as fire, theft and natural calamities. It ensures that the place you call home stays protected at all times.\nWith flexible plans and customizable coverage options, home insurance gives you complete peace of mind for your most valuable asset.",
                   "image": "/images/home-insurance.webp",
                   "homeImage": "/images/plan-home.webp",
                   "thumb": "/images/related-home.webp",
-                  "relatedText": [
-                    "Protect your home",
-                    "and belongings."
-                  ],
-                  "overview": [
-                    "Home insurance safeguards your house and everything inside it against unforeseen events such as fire, theft and natural calamities. It ensures that the place you call home stays protected at all times.",
-                    "With flexible plans and customizable coverage options, home insurance gives you complete peace of mind for your most valuable asset."
-                  ],
                   "imageAlt": "Home Insurance"
                 },
                 {
@@ -878,27 +837,13 @@
                   "icon": "FaCar",
                   "homeIcon": "FaCar",
                   "description": "Stay protected on every journey with comprehensive cover.",
-                  "lines": [
-                    "Stay protected on every",
-                    "journey with comprehensive",
-                    "cover."
-                  ],
-                  "homeText": [
-                    "Stay protected on",
-                    "every journey with",
-                    "comprehensive cover."
-                  ],
+                  "cardText": "Stay protected on every\njourney with comprehensive\ncover.",
+                  "homeText": "Stay protected on\nevery journey with\ncomprehensive cover.",
+                  "relatedText": "Stay protected on\nevery journey.",
+                  "overview": "Motor insurance protects you and your vehicle against accidents, theft and third-party liabilities. It keeps you covered on every journey, whether it is a short drive or a long road trip.\nWith flexible plans and customizable coverage options, motor insurance lets you drive with complete confidence.",
                   "image": "/images/motor-insurance.webp",
                   "homeImage": "/images/plan-motor.webp",
                   "thumb": "/images/related-motor.webp",
-                  "relatedText": [
-                    "Stay protected on",
-                    "every journey."
-                  ],
-                  "overview": [
-                    "Motor insurance protects you and your vehicle against accidents, theft and third-party liabilities. It keeps you covered on every journey, whether it is a short drive or a long road trip.",
-                    "With flexible plans and customizable coverage options, motor insurance lets you drive with complete confidence."
-                  ],
                   "imageAlt": "Motor Insurance"
                 },
                 {
@@ -908,27 +853,13 @@
                   "icon": "FaPlane",
                   "homeIcon": "FaPlane",
                   "description": "Travel with confidence and enjoy worry-free journeys worldwide.",
-                  "lines": [
-                    "Travel with confidence and",
-                    "enjoy worry-free journeys",
-                    "worldwide."
-                  ],
-                  "homeText": [
-                    "Travel with confidence",
-                    "and enjoy worry-free",
-                    "journeys worldwide."
-                  ],
+                  "cardText": "Travel with confidence and\nenjoy worry-free journeys\nworldwide.",
+                  "homeText": "Travel with confidence\nand enjoy worry-free\njourneys worldwide.",
+                  "relatedText": "Travel with confidence\nworldwide.",
+                  "overview": "Travel insurance protects you from unexpected events during your trip, such as medical emergencies, flight delays, lost baggage and trip cancellations. It lets you explore the world without worry.\nWith flexible plans and customizable coverage options, travel insurance keeps every journey safe and stress-free.",
                   "image": "/images/travel-insurance.webp",
                   "homeImage": "/images/plan-travel.webp",
                   "thumb": "/images/related-travel.webp",
-                  "relatedText": [
-                    "Travel with confidence",
-                    "worldwide."
-                  ],
-                  "overview": [
-                    "Travel insurance protects you from unexpected events during your trip, such as medical emergencies, flight delays, lost baggage and trip cancellations. It lets you explore the world without worry.",
-                    "With flexible plans and customizable coverage options, travel insurance keeps every journey safe and stress-free."
-                  ],
                   "imageAlt": "Travel Insurance"
                 },
                 {
@@ -938,26 +869,12 @@
                   "icon": "FaBriefcase",
                   "homeIcon": "FaBriefcase",
                   "description": "Tailored solutions to protect your business and ensure continuity.",
-                  "lines": [
-                    "Tailored solutions to protect",
-                    "your business and ensure",
-                    "continuity."
-                  ],
-                  "homeText": [
-                    "Tailored solutions to",
-                    "protect your business",
-                    "and ensure continuity."
-                  ],
+                  "cardText": "Tailored solutions to protect\nyour business and ensure\ncontinuity.",
+                  "homeText": "Tailored solutions to\nprotect your business\nand ensure continuity.",
+                  "relatedText": "Protect your business\nand ensure continuity.",
+                  "overview": "Business insurance protects your company against financial losses caused by unexpected events such as property damage, liability claims and business interruptions. It keeps your operations running smoothly.\nWith flexible plans and customizable coverage options, business insurance helps you grow with confidence and continuity.",
                   "image": "/images/business-insurance.webp",
                   "homeImage": "/images/business-insurance.webp",
-                  "relatedText": [
-                    "Protect your business",
-                    "and ensure continuity."
-                  ],
-                  "overview": [
-                    "Business insurance protects your company against financial losses caused by unexpected events such as property damage, liability claims and business interruptions. It keeps your operations running smoothly.",
-                    "With flexible plans and customizable coverage options, business insurance helps you grow with confidence and continuity."
-                  ],
                   "imageAlt": "Business Insurance"
                 },
                 {
@@ -967,26 +884,12 @@
                   "icon": "FaUsers",
                   "homeIcon": "FaUsers",
                   "description": "Secure your child’s dreams with a strong financial foundation.",
-                  "lines": [
-                    "Secure your child’s dreams",
-                    "with a strong financial",
-                    "foundation."
-                  ],
-                  "homeText": [
-                    "Secure your child’s",
-                    "dreams with a strong",
-                    "financial foundation."
-                  ],
+                  "cardText": "Secure your child’s dreams\nwith a strong financial\nfoundation.",
+                  "homeText": "Secure your child’s\ndreams with a strong\nfinancial foundation.",
+                  "relatedText": "Secure your child’s\ndreams.",
+                  "overview": "Child insurance helps you build a strong financial foundation for your child’s education, career and important milestones. It ensures their dreams stay protected, no matter what life brings.\nWith flexible plans and customizable coverage options, child insurance helps you plan a brighter and more secure future for your little one.",
                   "image": "/images/child-insurance.webp",
                   "homeImage": "/images/child-insurance.webp",
-                  "relatedText": [
-                    "Secure your child’s",
-                    "dreams."
-                  ],
-                  "overview": [
-                    "Child insurance helps you build a strong financial foundation for your child’s education, career and important milestones. It ensures their dreams stay protected, no matter what life brings.",
-                    "With flexible plans and customizable coverage options, child insurance helps you plan a brighter and more secure future for your little one."
-                  ],
                   "imageAlt": "Child Insurance"
                 },
                 {
@@ -996,26 +899,12 @@
                   "icon": "FaHandHoldingUsd",
                   "homeIcon": "FaHandHoldingUsd",
                   "description": "Plan today for a financially independent and worry-free tomorrow.",
-                  "lines": [
-                    "Plan today for a financially",
-                    "independent and worry-free",
-                    "tomorrow."
-                  ],
-                  "homeText": [
-                    "Plan today for a",
-                    "financially independent",
-                    "tomorrow."
-                  ],
+                  "cardText": "Plan today for a financially\nindependent and worry-free\ntomorrow.",
+                  "homeText": "Plan today for a\nfinancially independent\ntomorrow.",
+                  "relatedText": "Plan today for a\nworry-free tomorrow.",
+                  "overview": "Retirement plans help you build a steady income for your golden years. They ensure that you stay financially independent and continue to enjoy the lifestyle you have worked hard for.\nWith flexible plans and customizable coverage options, retirement plans help you look forward to a stable and worry-free future.",
                   "image": "/images/retirement-plans.webp",
                   "homeImage": "/images/retirement-plans.webp",
-                  "relatedText": [
-                    "Plan today for a",
-                    "worry-free tomorrow."
-                  ],
-                  "overview": [
-                    "Retirement plans help you build a steady income for your golden years. They ensure that you stay financially independent and continue to enjoy the lifestyle you have worked hard for.",
-                    "With flexible plans and customizable coverage options, retirement plans help you look forward to a stable and worry-free future."
-                  ],
                   "imageAlt": "Retirement Plans"
                 }
               ]
@@ -1036,37 +925,25 @@
                   "id": "financial-security",
                   "icon": "FaShieldAlt",
                   "title": "Financial Security",
-                  "description": [
-                    "Protect your loved",
-                    "ones’ future."
-                  ]
+                  "description": "Protect your loved\nones’ future."
                 },
                 {
                   "id": "flexible-plans",
                   "icon": "FaCoins",
                   "title": "Flexible Plans",
-                  "description": [
-                    "Choose coverage",
-                    "as per your needs."
-                  ]
+                  "description": "Choose coverage\nas per your needs."
                 },
                 {
                   "id": "tax-benefits",
                   "icon": "FaHeartbeat",
                   "title": "Tax Benefits",
-                  "description": [
-                    "Avail attractive",
-                    "tax advantages."
-                  ]
+                  "description": "Avail attractive\ntax advantages."
                 },
                 {
                   "id": "customizable-coverage",
                   "icon": "FaFileAlt",
                   "title": "Customizable Coverage",
-                  "description": [
-                    "Plans designed to",
-                    "fit your goals."
-                  ]
+                  "description": "Plans designed to\nfit your goals."
                 }
               ],
               "whyEyebrow": "Why Choose Us",
@@ -1100,7 +977,8 @@
               ],
               "formTitle": "Enquire Now",
               "formDescription": "Get the best {plan} plan for your needs. Fill out the form and we’ll get back to you shortly.",
-              "relatedTitle": "Related Insurance Plans"
+              "relatedTitle": "Related Insurance Plans",
+              "relatedIcon": "FaArrowRight"
             }
           }
         },
@@ -1113,49 +991,32 @@
               "description": "Getting insured with Surevia is quick, easy and hassle-free. Follow these simple steps and secure your future with the right insurance plan.",
               "buttonText": "Contact Us",
               "buttonUrl": "/contact-us",
+              "buttonIcon": "FaArrowRight",
+              "stepArrowIcon": "FaArrowRight",
               "steps": [
                 {
                   "id": "explore-options",
                   "icon": "FaSearch",
                   "title": "Explore Options",
-                  "description": [
-                    "Browse our insurance",
-                    "plans and choose the",
-                    "one that fits your",
-                    "needs."
-                  ]
+                  "description": "Browse our insurance\nplans and choose the\none that fits your\nneeds."
                 },
                 {
                   "id": "share-your-details",
                   "icon": "FaUserEdit",
                   "title": "Share Your Details",
-                  "description": [
-                    "Provide your basic",
-                    "information securely",
-                    "and quickly."
-                  ]
+                  "description": "Provide your basic\ninformation securely\nand quickly."
                 },
                 {
                   "id": "get-a-tailored-plan",
                   "icon": "FaFileSignature",
                   "title": "Get a Tailored Plan",
-                  "description": [
-                    "Receive a customized",
-                    "plan as per your",
-                    "requirements with",
-                    "clear terms."
-                  ]
+                  "description": "Receive a customized\nplan as per your\nrequirements with\nclear terms."
                 },
                 {
                   "id": "stay-protected",
                   "icon": "FaShieldAlt",
                   "title": "Stay Protected",
-                  "description": [
-                    "Complete the process",
-                    "and enjoy financial",
-                    "security for a",
-                    "brighter tomorrow."
-                  ]
+                  "description": "Complete the process\nand enjoy financial\nsecurity for a\nbrighter tomorrow."
                 }
               ]
             }
@@ -1200,6 +1061,14 @@
               "title": "What Our",
               "titleHighlight": "Customers Say",
               "description": "Real stories from real people who trust us for a safer and more secure tomorrow.",
+              "ratingLabel": "{rating} out of 5 stars",
+              "starIcon": "FaStar",
+              "quoteMark": "”",
+              "autoplayMs": 5000,
+              "previousLabel": "Previous",
+              "previousIcon": "FaArrowLeft",
+              "nextLabel": "Next",
+              "nextIcon": "FaArrowRight",
               "items": [
                 {
                   "id": "priya-sharma",
@@ -1237,8 +1106,7 @@
                   "quote": "“Planning our retirement felt overwhelming until we spoke to the Surevia team. They found a plan that fits our budget and gives us real peace of mind for the years ahead.”",
                   "imageAlt": "Kavita Iyer"
                 }
-              ],
-              "ratingLabel": "{rating} out of 5 stars"
+              ]
             }
           }
         },
@@ -1246,15 +1114,14 @@
           "variants": {
             "InsuranceCta1": {
               "eyebrow": "Get Started Today",
-              "title": [
-                "Let’s Secure",
-                "Your Tomorrow"
-              ],
+              "title": "Let’s Secure",
+              "titleHighlight": "Your Tomorrow",
               "description": "Speak with our experts and find the right insurance plan for your needs.",
               "image": "/images/cta-family.webp",
+              "imageAlt": "",
               "buttonText": "Enquire Now",
               "buttonUrl": "/enquire-now",
-              "imageAlt": ""
+              "buttonIcon": "FaArrowRight"
             }
           }
         },
@@ -1266,20 +1133,50 @@
               "titleHighlight": "Safer Tomorrow",
               "description": "Expert advice, helpful guides and the latest updates from the world of insurance.",
               "buttonText": "Read More",
-              "homeCount": 3,
+              "buttonIcon": "FaArrowRight",
+              "dateIcon": "FaRegCalendarAlt",
+              "homePostIds": [
+                "how-life-insurance-secures-your-family-s-future",
+                "why-health-insurance-is-essential-for-everyone",
+                "travel-insurance-your-companion-for-a-worry-free"
+              ],
+              "listingPostIds": [
+                "how-life-insurance-secures-your-family-s-future",
+                "why-health-insurance-is-essential-for-everyone",
+                "travel-insurance-your-companion-for-a-worry-free",
+                "home-insurance-protect-what-matters-most",
+                "motor-insurance-drive-with-complete-confidence",
+                "business-insurance-safeguard-what-you-ve-built"
+              ],
+              "detailPostId": "how-life-insurance-secures-your-family-s-future",
+              "recentPostIds": [
+                "why-health-insurance-is-essential-for-everyone",
+                "travel-insurance-your-companion-for-a-worry-free",
+                "home-insurance-protect-what-matters-most",
+                "motor-insurance-drive-with-complete-confidence",
+                "business-insurance-safeguard-what-you-ve-built"
+              ],
               "categoryLabel": "Showing posts in",
+              "categoryUrl": "/blogs?category={category}",
               "allPostsLabel": "View all posts",
+              "allPostsUrl": "/blogs",
+              "detail": {
+                "author": "By Admin",
+                "authorIcon": "FaRegUser",
+                "dateIcon": "FaRegCalendarAlt",
+                "commentsLabel": "{count} Comments",
+                "commentsIcon": "FaRegCommentDots",
+                "tipIcon": "FaShieldAlt",
+                "latestTitle": "Latest Blogs",
+                "categoriesTitle": "Categories"
+              },
               "posts": [
                 {
                   "id": "how-life-insurance-secures-your-family-s-future",
                   "category": "Life Insurance",
                   "date": "15 Aug 2026",
-                  "title": "How Life Insurance Secures Your Family’s Future",
+                  "title": "How Life Insurance Secures\nYour Family’s Future",
                   "url": "/blogs/blog-details",
-                  "titleLines": [
-                    "How Life Insurance Secures",
-                    "Your Family’s Future"
-                  ],
                   "description": "Discover how life insurance provides financial stability and peace of mind for your loved ones during uncertain times.",
                   "image": "/images/blog-1.webp",
                   "detail": {
@@ -1319,12 +1216,8 @@
                   "id": "why-health-insurance-is-essential-for-everyone",
                   "category": "Health Insurance",
                   "date": "12 Aug 2026",
-                  "title": "Why Health Insurance is Essential for Everyone",
+                  "title": "Why Health Insurance is\nEssential for Everyone",
                   "url": "/blogs/blog-details",
-                  "titleLines": [
-                    "Why Health Insurance is",
-                    "Essential for Everyone"
-                  ],
                   "description": "Understand the key benefits of health insurance and how it helps you stay prepared for unexpected medical expenses.",
                   "image": "/images/blog-2.webp",
                   "detail": {
@@ -1364,12 +1257,8 @@
                   "id": "travel-insurance-your-companion-for-a-worry-free",
                   "category": "Travel Insurance",
                   "date": "10 Aug 2026",
-                  "title": "Travel Insurance: Your Companion for a Worry-Free Trip",
+                  "title": "Travel Insurance: Your\nCompanion for a Worry-Free Trip",
                   "url": "/blogs/blog-details",
-                  "titleLines": [
-                    "Travel Insurance: Your",
-                    "Companion for a Worry-Free Trip"
-                  ],
                   "description": "Learn why travel insurance is important and how it protects you from unexpected events during your journey.",
                   "image": "/images/blog-3.webp",
                   "detail": {
@@ -1409,12 +1298,8 @@
                   "id": "home-insurance-protect-what-matters-most",
                   "category": "Home Insurance",
                   "date": "08 Aug 2026",
-                  "title": "Home Insurance: Protect What Matters Most",
+                  "title": "Home Insurance: Protect\nWhat Matters Most",
                   "url": "/blogs/blog-details",
-                  "titleLines": [
-                    "Home Insurance: Protect",
-                    "What Matters Most"
-                  ],
                   "description": "See how home insurance shields your house and belongings from fire, theft, and natural calamities.",
                   "image": "/images/blog-4.webp",
                   "detail": {
@@ -1454,12 +1339,8 @@
                   "id": "motor-insurance-drive-with-complete-confidence",
                   "category": "Motor Insurance",
                   "date": "05 Aug 2026",
-                  "title": "Motor Insurance: Drive with Complete Confidence",
+                  "title": "Motor Insurance: Drive\nwith Complete Confidence",
                   "url": "/blogs/blog-details",
-                  "titleLines": [
-                    "Motor Insurance: Drive",
-                    "with Complete Confidence"
-                  ],
                   "description": "Understand third-party and comprehensive cover, and how the right add-ons keep you protected on every journey.",
                   "image": "/images/blog-5.webp",
                   "detail": {
@@ -1499,12 +1380,8 @@
                   "id": "business-insurance-safeguard-what-you-ve-built",
                   "category": "Business Insurance",
                   "date": "02 Aug 2026",
-                  "title": "Business Insurance: Safeguard What You’ve Built",
+                  "title": "Business Insurance: Safeguard\nWhat You’ve Built",
                   "url": "/blogs/blog-details",
-                  "titleLines": [
-                    "Business Insurance: Safeguard",
-                    "What You’ve Built"
-                  ],
                   "description": "Learn how the right cover protects your assets, your people, and your income when something goes wrong.",
                   "image": "/images/blog-6.webp",
                   "detail": {
@@ -1544,16 +1421,6 @@
             }
           }
         },
-        "BlogDetail": {
-          "variants": {
-            "InsuranceBlogDetail1": {
-              "author": "By Admin",
-              "commentsLabel": "Comments",
-              "latestTitle": "Latest Blogs",
-              "categoriesTitle": "Categories"
-            }
-          }
-        },
         "EnquiryForm": {
           "variants": {
             "InsuranceEnquiryForm1": {
@@ -1562,9 +1429,12 @@
               "phone": "Phone Number *",
               "plan": "Select Insurance Plan *",
               "planShort": "Select Plan*",
+              "selectIcon": "FaChevronDown",
               "message": "Your Message (Optional)",
-              "submit": "Submit Enquiry",
+              "buttonText": "Submit Enquiry",
+              "buttonIcon": "FaArrowRight",
               "note": "Your information is safe with us. We never share your data with third parties.",
+              "noteIcon": "FaLock",
               "redirectUrl": "/thank-you",
               "planOptions": [
                 {
@@ -1603,14 +1473,11 @@
             }
           }
         },
-        "EnquirePage": {
+        "Enquire": {
           "variants": {
-            "InsuranceEnquirePage1": {
+            "InsuranceEnquire1": {
               "eyebrow": "Get in Touch",
-              "title": [
-                "We’re Here to Help",
-                "You Find the Right"
-              ],
+              "title": "We’re Here to Help\nYou Find the Right",
               "titleHighlight": "Insurance Plan",
               "description": "Whether you have a question, need guidance, or want a personalized quote, our team is ready to assist you. Fill out the form and we’ll connect with you shortly.",
               "points": [
@@ -1618,28 +1485,19 @@
                   "id": "expert-guidance",
                   "icon": "FaHeadset",
                   "title": "Expert Guidance",
-                  "description": [
-                    "Get advice from our experienced",
-                    "insurance consultants."
-                  ]
+                  "description": "Get advice from our experienced\ninsurance consultants."
                 },
                 {
                   "id": "quick-response",
                   "icon": "FaRegClock",
                   "title": "Quick Response",
-                  "description": [
-                    "We value your time and respond",
-                    "as quickly as possible."
-                  ]
+                  "description": "We value your time and respond\nas quickly as possible."
                 },
                 {
                   "id": "personalized-solutions",
                   "icon": "FaShieldAlt",
                   "title": "Personalized Solutions",
-                  "description": [
-                    "Tailored plans to match your",
-                    "unique needs and goals."
-                  ]
+                  "description": "Tailored plans to match your\nunique needs and goals."
                 }
               ],
               "formTitle": "Send Us an",
@@ -1652,10 +1510,7 @@
           "variants": {
             "InsuranceContact1": {
               "eyebrow": "Get in Touch",
-              "title": [
-                "Let’s Talk About",
-                "Your"
-              ],
+              "title": "Let’s Talk About\nYour",
               "titleHighlight": "Insurance Needs",
               "description": "Have a question, need expert advice, or want a personalized quote? Fill out the form and our team will get back to you shortly.",
               "cards": [
@@ -1663,44 +1518,39 @@
                   "id": "call-us",
                   "icon": "FaPhoneAlt",
                   "title": "Call Us",
-                  "source": "phone",
-                  "lines": [
-                    "+1 000-000-0001"
-                  ]
+                  "text": "+1 000-000-0000\n+1 000-000-0001"
                 },
                 {
                   "id": "email-us",
                   "icon": "FaEnvelope",
                   "title": "Email Us",
-                  "source": "email",
-                  "lines": [
-                    "support@xyz.com"
-                  ]
+                  "text": "info@xyz.com\nsupport@xyz.com"
                 },
                 {
                   "id": "our-office",
                   "icon": "FaMapMarkerAlt",
                   "title": "Our Office",
-                  "source": "address"
+                  "text": "123 Maple Street,\nSpringfield, IL 62704, USA"
                 }
               ],
               "formTitle": "Send Us a",
               "formHighlight": "Message",
               "formDescription": "Fill in your details and we’ll get back to you shortly.",
               "location": {
-                "mapTitle": "Map showing the Surevia Insurance office at {address}",
+                "mapTitle": "Map showing the Surevia Insurance office at 123 Maple Street, Springfield, IL 62704, USA",
+                "mapEmbedUrl": "https://www.google.com/maps?q=123%20Maple%20Street%2C%20Springfield%2C%20IL%2062704%2C%20USA&output=embed",
                 "mapCard": {
                   "title": "Our Office",
-                  "source": "address"
+                  "icon": "FaMapMarkerAlt",
+                  "text": "123 Maple Street,\nSpringfield, IL 62704, USA"
                 }
               }
             }
           }
         },
-        "ThankYouPage": {
+        "ThankYou": {
           "variants": {
-            "InsuranceThankYouPage1": {
-              "pageTitle": "Thank You",
+            "InsuranceThankYou1": {
               "seo": {
                 "title": "Thank You",
                 "description": "Thank you for your enquiry. Our team will get back to you shortly with the best insurance options for your needs."
@@ -1708,50 +1558,37 @@
               "title": "Thank",
               "titleHighlight": "You!",
               "subtitle": "Your Enquiry Has Been Submitted Successfully.",
-              "description": [
-                "We have received your details and our team will get back to you shortly",
-                "with the best insurance options for your needs."
-              ],
+              "description": "We have received your details and our team will get back to you shortly\nwith the best insurance options for your needs.",
               "primaryButtonText": "Back to Home",
               "primaryButtonUrl": "/",
+              "primaryButtonIcon": "FaArrowRight",
               "secondaryButtonText": "Explore Insurance Plans",
               "secondaryButtonUrl": "/insurance-plans",
+              "secondaryButtonIcon": "FaArrowRight",
               "points": [
                 {
                   "id": "expert-support",
                   "icon": "FaHeadset",
                   "title": "Expert Support",
-                  "description": [
-                    "Our team is ready",
-                    "to assist you."
-                  ]
+                  "description": "Our team is ready\nto assist you."
                 },
                 {
                   "id": "quick-response",
                   "icon": "FaRegClock",
                   "title": "Quick Response",
-                  "description": [
-                    "We’ll get back to you",
-                    "shortly."
-                  ]
+                  "description": "We’ll get back to you\nshortly."
                 },
                 {
                   "id": "personalized-plans",
                   "icon": "FaFileAlt",
                   "title": "Personalized Plans",
-                  "description": [
-                    "Tailored solutions",
-                    "for your needs."
-                  ]
+                  "description": "Tailored solutions\nfor your needs."
                 },
                 {
                   "id": "trusted-guidance",
                   "icon": "FaShieldAlt",
                   "title": "Trusted Guidance",
-                  "description": [
-                    "Make confident",
-                    "decisions with us."
-                  ]
+                  "description": "Make confident\ndecisions with us."
                 }
               ]
             }
@@ -1760,31 +1597,33 @@
         "Faq": {
           "variants": {
             "InsuranceFaq1": {
-              "pageTitle": "FAQs",
               "intro": "Answers to common questions about choosing insurance, claims, tax benefits, and policy add-ons.",
-              "items": [
+              "sections": [
                 {
                   "id": "how-do-i-choose-the-best-insurance-plan-for-my-f",
-                  "question": "How do I choose the best insurance plan for my family?",
-                  "answer": "Our certified advisors assess your family size, current medical history, liabilities, and long-term financial goals to recommend the most cost-effective and comprehensive coverage."
+                  "title": "How do I choose the best insurance plan for my family?",
+                  "description": "Our certified advisors assess your family size, current medical history, liabilities, and long-term financial goals to recommend the most cost-effective and comprehensive coverage."
                 },
                 {
                   "id": "how-does-surevia-help-during-insurance-claim-set",
-                  "question": "How does Surevia help during insurance claim settlements?",
-                  "answer": "We provide dedicated end-to-end claim assistance: from filing initial paperwork and coordinating directly with hospital/insurer TPA desks to ensuring full settlement disbursement without delays."
+                  "title": "How does Surevia help during insurance claim settlements?",
+                  "description": "We provide dedicated end-to-end claim assistance: from filing initial paperwork and coordinating directly with hospital/insurer TPA desks to ensuring full settlement disbursement without delays."
                 },
                 {
                   "id": "are-tax-benefits-available-under-indian-insuranc",
-                  "question": "Are tax benefits available under Indian insurance laws?",
-                  "answer": "Yes, premiums paid towards life insurance qualify for deductions under Section 80C, while health insurance premiums qualify under Section 80D of the Income Tax Act."
+                  "title": "Are tax benefits available under Indian insurance laws?",
+                  "description": "Yes, premiums paid towards life insurance qualify for deductions under Section 80C, while health insurance premiums qualify under Section 80D of the Income Tax Act."
                 },
                 {
                   "id": "can-i-customize-policy-add-ons-and-riders",
-                  "question": "Can I customize policy add-ons and riders?",
-                  "answer": "Absolutely. You can enhance your coverage with riders like Critical Illness, Accidental Disability, Zero Depreciation, and Maternity Coverage according to your needs."
+                  "title": "Can I customize policy add-ons and riders?",
+                  "description": "Absolutely. You can enhance your coverage with riders like Critical Illness, Accidental Disability, Zero Depreciation, and Maternity Coverage according to your needs."
                 }
               ],
-              "contactPrompt": "Questions? Contact us at"
+              "contactPrompt": "Questions? Contact us at",
+              "email": "info@xyz.com",
+              "emailUrl": "mailto:info@xyz.com",
+              "accordionIcon": "FaChevronDown"
             }
           }
         },
@@ -1812,7 +1651,7 @@
                   {
                     "id": "your-choices",
                     "title": "Your choices",
-                    "description": "You can choose not to provide information, though we may then be unable to respond to an enquiry. To ask about information you have sent us or request an update, email {email}."
+                    "description": "You can choose not to provide information, though we may then be unable to respond to an enquiry. To ask about information you have sent us or request an update, email info@xyz.com."
                   },
                   {
                     "id": "insurance-information",
@@ -1820,7 +1659,9 @@
                     "description": "Website content is general information, not a substitute for an insurer’s policy wording or a personalized financial recommendation. The insurer’s documents and terms govern any cover you purchase."
                   }
                 ],
-                "contactPrompt": "Questions? Contact us at"
+                "contactPrompt": "Questions? Contact us at",
+                "email": "info@xyz.com",
+                "emailUrl": "mailto:info@xyz.com"
               },
               "terms": {
                 "intro": "These terms apply when you access the Surevia website. By using the site, you agree to use it lawfully and in a way that does not interfere with other visitors.",
@@ -1848,10 +1689,12 @@
                   {
                     "id": "changes-and-contact",
                     "title": "Changes and contact",
-                    "description": "We may update these terms or website content as our services change. Continued use of the site after an update means you accept the revised terms. For questions, contact {email}."
+                    "description": "We may update these terms or website content as our services change. Continued use of the site after an update means you accept the revised terms. For questions, contact info@xyz.com."
                   }
                 ],
-                "contactPrompt": "Questions? Contact us at"
+                "contactPrompt": "Questions? Contact us at",
+                "email": "info@xyz.com",
+                "emailUrl": "mailto:info@xyz.com"
               },
               "cookies": {
                 "intro": "Cookies are small files that a website can store in your browser. This page describes how cookies may support your visit to the Surevia website and how you can manage them.",
@@ -1874,114 +1717,127 @@
                   {
                     "id": "updates",
                     "title": "Updates",
-                    "description": "We may revise this page when website features or cookie practices change. Questions about this policy can be sent to {email}."
+                    "description": "We may revise this page when website features or cookie practices change. Questions about this policy can be sent to info@xyz.com."
                   }
                 ],
-                "contactPrompt": "Questions? Contact us at"
+                "contactPrompt": "Questions? Contact us at",
+                "email": "info@xyz.com",
+                "emailUrl": "mailto:info@xyz.com"
               }
             }
           }
         },
-        "SitemapPage": {
+        "Sitemap": {
           "variants": {
-            "InsuranceSitemapPage1": {
-              "pagesTitle": "Pages",
-              "plansTitle": "Insurance Plans",
-              "policiesTitle": "Policies",
-              "pageLinks": [
+            "InsuranceSitemap1": {
+              "groups": [
                 {
-                  "id": "home",
-                  "label": "Home",
-                  "url": "/"
+                  "id": "pages",
+                  "title": "Pages",
+                  "links": [
+                    {
+                      "id": "home",
+                      "label": "Home",
+                      "url": "/"
+                    },
+                    {
+                      "id": "about-us",
+                      "label": "About Us",
+                      "url": "/about-us"
+                    },
+                    {
+                      "id": "insurance-plans",
+                      "label": "Insurance Plans",
+                      "url": "/insurance-plans"
+                    },
+                    {
+                      "id": "blogs",
+                      "label": "Blogs",
+                      "url": "/blogs"
+                    },
+                    {
+                      "id": "faqs",
+                      "label": "FAQs",
+                      "url": "/faq"
+                    },
+                    {
+                      "id": "contact-us",
+                      "label": "Contact Us",
+                      "url": "/contact-us"
+                    },
+                    {
+                      "id": "enquire-now",
+                      "label": "Enquire Now",
+                      "url": "/enquire-now"
+                    }
+                  ]
                 },
                 {
-                  "id": "about-us",
-                  "label": "About Us",
-                  "url": "/about-us"
+                  "id": "plans",
+                  "title": "Insurance Plans",
+                  "links": [
+                    {
+                      "id": "life-insurance",
+                      "label": "Life Insurance",
+                      "url": "/insurance-plans/plan-details"
+                    },
+                    {
+                      "id": "health-insurance",
+                      "label": "Health Insurance",
+                      "url": "/insurance-plans/plan-details"
+                    },
+                    {
+                      "id": "home-insurance",
+                      "label": "Home Insurance",
+                      "url": "/insurance-plans/plan-details"
+                    },
+                    {
+                      "id": "motor-insurance",
+                      "label": "Motor Insurance",
+                      "url": "/insurance-plans/plan-details"
+                    },
+                    {
+                      "id": "travel-insurance",
+                      "label": "Travel Insurance",
+                      "url": "/insurance-plans/plan-details"
+                    },
+                    {
+                      "id": "business-insurance",
+                      "label": "Business Insurance",
+                      "url": "/insurance-plans/plan-details"
+                    },
+                    {
+                      "id": "child-insurance",
+                      "label": "Child Insurance",
+                      "url": "/insurance-plans/plan-details"
+                    },
+                    {
+                      "id": "retirement-plans",
+                      "label": "Retirement Plans",
+                      "url": "/insurance-plans/plan-details"
+                    }
+                  ]
                 },
                 {
-                  "id": "insurance-plans",
-                  "label": "Insurance Plans",
-                  "url": "/insurance-plans"
-                },
-                {
-                  "id": "blogs",
-                  "label": "Blogs",
-                  "url": "/blogs"
-                },
-                {
-                  "id": "faqs",
-                  "label": "FAQs",
-                  "url": "/faq"
-                },
-                {
-                  "id": "contact-us",
-                  "label": "Contact Us",
-                  "url": "/contact-us"
-                },
-                {
-                  "id": "enquire-now",
-                  "label": "Enquire Now",
-                  "url": "/enquire-now"
-                }
-              ],
-              "planLinks": [
-                {
-                  "id": "life-insurance",
-                  "label": "Life Insurance",
-                  "url": "/insurance-plans/plan-details"
-                },
-                {
-                  "id": "health-insurance",
-                  "label": "Health Insurance",
-                  "url": "/insurance-plans/plan-details"
-                },
-                {
-                  "id": "home-insurance",
-                  "label": "Home Insurance",
-                  "url": "/insurance-plans/plan-details"
-                },
-                {
-                  "id": "motor-insurance",
-                  "label": "Motor Insurance",
-                  "url": "/insurance-plans/plan-details"
-                },
-                {
-                  "id": "travel-insurance",
-                  "label": "Travel Insurance",
-                  "url": "/insurance-plans/plan-details"
-                },
-                {
-                  "id": "business-insurance",
-                  "label": "Business Insurance",
-                  "url": "/insurance-plans/plan-details"
-                },
-                {
-                  "id": "child-insurance",
-                  "label": "Child Insurance",
-                  "url": "/insurance-plans/plan-details"
-                },
-                {
-                  "id": "retirement-plans",
-                  "label": "Retirement Plans",
-                  "url": "/insurance-plans/plan-details"
-                }
-              ],
-              "policyLinks": [
-                {
-                  "id": "terms-conditions",
-                  "label": "Terms & Conditions",
-                  "url": "/terms-and-conditions"
-                },
-                {
-                  "id": "privacy-policy",
-                  "label": "Privacy Policy",
-                  "url": "/privacy-policy"
-                },
-                {
-                  "id": "cookie-policy",
-                  "label": "Cookie Policy",
-                  "url": "/cookie-policy"
+                  "id": "policies",
+                  "title": "Policies",
+                  "links": [
+                    {
+                      "id": "terms-conditions",
+                      "label": "Terms & Conditions",
+                      "url": "/terms-and-conditions"
+                    },
+                    {
+                      "id": "privacy-policy",
+                      "label": "Privacy Policy",
+                      "url": "/privacy-policy"
+                    },
+                    {
+                      "id": "cookie-policy",
+                      "label": "Cookie Policy",
+                      "url": "/cookie-policy"
+                    }
+                  ]
                 }
               ]
             }
@@ -2146,7 +2002,7 @@
               },
               {
                 "key": "BlogDetail",
-                "component": "InsuranceBlogDetail1"
+                "component": "InsuranceBlogs1"
               },
               {
                 "key": "Footer",
@@ -2189,8 +2045,8 @@
                 "component": "common.enquireBreadcrumb"
               },
               {
-                "key": "EnquirePage",
-                "component": "InsuranceEnquirePage1"
+                "key": "Enquire",
+                "component": "InsuranceEnquire1"
               },
               {
                 "key": "EnquiryForm",
@@ -2209,8 +2065,8 @@
                 "component": "InsuranceHeader1"
               },
               {
-                "key": "ThankYouPage",
-                "component": "InsuranceThankYouPage1"
+                "key": "ThankYou",
+                "component": "InsuranceThankYou1"
               },
               {
                 "key": "Footer",
@@ -2309,8 +2165,8 @@
                 "component": "common.sitemapBreadcrumb"
               },
               {
-                "key": "SitemapPage",
-                "component": "InsuranceSitemapPage1"
+                "key": "Sitemap",
+                "component": "InsuranceSitemap1"
               },
               {
                 "key": "Footer",
@@ -2325,7 +2181,7 @@
                 "component": "InsuranceHeader1"
               },
               {
-                "key": "NotFoundSection",
+                "key": "NotFound",
                 "component": "common.notFound"
               },
               {

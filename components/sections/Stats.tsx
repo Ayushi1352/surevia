@@ -3,9 +3,9 @@ import { CountUp } from "@/components/ui/CountUp";
 import { Icon } from "@/components/ui/Icon";
 import { Loop } from "@/components/ui/Loop";
 import { Reveal } from "@/components/ui/Reveal";
-import type { StatsData } from "@/types/templates.types";
+import type { StatsProps } from "@/types/templates.types";
 
-export const Stats = ({ data }: { data?: StatsData }) => {
+export const Stats = ({ data }: StatsProps) => {
   if (!data) return null;
   return (
     <section className="relative overflow-hidden bg-[var(--color-primary-dark)]">

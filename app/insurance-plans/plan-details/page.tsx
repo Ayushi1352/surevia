@@ -4,16 +4,19 @@ import type { InsuranceTemplateData } from "@/types/templates.types";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { PlanDetail } from "@/components/sections/PlanDetail";
 
-const templateData: InsuranceTemplateData = rawData;
-const sectionData = templateData.categories.Insurance.sections;
-const commonData = templateData.common;
-
-// One common detail page for every plan: it shows the first plan, so the page is described by that plan.
-const plan = sectionData.Plans?.variants?.InsurancePlans1?.items[0];
+// One common detail page for every plan: all plan links point here and it shows the detailPlanId plan.
+const plans = (rawData as InsuranceTemplateData).categories.Insurance.sections.Plans?.variants?.InsurancePlans1;
+const plan = plans?.items.find((item) => item.id === plans.detailPlanId);
 
 export const metadata: Metadata = { title: plan?.title, description: plan?.description };
 
 export default function PlanDetailPage() {
+  const templateData: InsuranceTemplateData = rawData;
+  const sectionData = templateData?.categories?.Insurance?.sections;
+  const commonData = templateData?.common;
+
+  if (!sectionData || !commonData) return null;
+
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.planDetailBreadcrumb} ui={commonData.globalUI} />

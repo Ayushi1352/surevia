@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 export interface ThemeFonts {
   primary: string;
   heading: string;
@@ -6,6 +8,11 @@ export interface ThemeFonts {
 export interface ThemeData {
   fonts: ThemeFonts;
 }
+
+export type ThemeFontVariables = CSSProperties & {
+  "--font-primary": string;
+  "--font-heading": string;
+};
 
 export interface SeoData {
   title: string;
@@ -20,47 +27,48 @@ export interface SiteMetadataData {
   lang: string;
 }
 
-export interface SocialLink {
+export interface GlobalUIData {
+  breadcrumbLabel: string;
+}
+
+export interface LinkItem {
   id: string;
-  icon: string;
   label: string;
   url: string;
 }
 
-/** Name, logos, phone, email, address and social links: shared by the header, footer, contact page and policy pages. */
-export interface CompanyData {
-  name: string;
+export interface LinkGroup {
+  title: string;
+  links: LinkItem[];
+}
+
+export interface SocialLink extends LinkItem {
+  icon: string;
+}
+
+/** Logo shown by the header and the footer. */
+export interface BrandData {
   logo: string;
-  logoWhite: string;
   logoAlt: string;
   logoUrl: string;
   logoWidth: number;
   logoHeight: number;
-  phone: string;
-  email: string;
-  address: string[];
-  /** "{query}" is filled with the address */
-  mapEmbedUrl: string;
-  mapOpenUrl: string;
-  socialLinks: SocialLink[];
 }
 
-/** An item either carries its own `lines` or points at a company field ("phone", "email", "address") with `source`; own lines are shown after the company value. */
-export interface ContactLinesSource {
-  source?: string;
-  lines?: string[];
-}
-
-export interface GlobalUIData {
-  breadcrumbLabel: string;
-  previousLabel: string;
-  nextLabel: string;
-}
-
-export interface BreadcrumbPath {
+/** Address, phone, email or opening hours line; "\n" in `text` starts a new line. Items with a url are links. */
+export interface ContactItem {
   id: string;
-  label: string;
-  url: string;
+  icon: string;
+  text: string;
+  url?: string;
+}
+
+/** Labels and icons of a slider's previous / next arrows. */
+export interface SliderControls {
+  previousLabel: string;
+  previousIcon: string;
+  nextLabel: string;
+  nextIcon: string;
 }
 
 export interface BreadcrumbData {
@@ -68,7 +76,12 @@ export interface BreadcrumbData {
   seo?: SeoData;
   bgImage: string;
   bgImageAlt: string;
-  paths: BreadcrumbPath[];
+  paths: LinkItem[];
+}
+
+export interface BreadcrumbProps {
+  data?: BreadcrumbData;
+  ui?: GlobalUIData;
 }
 
 export interface NotFoundData {
@@ -78,50 +91,66 @@ export interface NotFoundData {
   description: string;
   buttonText: string;
   buttonUrl: string;
+  buttonIcon: string;
 }
 
-export interface FooterContactItem extends ContactLinesSource {
-  id: string;
-  icon: string;
-  /** Only for items with their own lines; company items link to the map, phone or email */
-  url?: string;
+export interface NotFoundProps {
+  data?: NotFoundData;
 }
 
-export interface FooterData {
+export interface FooterData extends BrandData {
   description: string;
-  quickLinksTitle: string;
-  quickLinks: BreadcrumbPath[];
-  planLinksTitle: string;
-  planLinks: BreadcrumbPath[];
+  socialLinks: SocialLink[];
+  quickLinks: LinkGroup;
+  planLinks: LinkGroup;
+  linkIcon: string;
   contactTitle: string;
-  contactItems: FooterContactItem[];
+  contactItems: ContactItem[];
+  /** "{year}" is the current year */
   copyrightText: string;
-  bottomLinks: BreadcrumbPath[];
+  bottomLinks: LinkItem[];
   backToTopLabel: string;
+  backToTopIcon: string;
 }
 
-export interface HeaderNavLink {
-  id: string;
-  label: string;
-  url: string;
+export interface FooterProps {
+  data?: FooterData;
+}
+
+export interface HeaderNavLink extends LinkItem {
   hasDropdown?: boolean;
 }
 
-export interface HeaderData {
+export interface HeaderData extends BrandData {
+  /** Top bar: address, email and phone */
+  contactItems: ContactItem[];
+  socialLinks: SocialLink[];
   phoneLabel: string;
+  phone: string;
+  phoneUrl: string;
+  phoneIcon: string;
   navLinks: HeaderNavLink[];
-  dropdownLinks: BreadcrumbPath[];
+  dropdownLinks: LinkItem[];
+  dropdownIcon: string;
+  toggleDropdownLabel: string;
   buttonText: string;
   buttonUrl: string;
+  buttonIcon: string;
   openMenuLabel: string;
+  openMenuIcon: string;
   closeMenuLabel: string;
-  toggleDropdownLabel: string;
+  closeMenuIcon: string;
+}
+
+export interface HeaderProps {
+  data?: HeaderData;
 }
 
 export interface HeroSlide {
   id: string;
   eyebrow: string;
-  title: string[];
+  /** "\n" starts a new line (from lg up) */
+  title: string;
   description: string;
   image: string;
   imageAlt: string;
@@ -129,12 +158,21 @@ export interface HeroSlide {
 
 export interface HeroData {
   slides: HeroSlide[];
+  autoplayMs: number;
+  /** "{n}" is the slide number */
   goToSlideLabel: string;
   previousSlideLabel: string;
+  previousSlideIcon: string;
   nextSlideLabel: string;
+  nextSlideIcon: string;
 }
 
-export interface HighlightsItem {
+export interface HeroSectionProps {
+  data?: HeroData;
+}
+
+/** Icon, title and a short text: used by many sections. "\n" in `description` starts a new line. */
+export interface FeatureItem {
   id: string;
   icon: string;
   title: string;
@@ -142,46 +180,59 @@ export interface HighlightsItem {
 }
 
 export interface HighlightsData {
-  items: HighlightsItem[];
+  items: FeatureItem[];
+}
+
+export interface HighlightsProps {
+  data?: HighlightsData;
 }
 
 export interface AboutUsExperience {
   value: string;
-  label: string[];
+  /** "\n" starts a new line */
+  label: string;
 }
 
 export interface AboutUsData {
   eyebrow: string;
   title: string;
   titleHighlight: string;
+  /** Text of the home page section */
+  homeText: string;
+  /** About Us page: one paragraph per "\n"-separated line */
+  pageDescription: string;
   mainImage: string;
   mainImageAlt: string;
   familyImage: string;
   familyImageAlt: string;
-  homeText: string;
+  badgeIcon: string;
   experience: AboutUsExperience;
-  points: HighlightsItem[];
+  points: FeatureItem[];
   buttonText: string;
   buttonUrl: string;
-  pageParagraphs: string[];
+  buttonIcon: string;
 }
 
-export interface WhyChooseUsItem {
-  id: string;
-  icon: string;
-  title: string[];
-  description: string[];
+export interface AboutUsProps {
+  data?: AboutUsData;
+  /** "page" on the About Us page: the paragraphs instead of the experience, points and button */
+  variant?: "home" | "page";
 }
 
 export interface WhyChooseUsData {
   eyebrow: string;
+  /** "\n" starts a new line (from sm up) */
   title: string;
-  titleLine2: string;
   titleHighlight: string;
   description: string;
   image: string;
   imageAlt: string;
-  items: WhyChooseUsItem[];
+  /** "\n" in an item's title and description starts a new line */
+  items: FeatureItem[];
+}
+
+export interface WhyChooseUsProps {
+  data?: WhyChooseUsData;
 }
 
 export interface PlanItem {
@@ -191,31 +242,46 @@ export interface PlanItem {
   icon: string;
   homeIcon: string;
   description: string;
-  lines: string[];
-  homeText: string[];
+  /** Text of the card on the Insurance Plans page; "\n" starts a new line (from xl up) */
+  cardText: string;
+  /** Text of the card on the home page; "\n" starts a new line */
+  homeText: string;
+  /** Text in the "related plans" list; "\n" starts a new line */
+  relatedText: string;
+  /** One paragraph per "\n"-separated line */
+  overview: string;
   image: string;
   homeImage: string;
   detailImage?: string;
-  relatedText: string[];
-  overview: string[];
-  imageAlt: string;
   thumb?: string;
+  imageAlt: string;
 }
 
-export interface PlansData {
+export interface PlansData extends SliderControls {
   eyebrow: string;
   title: string;
   titleHighlight: string;
   description: string;
   buttonText: string;
+  buttonIcon: string;
+  /** The plan the common detail page shows */
+  detailPlanId: string;
+  /** Plans in the detail page's "related plans" list */
+  relatedPlanIds: string[];
   items: PlanItem[];
 }
 
-export interface PlanDetailFeature {
-  id: string;
-  icon: string;
-  title: string;
-  description: string[];
+export interface PlansProps {
+  data?: PlansData;
+  /** true on the Insurance Plans page: every plan in a grid instead of the home slider */
+  showAll?: boolean;
+}
+
+export interface PlanCardProps {
+  plan: PlanItem;
+  buttonText: string;
+  buttonIcon: string;
+  variant?: "home" | "grid";
 }
 
 export interface PlanDetailData {
@@ -225,14 +291,22 @@ export interface PlanDetailData {
   featuresEyebrow: string;
   featuresTitle: string;
   featuresSuffix: string;
-  features: PlanDetailFeature[];
+  features: FeatureItem[];
   whyEyebrow: string;
   whyTitle: string;
   whySuffix: string;
-  why: HighlightsItem[];
+  why: FeatureItem[];
   formTitle: string;
+  /** "{plan}" is the plan name */
   formDescription: string;
   relatedTitle: string;
+  relatedIcon: string;
+}
+
+export interface PlanDetailProps {
+  data?: PlanDetailData;
+  plans?: PlansData;
+  form?: EnquiryFormData;
 }
 
 export interface ProcessData {
@@ -242,7 +316,13 @@ export interface ProcessData {
   description: string;
   buttonText: string;
   buttonUrl: string;
-  steps: PlanDetailFeature[];
+  buttonIcon: string;
+  stepArrowIcon: string;
+  steps: FeatureItem[];
+}
+
+export interface ProcessProps {
+  data?: ProcessData;
 }
 
 export interface StatsItem {
@@ -256,68 +336,99 @@ export interface StatsData {
   items: StatsItem[];
 }
 
+export interface StatsProps {
+  data?: StatsData;
+}
+
 export interface TestimonialsItem {
   id: string;
   name: string;
   city: string;
   rating: number;
   image: string;
-  quote: string;
   imageAlt: string;
+  quote: string;
 }
 
-export interface TestimonialsData {
+export interface TestimonialsData extends SliderControls {
   eyebrow: string;
   title: string;
   titleHighlight: string;
   description: string;
-  items: TestimonialsItem[];
+  /** "{rating}" is the number of stars */
   ratingLabel: string;
+  starIcon: string;
+  quoteMark: string;
+  autoplayMs: number;
+  items: TestimonialsItem[];
+}
+
+export interface TestimonialsProps {
+  data?: TestimonialsData;
 }
 
 export interface CtaData {
   eyebrow: string;
-  title: string[];
+  title: string;
+  titleHighlight: string;
   description: string;
   image: string;
+  imageAlt: string;
   buttonText: string;
   buttonUrl: string;
-  imageAlt: string;
+  buttonIcon: string;
 }
 
-export interface BlogsPostDetailSection {
+export interface CtaProps {
+  data?: CtaData;
+}
+
+export interface BlogPostDetailSection {
   id: string;
   title: string;
   titleHighlight: string;
   description: string;
 }
 
-export interface BlogsPostDetailTip {
+export interface BlogPostDetailTip {
   title: string;
   description: string;
 }
 
-export interface BlogsPostDetail {
+export interface BlogPostDetail {
   image: string;
   imageAlt: string;
   comments: number;
   intro: string;
-  sections: BlogsPostDetailSection[];
-  tip: BlogsPostDetailTip;
+  sections: BlogPostDetailSection[];
+  tip: BlogPostDetailTip;
 }
 
 export interface BlogPost {
   id: string;
   category: string;
   date: string;
+  dateLong: string;
+  /** "\n" starts a new line on the cards */
   title: string;
   url: string;
-  titleLines: string[];
   description: string;
   image: string;
-  detail: BlogsPostDetail;
-  dateLong: string;
   imageAlt: string;
+  detail: BlogPostDetail;
+}
+
+/** Labels and icons of the blog detail page. */
+export interface BlogDetailLabels {
+  author: string;
+  authorIcon: string;
+  dateIcon: string;
+  /** "{count}" is the number of comments */
+  commentsLabel: string;
+  commentsIcon: string;
+  tipIcon: string;
+  latestTitle: string;
+  categoriesTitle: string;
 }
 
 export interface BlogsData {
@@ -326,17 +437,43 @@ export interface BlogsData {
   titleHighlight: string;
   description: string;
   buttonText: string;
-  homeCount: number;
+  buttonIcon: string;
+  dateIcon: string;
+  /** Posts on the home page */
+  homePostIds: string[];
+  /** Posts on the Blogs page */
+  listingPostIds: string[];
+  /** The post the common detail page shows */
+  detailPostId: string;
+  /** Posts in the detail page's "latest blogs" list */
+  recentPostIds: string[];
   categoryLabel: string;
+  /** "{category}" is the category name */
+  categoryUrl: string;
   allPostsLabel: string;
+  allPostsUrl: string;
+  detail: BlogDetailLabels;
   posts: BlogPost[];
 }
 
-export interface BlogDetailData {
-  author: string;
-  commentsLabel: string;
-  latestTitle: string;
-  categoriesTitle: string;
+export interface BlogsProps {
+  data?: BlogsData;
+  /** true on the Blogs page: the listingPostIds posts instead of the homePostIds */
+  showAll?: boolean;
+  /** Only the posts in this category */
+  category?: string;
+}
+
+export interface BlogCardProps {
+  post: BlogPost;
+  buttonText: string;
+  buttonIcon: string;
+  dateIcon: string;
+}
+
+export interface BlogDetailProps {
+  data?: BlogsData;
+  postId?: string;
 }
 
 export interface EnquiryFormPlanOption {
@@ -350,43 +487,65 @@ export interface EnquiryFormData {
   phone: string;
   plan: string;
   planShort: string;
+  selectIcon: string;
   message: string;
-  submit: string;
+  buttonText: string;
+  buttonIcon: string;
   note: string;
+  noteIcon: string;
   redirectUrl: string;
   planOptions: EnquiryFormPlanOption[];
 }
 
-export interface EnquirePageData {
+export interface EnquiryFormProps {
+  data?: EnquiryFormData;
+  /** "grid": two-column fields (contact), "stack": one field per row (enquire), "compact": sidebar */
+  layout?: "grid" | "stack" | "compact";
+  defaultPlan?: string;
+}
+
+export interface EnquireData {
   eyebrow: string;
-  title: string[];
+  /** "\n" starts a new line (from sm up) */
+  title: string;
   titleHighlight: string;
   description: string;
-  points: PlanDetailFeature[];
+  points: FeatureItem[];
   formTitle: string;
   formHighlight: string;
   formDescription: string;
 }
 
-export interface ContactCard extends ContactLinesSource {
+export interface EnquireProps {
+  data?: EnquireData;
+  form?: EnquiryFormData;
+}
+
+export interface ContactCard {
   id: string;
   icon: string;
   title: string;
+  /** "\n" starts a new line */
+  text: string;
 }
 
-export interface ContactLocationMapCard extends ContactLinesSource {
+export interface ContactMapCard {
   title: string;
+  icon: string;
+  /** "\n" starts a new line */
+  text: string;
 }
 
 export interface ContactLocation {
-  /** "{address}" is filled with the company address */
   mapTitle: string;
-  mapCard: ContactLocationMapCard;
+  mapEmbedUrl: string;
+  mapCard: ContactMapCard;
 }
 
 export interface ContactData {
   eyebrow: string;
-  title: string[];
+  /** "\n" starts a new line (from sm up) */
+  title: string;
   titleHighlight: string;
   description: string;
   cards: ContactCard[];
@@ -396,31 +555,29 @@ export interface ContactData {
   location: ContactLocation;
 }
 
-export interface ThankYouPageData {
-  pageTitle: string;
+export interface ContactProps {
+  data?: ContactData;
+  form?: EnquiryFormData;
+}
+
+export interface ThankYouData {
   seo?: SeoData;
   title: string;
   titleHighlight: string;
   subtitle: string;
-  description: string[];
+  /** "\n" starts a new line (from md up) */
+  description: string;
   primaryButtonText: string;
   primaryButtonUrl: string;
+  primaryButtonIcon: string;
   secondaryButtonText: string;
   secondaryButtonUrl: string;
-  points: PlanDetailFeature[];
+  secondaryButtonIcon: string;
+  points: FeatureItem[];
 }
 
-export interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
-}
-
-export interface FaqData {
-  pageTitle: string;
-  intro: string;
-  items: FaqItem[];
-  contactPrompt: string;
+export interface ThankYouProps {
+  data?: ThankYouData;
 }
 
 export interface PolicySectionData {
@@ -433,6 +590,12 @@ export interface PolicyPageData {
   intro: string;
   sections: PolicySectionData[];
   contactPrompt: string;
+  email: string;
+  emailUrl: string;
+}
+
+export interface FaqData extends PolicyPageData {
+  accordionIcon: string;
 }
 
 export interface PolicyPagesData {
@@ -441,13 +604,22 @@ export interface PolicyPagesData {
   cookies?: PolicyPageData;
 }
 
-export interface SitemapPageData {
-  pagesTitle: string;
-  plansTitle: string;
-  policiesTitle: string;
-  pageLinks: BreadcrumbPath[];
-  planLinks: BreadcrumbPath[];
-  policyLinks: BreadcrumbPath[];
+export interface PolicyPageProps {
+  data?: PolicyPageData;
+  /** Collapses each section behind its title (FAQ), with this icon; one stays open at a time. */
+  accordionIcon?: string;
+}
+
+export interface SitemapGroup extends LinkGroup {
+  id: string;
+}
+
+export interface SitemapData {
+  groups: SitemapGroup[];
+}
+
+export interface SitemapProps {
+  data?: SitemapData;
 }
 
 export interface TemplateComponentsData {
@@ -458,7 +630,6 @@ export interface TemplateComponentsData {
 export interface CommonData {
   theme: ThemeData;
   metadata: SiteMetadataData;
-  company: CompanyData;
   globalUI: GlobalUIData;
   aboutBreadcrumb?: BreadcrumbData;
   contactBreadcrumb?: BreadcrumbData;
@@ -476,32 +647,35 @@ export interface CommonData {
   Footer?: FooterData;
 }
 
+type Section<Variant extends string, Data> = { variants?: { [K in Variant]?: Data } };
+
+export interface InsuranceSections {
+  Header?: Section<"InsuranceHeader1", HeaderData>;
+  Hero?: Section<"InsuranceHero1", HeroData>;
+  Highlights?: Section<"InsuranceHighlights1", HighlightsData>;
+  AboutUs?: Section<"InsuranceAboutUs1", AboutUsData>;
+  WhyChooseUs?: Section<"InsuranceWhyChooseUs1", WhyChooseUsData>;
+  Plans?: Section<"InsurancePlans1", PlansData>;
+  PlanDetail?: Section<"InsurancePlanDetail1", PlanDetailData>;
+  Process?: Section<"InsuranceProcess1", ProcessData>;
+  Stats?: Section<"InsuranceStats1", StatsData>;
+  Testimonials?: Section<"InsuranceTestimonials1", TestimonialsData>;
+  Cta?: Section<"InsuranceCta1", CtaData>;
+  Blogs?: Section<"InsuranceBlogs1", BlogsData>;
+  EnquiryForm?: Section<"InsuranceEnquiryForm1", EnquiryFormData>;
+  Enquire?: Section<"InsuranceEnquire1", EnquireData>;
+  Contact?: Section<"InsuranceContact1", ContactData>;
+  ThankYou?: Section<"InsuranceThankYou1", ThankYouData>;
+  Faq?: Section<"InsuranceFaq1", FaqData>;
+  PolicyPages?: Section<"InsurancePolicyPages1", PolicyPagesData>;
+  Sitemap?: Section<"InsuranceSitemap1", SitemapData>;
+}
+
 export interface InsuranceTemplateData {
   common: CommonData;
   categories: {
     Insurance: {
-      sections: {
-        Header?: { variants?: { InsuranceHeader1?: HeaderData } };
-        Hero?: { variants?: { InsuranceHero1?: HeroData } };
-        Highlights?: { variants?: { InsuranceHighlights1?: HighlightsData } };
-        AboutUs?: { variants?: { InsuranceAboutUs1?: AboutUsData } };
-        WhyChooseUs?: { variants?: { InsuranceWhyChooseUs1?: WhyChooseUsData } };
-        Plans?: { variants?: { InsurancePlans1?: PlansData } };
-        PlanDetail?: { variants?: { InsurancePlanDetail1?: PlanDetailData } };
-        Process?: { variants?: { InsuranceProcess1?: ProcessData } };
-        Stats?: { variants?: { InsuranceStats1?: StatsData } };
-        Testimonials?: { variants?: { InsuranceTestimonials1?: TestimonialsData } };
-        Cta?: { variants?: { InsuranceCta1?: CtaData } };
-        Blogs?: { variants?: { InsuranceBlogs1?: BlogsData } };
-        BlogDetail?: { variants?: { InsuranceBlogDetail1?: BlogDetailData } };
-        EnquiryForm?: { variants?: { InsuranceEnquiryForm1?: EnquiryFormData } };
-        EnquirePage?: { variants?: { InsuranceEnquirePage1?: EnquirePageData } };
-        Contact?: { variants?: { InsuranceContact1?: ContactData } };
-        ThankYouPage?: { variants?: { InsuranceThankYouPage1?: ThankYouPageData } };
-        Faq?: { variants?: { InsuranceFaq1?: FaqData } };
-        PolicyPages?: { variants?: { InsurancePolicyPages1?: PolicyPagesData } };
-        SitemapPage?: { variants?: { InsuranceSitemapPage1?: SitemapPageData } };
-      };
+      sections: InsuranceSections;
       templateComponents?: TemplateComponentsData;
     };
   };

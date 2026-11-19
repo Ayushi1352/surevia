@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
 import rawData from "@/data/templates.json";
 import type { InsuranceTemplateData } from "@/types/templates.types";
-import { ThankYouSection } from "@/components/sections/ThankYouSection";
+import { ThankYou } from "@/components/sections/ThankYou";
 
-const templateData: InsuranceTemplateData = rawData;
-const sectionData = templateData.categories.Insurance.sections;
-
-export const metadata: Metadata = { ...sectionData.ThankYouPage?.variants?.InsuranceThankYouPage1?.seo };
+export const metadata: Metadata = { ...(rawData as InsuranceTemplateData).categories.Insurance.sections.ThankYou?.variants?.InsuranceThankYou1?.seo };
 
 export default function ThankYouPage() {
+  const templateData: InsuranceTemplateData = rawData;
+  const sectionData = templateData?.categories?.Insurance?.sections;
+
+  if (!sectionData) return null;
+
   return (
     <main className="flex-1">
-      <ThankYouSection data={sectionData.ThankYouPage?.variants?.InsuranceThankYouPage1} />
+      <ThankYou data={sectionData.ThankYou?.variants?.InsuranceThankYou1} />
     </main>
   );
 }
-
-
-
-

@@ -6,14 +6,20 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { Loop } from "@/components/ui/Loop";
-import { mailUrl, telUrl } from "@/components/ui/text";
-import type { CompanyData, HeaderData } from "@/types/templates.types";
+import type { HeaderProps } from "@/types/templates.types";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
 }
 
-export const Header = ({ data: nav, company }: { data?: HeaderData; company: CompanyData }) => {
+// Top bar items in the design order: address, email, phone (the phone only from lg up).
+const topBarStyles = [
+  { item: "flex items-center gap-2.5 pr-6", icon: "size-[1.3125rem]" },
+  { item: "flex items-center gap-3 border-l border-[var(--color-black-15)] px-6", icon: "size-[1.5625rem]" },
+  { item: "hidden items-center gap-3 border-l border-[var(--color-black-15)] pl-6 lg:flex", icon: "size-[1.4375rem]" },
+];
+
+export const Header = ({ data: nav }: HeaderProps) => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [plansOpen, setPlansOpen] = useState(false);
@@ -21,11 +27,30 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
 
+  // Close the mobile menu when another page opens (also through the browser's back / forward buttons).
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (pathname !== menuPath) {
+    setMenuPath(pathname);
+    setOpen(false);
+    setPlansOpen(false);
+    setDropdownOpen(false);
+  }
+
   // The open menu covers the whole viewport, so the page behind must not scroll.
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    document.body.style.overflow = "hidden";
+    // The menu only exists below lg: close it (and give the page its scroll back) when the screen grows past that,
+    // and on Escape.
+    const desktop = window.matchMedia("(min-width: 1020px)");
+    const onDesktop = () => desktop.matches && setOpen(false);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    desktop.addEventListener("change", onDesktop);
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      desktop.removeEventListener("change", onDesktop);
+      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -66,25 +91,21 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
       <div className="hidden border-b border-[var(--color-black-5)] bg-[var(--color-surface-soft)] md:block">
         <div className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 flex h-[3.875rem] items-center justify-between pb-[0.25rem] text-[0.90625rem] text-[var(--color-heading)] lg:pr-[1.25rem] lg:pl-[1.5rem] xl:pr-[1.5625rem] xl:pl-[2.375rem]">
           <ul className="flex items-center">
-            <li className="flex items-center gap-2.5 pr-6">
-              <Icon name="FaMapMarkerAlt" className="size-[1.3125rem] text-[var(--color-primary-dark)]" />
-              {company.address.join(" ")}
-            </li>
-            <li className="flex items-center gap-3 border-l border-[var(--color-black-15)] px-6">
-              <Icon name="FaEnvelope" className="size-[1.5625rem] text-[var(--color-primary-dark)]" />
-              <a href={mailUrl(company.email)} className="transition-colors hover:text-[var(--color-primary)]">
-                {company.email}
-              </a>
-            </li>
-            <li className="hidden items-center gap-3 border-l border-[var(--color-black-15)] pl-6 lg:flex">
-              <Icon name="FaPhoneAlt" className="size-[1.4375rem] text-[var(--color-primary-dark)]" />
-              <a href={telUrl(company.phone)} className="transition-colors hover:text-[var(--color-primary)]">
-                {company.phone}
-              </a>
-            </li>
+            {nav.contactItems.map((item, i) => (
+              <li key={item.id} className={topBarStyles[i]?.item ?? topBarStyles[1].item}>
+                <Icon name={item.icon} className={`${topBarStyles[i]?.icon ?? topBarStyles[1].icon} text-[var(--color-primary-dark)]`} />
+                {item.url ? (
+                  <a href={item.url} className="transition-colors hover:text-[var(--color-primary)]">
+                    {item.text}
+                  </a>
+                ) : (
+                  item.text
+                )}
+              </li>
+            ))}
           </ul>
           <ul className="flex items-center gap-[0.9375rem] border-r border-[var(--color-black-15)] pr-[1.6875rem] text-[var(--color-primary-dark)]">
-            {company.socialLinks.map((s) => (
+            {nav.socialLinks.map((s) => (
               <li key={s.id}>
                 <a href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="block transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-[var(--color-primary)]">
                   <Icon name={s.icon} className="size-[1.375rem]" />
@@ -97,12 +118,12 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
 
       {/* Main bar */}
       <div className="mx-auto w-full max-w-[90rem] px-5 sm:px-8 flex h-[4.5rem] items-center justify-between gap-4 lg:h-[4.75rem] lg:pr-[1.25rem] lg:pl-[1.5rem] xl:h-[5.625rem] xl:pr-[1.5625rem] xl:pl-[2.125rem]">
-        <Link href={company.logoUrl} onClick={close} className="shrink-0" aria-label={company.logoAlt}>
+        <Link href={nav.logoUrl} onClick={close} className="shrink-0" aria-label={nav.logoAlt}>
           <Image
-            src={company.logo}
-            alt={company.logoAlt}
-            width={company.logoWidth}
-            height={company.logoHeight}
+            src={nav.logo}
+            alt={nav.logoAlt}
+            width={nav.logoWidth}
+            height={nav.logoHeight}
             priority
             className="h-[3rem] w-auto lg:h-[3.25rem] xl:h-[4.125rem] w1360:h-[4.75rem]"
           />
@@ -127,7 +148,7 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
                     className={`relative flex h-[4.75rem] items-center gap-1 pt-[0.125rem] whitespace-nowrap xl:h-[5.625rem] xl:gap-2 ${active ? "font-semibold" : "font-normal"}`}
                   >
                     {link.label}
-                    {link.hasDropdown && <Icon name="FaChevronDown" className={`size-4 transition-transform duration-300 group-hover:rotate-180 ${shown ? "rotate-180" : ""}`} />}
+                    {link.hasDropdown && <Icon name={nav.dropdownIcon} className={`size-4 transition-transform duration-300 group-hover:rotate-180 ${shown ? "rotate-180" : ""}`} />}
                     <span
                       className={`absolute right-0 bottom-[1rem] left-0 h-[0.125rem] xl:bottom-[1.25rem] origin-left bg-[var(--color-white)] transition-transform duration-300 group-hover:scale-x-100 ${active || shown ? "scale-x-100" : "scale-x-0"}`}
                     />
@@ -156,20 +177,20 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
         <div className="flex items-center gap-3 sm:gap-5 lg:gap-0 lg:pl-[1.5rem] w1360:pl-[2rem] w1440:pl-[2.5rem]">
           {/* The w1440 values are the reference layout; from 1024px up it is scaled to the screen (see app/globals.css). */}
           <a
-            href={telUrl(company.phone)}
-            aria-label={`${nav.phoneLabel} ${company.phone}`}
+            href={nav.phoneUrl}
+            aria-label={`${nav.phoneLabel} ${nav.phone}`}
             className="group hidden shrink-0 items-center gap-[0.625rem] lg:mr-[1rem] lg:flex w1100:mr-0 w1360:gap-[0.6875rem]"
           >
             <Loop effect="pulse-ring">
               <span className="grid size-[2.25rem] place-items-center rounded-full bg-[var(--color-primary-dark-10)] text-[var(--color-primary-dark)] transition-colors duration-300 group-hover:bg-[var(--color-primary-dark)] group-hover:text-[var(--color-white)] w1360:size-[2.6875rem]">
                 <Loop effect="ring">
-                  <Icon name="FaPhoneAlt" className="size-[1.125rem] w1360:size-[1.3125rem]" />
+                  <Icon name={nav.phoneIcon} className="size-[1.125rem] w1360:size-[1.3125rem]" />
                 </Loop>
               </span>
             </Loop>
             <span className="hidden leading-tight w1100:block">
               <span className="block text-[0.71875rem] text-[var(--color-text)] xl:text-[0.78125rem] w1360:text-[0.84375rem]">{nav.phoneLabel}</span>
-              <span className="block text-[0.84375rem] font-semibold whitespace-nowrap text-[var(--color-heading)] transition-colors duration-300 group-hover:text-[var(--color-primary)] xl:text-[0.90625rem] w1360:text-[1rem]">{company.phone}</span>
+              <span className="block text-[0.84375rem] font-semibold whitespace-nowrap text-[var(--color-heading)] transition-colors duration-300 group-hover:text-[var(--color-primary)] xl:text-[0.90625rem] w1360:text-[1rem]">{nav.phone}</span>
             </span>
           </a>
           <span className="mx-[1rem] hidden h-[2.5rem] w-px bg-[var(--color-black-15)] w1100:block w1360:mr-[1.25rem] w1360:ml-[1.5rem] w1360:h-[2.75rem] w1440:mr-[1.5rem] w1440:ml-[1.875rem]" />
@@ -179,7 +200,7 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
             className="group hidden h-[2.625rem] items-center gap-3 rounded-full bg-[var(--color-primary-dark)] px-5 text-[0.875rem] font-medium whitespace-nowrap text-[var(--color-white)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:shadow-[0_0.5rem_1.25rem_color-mix(in_srgb,var(--color-primary-dark)_30%,transparent)] lg:inline-flex lg:gap-2 lg:px-3.5 lg:text-[0.8125rem] xl:h-[2.8125rem] xl:px-5 xl:text-[0.875rem] w1360:h-[2.9375rem] w1360:w-[10.1875rem] w1360:justify-center w1360:gap-3 w1360:px-0 w1360:text-[0.90625rem]"
           >
             {nav.buttonText}
-            <Icon name="FaArrowRight" className="size-[1.125rem] transition-transform duration-300 group-hover:translate-x-1" />
+            <Icon name={nav.buttonIcon} className="size-[1.125rem] transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <button
             type="button"
@@ -188,7 +209,7 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
             aria-expanded={open}
             className="grid size-[2.625rem] place-items-center rounded-full bg-[var(--color-primary-dark)] text-[var(--color-white)] transition-colors hover:bg-[var(--color-primary)] lg:hidden"
           >
-            <Icon name={open ? "FaTimes" : "FaBars"} className="size-[1.375rem]" />
+            <Icon name={open ? nav.closeMenuIcon : nav.openMenuIcon} className="size-[1.375rem]" />
           </button>
         </div>
       </div>
@@ -216,7 +237,7 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
                       className="grid size-10 place-items-center rounded-full transition-colors hover:bg-[var(--color-white-10)]"
                     >
                       <Icon
-                        name="FaChevronDown"
+                        name={nav.dropdownIcon}
                         className={`size-5 transition-transform ${plansOpen ? "rotate-180" : ""}`}
                       />
                     </button>
@@ -241,16 +262,16 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
             ))}
             <li className="flex flex-wrap items-center gap-x-[1.5rem] gap-y-[1rem] pt-7 pb-2">
               <a
-                href={telUrl(company.phone)}
+                href={nav.phoneUrl}
                 onClick={close}
                 className="group flex items-center gap-3 transition-colors hover:text-[var(--color-pink-light)]"
               >
                 <span className="grid size-[2.75rem] place-items-center rounded-full bg-[var(--color-white-10)]">
-                  <Icon name="FaPhoneAlt" className="size-[1.25rem]" />
+                  <Icon name={nav.phoneIcon} className="size-[1.25rem]" />
                 </span>
                 <span className="leading-tight">
                   <span className="block text-[0.78125rem] text-[var(--color-white-75)]">{nav.phoneLabel}</span>
-                  <span className="block text-[0.9375rem] font-semibold whitespace-nowrap">{company.phone}</span>
+                  <span className="block text-[0.9375rem] font-semibold whitespace-nowrap">{nav.phone}</span>
                 </span>
               </a>
               <Link
@@ -259,7 +280,7 @@ export const Header = ({ data: nav, company }: { data?: HeaderData; company: Com
                 className="group inline-flex h-[2.75rem] items-center gap-3 rounded-full border border-[var(--color-white)] bg-[var(--color-white)] px-6 text-[0.875rem] font-medium text-[var(--color-primary-dark)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-white)]"
               >
                 {nav.buttonText}
-                <Icon name="FaArrowRight" className="size-[1.125rem] transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name={nav.buttonIcon} className="size-[1.125rem] transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </li>
           </ul>

@@ -3,13 +3,14 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type TouchEvent } from "react";
 import { Icon } from "@/components/ui/Icon";
-import type { HeroData } from "@/types/templates.types";
+import { fill, lines } from "@/components/ui/text";
+import type { HeroSectionProps } from "@/types/templates.types";
 
-const AUTOPLAY_MS = 5000;
 const SWIPE_PX = 40;
 
-export const HeroSection = ({ data }: { data?: HeroData }) => {
+export const HeroSection = ({ data }: HeroSectionProps) => {
   const slides = data?.slides ?? [];
+  const autoplayMs = data?.autoplayMs;
   const [index, setIndex] = useState(0);
   const slide = slides[index];
   const touchX = useRef<number | null>(null);
@@ -17,10 +18,10 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
 
   // Restarts after every slide change, so a manual change gets a full interval before the next auto-advance.
   useEffect(() => {
-    if (!slides.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = setTimeout(() => setIndex((i) => (i + 1) % slides.length), AUTOPLAY_MS);
+    if (!slides.length || !autoplayMs || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setTimeout(() => setIndex((i) => (i + 1) % slides.length), autoplayMs);
     return () => clearTimeout(id);
-  }, [index, slides.length]);
+  }, [index, slides.length, autoplayMs]);
 
   // Touch screens have no arrows; a horizontal swipe changes the slide instead.
   const onTouchStart = (e: TouchEvent) => {
@@ -33,7 +34,7 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
     if (Math.abs(dx) > SWIPE_PX) go(dx < 0 ? 1 : -1);
   };
 
-  if (!data) return null;
+  if (!data || !slide) return null;
   return (
     // Height is capped to the viewport minus the sticky header so the whole banner shows without scrolling
     <section
@@ -44,7 +45,7 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
       <div className="absolute inset-y-0 right-0 w-full lg:w-[79.7%] lg:[mask-image:linear-gradient(to_right,transparent,#000_20%)]">
         {slides.map((s, i) => (
           <Image
-            key={s.image}
+            key={s.id}
             src={s.image}
             alt={s.imageAlt}
             fill
@@ -64,9 +65,9 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
           {slide.eyebrow}
         </p>
         <h1 className="mt-5 transition-[opacity,transform] duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-[1.75rem] starting:opacity-0 delay-120 font-heading text-[2.25rem] leading-[1.15] font-bold text-[var(--color-white)] sm:text-[3rem] xl:mt-[1.625rem] xl:text-[3.90625rem] xl:leading-[4.1875rem]">
-          {slide.title.map((l) => (
-            <span key={l} className="lg:block">
-              {l}{" "}
+          {lines(slide.title).map((line, i) => (
+            <span key={i} className="lg:block">
+              {line}{" "}
             </span>
           ))}
         </h1>
@@ -78,9 +79,9 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
       <div className="absolute bottom-6 left-5 flex gap-2.5 sm:left-8 lg:bottom-8 xl:left-[3.5625rem]">
         {slides.map((s, i) => (
           <button
-            key={s.image}
+            key={s.id}
             type="button"
-            aria-label={data.goToSlideLabel.replace("{n}", String(i + 1))}
+            aria-label={fill(data.goToSlideLabel, { n: i + 1 })}
             aria-current={i === index}
             onClick={() => setIndex(i)}
             className={`h-[0.375rem] rounded-full transition-all duration-300 ${i === index ? "w-8 bg-[var(--color-primary)]" : "w-[0.375rem] bg-[var(--color-white-60)] hover:bg-[var(--color-white)]"}`}
@@ -90,11 +91,11 @@ export const HeroSection = ({ data }: { data?: HeroData }) => {
 
       <div className="absolute right-8 top-1/2 hidden translate-y-[-8%] flex-col gap-[0.9375rem] lg:flex xl:top-[calc(50%-2.0625rem)] xl:translate-y-0 xl:right-[2.5rem]">
         {[
-          { icon: "FaArrowLeft", step: -1, label: data.previousSlideLabel },
-          { icon: "FaArrowRight", step: 1, label: data.nextSlideLabel },
+          { id: "previous", icon: data.previousSlideIcon, step: -1, label: data.previousSlideLabel },
+          { id: "next", icon: data.nextSlideIcon, step: 1, label: data.nextSlideLabel },
         ].map((b) => (
           <button
-            key={b.label}
+            key={b.id}
             type="button"
             aria-label={b.label}
             onClick={() => go(b.step)}

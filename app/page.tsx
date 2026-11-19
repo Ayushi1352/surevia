@@ -10,22 +10,23 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Cta } from "@/components/sections/Cta";
 import { Blogs } from "@/components/sections/Blogs";
 
-const templateData: InsuranceTemplateData = rawData;
-const sectionData = templateData.categories.Insurance.sections;
-const commonData = templateData.common;
-
 export default function Home() {
+  const templateData: InsuranceTemplateData = rawData;
+  const sectionData = templateData?.categories?.Insurance?.sections;
+
+  if (!sectionData) return null;
+
   return (
     <main className="flex-1">
       <HeroSection data={sectionData.Hero?.variants?.InsuranceHero1} />
       <Highlights data={sectionData.Highlights?.variants?.InsuranceHighlights1} />
       <AboutUs data={sectionData.AboutUs?.variants?.InsuranceAboutUs1} />
-      <Plans data={sectionData.Plans?.variants?.InsurancePlans1} ui={commonData.globalUI} />
+      <Plans data={sectionData.Plans?.variants?.InsurancePlans1} />
       <Process data={sectionData.Process?.variants?.InsuranceProcess1} />
       <Stats data={sectionData.Stats?.variants?.InsuranceStats1} />
-      <Testimonials data={sectionData.Testimonials?.variants?.InsuranceTestimonials1} ui={commonData.globalUI} />
+      <Testimonials data={sectionData.Testimonials?.variants?.InsuranceTestimonials1} />
       <Cta data={sectionData.Cta?.variants?.InsuranceCta1} />
-      <Blogs data={sectionData.Blogs?.variants?.InsuranceBlogs1} limit={sectionData.Blogs?.variants?.InsuranceBlogs1?.homeCount} />
+      <Blogs data={sectionData.Blogs?.variants?.InsuranceBlogs1} />
     </main>
   );
 }
